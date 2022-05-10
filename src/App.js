@@ -33,12 +33,10 @@ class App extends Component{
                <input  type="text"  name="name" placeholder="Name"
                /> <n6>Customer Phone number: </n6> 
                  <input type="number" name="phonenumber" placeholder="Customer Phone No."
-               />
+               /><br></br>
              </div>
              <div>
-             
-             </div>
-             <div>
+             <n6>Item Details: </n6> 
                <input type="text" name="name" placeholder="Item Make"
                />
                 <input type="text" name="name" placeholder="Item Model"
@@ -50,11 +48,14 @@ class App extends Component{
                <label for="accessory">Battery</label>
                <input type="checkbox" id="accessory" name="Charger" value="Charger"/>
                <label for="accessory">Charger</label>
-               <h5>Lipa Mdogomdogo</h5>
+              
+               <n6>Lipa Mdogomdogo</n6>
                <input type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
                <label for="Lipa">Yes</label>
                <input type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
                <label for="Lipa">No</label>
+              
+               
 
               <h6>Is this repair a WARRANTY CLAIM?</h6>
               <input type="text" name="name" placeholder="True/False"
@@ -67,7 +68,12 @@ class App extends Component{
               
              </div>
              <div>
-               <input type="number" name="name" placeholder=""
+             <h6>StandBy Unit issued: </h6>
+             <input type="text" name="name" placeholder="True/False"
+               />
+               <input type="number" name="name" placeholder="StandBy Unit IMEI/Serial"
+               />
+               <input type="text" name="name" placeholder="StandBy Unit Make"
                />
              </div>
            </form>
