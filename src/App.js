@@ -72,12 +72,12 @@ class App extends Component{
              </div>
              <div>
                <h4>Disclaimer</h4>
-                  <h8>Cracked screens, liquid damage and dropped phones are not covered by the manufacturer warranty. 
+                  <h6>Cracked screens, liquid damage and dropped phones are not covered by the manufacturer warranty. 
                  Phones to be repaired out of Warranty will be on the customer’s account.  <p> A master reset/software upgrade might cause the loss of all data on the handset memory and SIM card memory; this includes all contacts, messages, images and any other data stored on the handset.</p>
                    
                   The customer must ensure that they have backed up their information before allowing the reset process to proceed. We shall not take responsibility for any loss of data during the repair   process. 
                     <p>Where a standby unit issued to you, this is a Safaricom property and must be returned in good condition once your phone is serviced. </p>
-                    </h8>
+                    </h6>
              </div>
              <div>
                <n6>Customer Name: </n6>
