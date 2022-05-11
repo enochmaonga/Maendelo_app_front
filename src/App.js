@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 class App extends Component{
    render(){
       return(
-         <div>
+         <div className='form-box'>
            <form>
              <div>
              <h1>Safaricom Repair Booking Form</h1>
@@ -18,8 +18,10 @@ class App extends Component{
                 </h5>
              <div>
              <h6>Please fill in the details below</h6>
+             <n6>Retail Center Name: </n6> 
                <input  type="text"  name="name" placeholder="Retail Center Name"
                />
+               <n6>Retail Center Contact: </n6> 
                <input  type="text"  name="name" placeholder="Retail Center Contact"
                />
              </div>
@@ -33,8 +35,10 @@ class App extends Component{
              <n6>Item Details: </n6> 
                <input type="text" name="name" placeholder="Item Make"
                />
+               <n6>Item Model: </n6> 
                 <input type="text" name="name" placeholder="Item Model"
                />
+               <n6>IMEI/Serial No: </n6> 
                <input type="number" name="name" placeholder="IMEI/Serial No"
                />
                <h5>ACCESSORIES ACCOMPANYING CELLPHONE: (SIM cards must not be sent with the device for repair)</h5>
@@ -65,8 +69,10 @@ class App extends Component{
              <h6>StandBy Unit issued: </h6>
              <input type="text" name="name" placeholder="True/False"
                />
+               <n6>IMEI/Serial No: </n6> 
                <input type="number" name="name" placeholder="StandBy Unit IMEI/Serial"
                />
+               <n6>Make: </n6>
                <input type="text" name="name" placeholder="StandBy Unit Make"
                />
              </div>
@@ -85,6 +91,9 @@ class App extends Component{
                /> <n6>Customer Phone number: </n6> 
                  <input type="number" name="phonenumber" placeholder="Customer Phone No."
                /><br></br>
+             </div>
+             <div>
+               <button>Submit Form</button>
              </div>
            </form>
          </div>

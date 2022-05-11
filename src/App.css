@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+*{
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.form-box {
+  min-width: 100%;
+    height: 100vh;
+    margin: 0vw;
+    padding: 5vw ;
+    position:relative; 
+}
+.form-box h1 {
+  font-size: 35px;
+  text-align: center;
+  color: rgb(7, 132, 64);
+  margin: 0 0 .5vh 0;
+}
+.form-box label {
+  display: inline-table;
+  text-align: left;
+  font-size: 14px;
+  margin: 0 0 2vh 2vh;
+  padding: 2px;
+}
+.form-box input, textarea {
+  display: inline;
+  width: 20%;
+  padding: .4rem .4rem .5rem .8rem;
+  margin: .9vw 0 ;
+  border: 0;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.form-box textarea {
+  height: 15vh;
+}
