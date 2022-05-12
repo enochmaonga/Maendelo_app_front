@@ -1,7 +1,19 @@
-
+import {useState} from 'react'
 import './App.css';
 import React, { Component } from 'react';
+// import { App } from 'react';
 
+function useApp(){
+  const [App, setApp] = useState({
+    Retailcentername: "",
+    customername: "",
+    email: "",
+    phonenumber: "",
+  });
+  const handleChange = (event) => {
+    setApp({ ...App, [event.target.name]: event.target.value});
+  };
+}
 
 class App extends Component{
    render(){
@@ -19,42 +31,50 @@ class App extends Component{
              <div>
              <h6>Please fill in the details below</h6>
              <n6>Retail Center Name: </n6> 
-               <input  type="text"  name="name" placeholder="Retail Center Name"
+               <input  type="text"  name="name" placeholder="Retail Center Name" value={App.Retailcentername}
                />
                <n6>Retail Center Contact: </n6> 
-               <input  type="text"  name="name" placeholder="Retail Center Contact"
+               <input  type="text"  name="name" placeholder="Retail Center Contact" value={App.Retailcentercontact}
                />
              </div>
              <div>
-               <input  type="text"  name="name" placeholder=" "
+             <n6>Booking Date: </n6> 
+               <input  type="text"  name="name" placeholder="Timestamp" value={App.date}
                />
              </div>
-             
-            
              <div>
-             <n6>Item Details: </n6> 
+             <n6 id='item'>Item Details: </n6> 
                <input type="text" name="name" placeholder="Item Make"
                />
                <n6>Item Model: </n6> 
                 <input type="text" name="name" placeholder="Item Model"
                />
+               <p></p>
                <n6>IMEI/Serial No: </n6> 
                <input type="number" name="name" placeholder="IMEI/Serial No"
                />
+               <n6>Receipt: </n6> 
+               <input type="number" name="name" placeholder="Receipt"
+               />
+                 <h5>Repair Center: </h5> 
+               <input type="number" name="name" placeholder="Repair Center pick"
+               />
                <h5>ACCESSORIES ACCOMPANYING CELLPHONE: (SIM cards must not be sent with the device for repair)</h5>
-               <input type="checkbox" id="accessory" name="Battery" value="Battery"/>
+               <input class='checkbox' type="checkbox" id="accessory" name="Battery" value="Battery"/>
                <label for="accessory">Battery</label>
-               <input type="checkbox" id="accessory" name="Charger" value="Charger"/>
+               <input class='checkbox'type="checkbox" id="accessory" name="Charger" value="Charger"/>
                <label for="accessory">Charger</label>
-              
-               <n6>Lipa Mdogomdogo</n6>
-               <input type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
-               <label for="Lipa">Yes</label>
-               <input type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
-               <label for="Lipa">No</label>
-              
-               
+              <p> 
 
+              </p>
+              <div class='lmm'>
+              <n6>Lipa Mdogomdogo</n6>
+               <input class='checkbox'type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
+               <label for="Lipa">Yes</label>
+               <input class='checkbox'type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
+               <label for="Lipa">No</label>
+              </div>
+   
               <h6>Is this repair a WARRANTY CLAIM?</h6>
               <input type="text" name="name" placeholder="True/False"
                />
@@ -62,8 +82,32 @@ class App extends Component{
                <input type="text" name="name" placeholder="True/False"
                />
              </div>
-             <div>
-              
+             <h5>Faults:</h5>
+             <div class='faults'>
+              <h6>Call Drops</h6>
+              <input type="text" name="name" placeholder="Select"
+               />
+               <h6>Power Failure</h6>
+              <input type="text" name="name" placeholder="Select"
+               />
+                <h6>Display</h6>
+              <input type="text" name="name" placeholder="Select"
+               />
+                  <h6>Sound</h6>
+              <input type="text" name="name" placeholder="Select"
+               />
+                  <h6>Software</h6>
+              <input type="text" name="name" placeholder="Select"
+               />
+                 <h6>Other</h6>
+              <input type="text" name="name" placeholder="Type"
+               />
+                   <h6>Physical condition</h6>
+              <input type="text" name="name" placeholder="Appearance, cracks, color etc"
+               />
+                   <h6>Physical Damage</h6>
+              <input type="text" name="name" placeholder="True/False"
+               />
              </div>
              <div>
              <h6>StandBy Unit issued: </h6>
@@ -87,18 +131,26 @@ class App extends Component{
              </div>
              <div>
                <n6>Customer Name: </n6>
-               <input  type="text"  name="name" placeholder="Name"
-               /> <n6>Customer Phone number: </n6> 
-                 <input type="number" name="phonenumber" placeholder="Customer Phone No."
-               /><br></br>
+               <input  type="text"  name="name" placeholder="Name"/> 
+               <n6>Customer Phone number: </n6> 
+                 <input type="number" name="phonenumber" placeholder="Customer Phone No."/>
+                 <n6>National ID: </n6> 
+                 <input type="number" name="phonenumber" placeholder="ID No."/>
+                 <p></p>
+                 <n6>email address: </n6> 
+                 <input type="text" name="phonenumber" placeholder="email."/>
+               <n6>Alternative number: </n6> 
+                 <input type="number" name="phonenumber" placeholder="Other Phone No."/>
+               <br></br>
              </div>
              <div>
-               <button>Submit Form</button>
+               <button class='btn'>Submit Form</button>
              </div>
            </form>
          </div>
       );
    }
 }
+
 
 export default App;
