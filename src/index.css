@@ -575,3 +575,11 @@ h5{
 .sbmt_btn{
     display:none;
 }
+
+.btn_hide{
+  display:none;
+}
+
+.btn_show{
+  display:block;
+}
