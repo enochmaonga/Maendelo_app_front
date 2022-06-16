@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RepairForm from './components/repairForm/RepairForm';
+import RepairForm from './repairForm/RepairForm';
 
 
 

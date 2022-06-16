@@ -6,6 +6,7 @@ import RepairCenter from './inputs/RepairCenter';
 import RetailCenter from './inputs/RetailCenter';
 import StandByUnit from './inputs/StandByUnit';
 import ProgressBar from './ProgressBar';
+import '../../styles/repairForm.css'
 
 
 

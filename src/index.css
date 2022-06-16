@@ -7,122 +7,6 @@ body {
     margin: 0
 }
 
-.container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(245, 244, 244)
-}
-
-.container .card {
-    height: 600px;
-    width: 900px;
-    background-color: rgb(82, 180, 75);
-    position: relative;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Lato', sans-serif;
-    border-radius: 10px
-}
-
-.container .card .form {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    
-}
-
-.container .card .left-side {
-    width: 40%;
-    background-color: #fff;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000
-}
-
-.progres_bar {
-    counter-reset: progress 0
-}
-
-.progres_bar li {
-    list-style: none;
-    counter-increment: progress 1;
-    position: relative;
-    margin-bottom: 50px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1px
-}
-
-.progres_bar li::before {
-    position: absolute;
-    content: counter(progress);
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    color: #000;
-    z-index: 5;
-    border: 2px solid rgb(82, 180, 75);
-    background-color: rgb(82, 180, 75);
-    left: -40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 800;
-    top: -8px;
-    cursor: pointer;
-    transition: all 0.5s
-}
-
-.progres_bar li::after {
-    position: absolute;
-    content: '';
-    height: 90px;
-    width: 4px;
-    background-color: rgb(82, 180, 75);
-    left: -25px;
-    top: -70px
-}
-
-.progres_bar li:nth-child(1)::after {
-    display: none
-}
-
-.progres_bar li.active::after {
-    background-color: #fff !important
-}
-.progres_bar li.active{
-    color:rgb(2, 2, 2) !important;
-}
-.progres_bar li:nth-child(1) {
-    color: #fff
-}
-
-.progres_bar li:nth-child(1)::before {
-    background-color: rgb(150, 120, 120);
-    color: #000 !important
-}
-
-.progres_bar li.active::before {
-    background-color: #fff !important;
-    color: rgb(3, 3, 3) !important
-}
-
-.container .card .right-side {
-    width: 60%;
-    background-color: #fff;
-    height: 100%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-sizing: border-box;
-    padding: 20px
-}
-
 .main {
     display: none;
     height:90%;
@@ -482,6 +366,11 @@ input[type=number]::-webkit-outer-spin-button {
     .input_text {
         margin-top: 30px
     }
+
+    fieldset div ul li{
+      display:block;
+      
+  }
 }
 .saf {
 text-align: left;
