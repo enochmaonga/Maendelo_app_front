@@ -1,4 +1,8 @@
-<div class="main"> 
+import React from 'react';
+
+function DeviceDetails(){
+    return(
+    <div class="main"> 
     <fieldset>
         <legend>Device Details</legend>
 
@@ -63,4 +67,8 @@
 
     </fieldset>
 
-</div>   
+    </div>  
+    );
+}
+ 
+export default DeviceDetails;
