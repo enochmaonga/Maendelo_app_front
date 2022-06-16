@@ -2,31 +2,31 @@ import React from 'react';
 
 function DeviceDetails(){
     return(
-    <div class="main"> 
+    <div className="main"> 
     <fieldset>
         <legend>Device Details</legend>
 
-        <div class="input_div">
-            <div class="input_text">
-                <input type="text" name="brand" id="brand" require required/>
-                <label for="brand">Brand</label> 
+        <div className="input_div">
+            <div className="input_text">
+                <input type="text" name="brand" id="brand" />
+                <label htmlFor="brand">Brand</label> 
             </div>
     
-            <div class="input_text">
-                <input type="text" name="model" id="model" require required/>
-                <label for="model">Model</label> 
+            <div className="input_text">
+                <input type="text" name="model" id="model" />
+                <label htmlFor="model">Model</label> 
             </div>
         </div>
 
-        <div class="input_div">
-            <div class="input_text">
-                <input type="text" name="serial" id="serial" require required/>
-                <label for="serial">Serial/IMEI</label> 
+        <div className="input_div">
+            <div className="input_text">
+                <input type="text" name="serial" id="serial" />
+                <label htmlFor="serial">Serial/IMEI</label> 
             </div>
     
-            <div class="input_text">
-                <input type="text" name="receipt" id="receipt"  require required/>
-                <label for="receipt">Receipt</label> 
+            <div className="input_text">
+                <input type="text" name="receipt" id="receipt"  />
+                <label htmlFor="receipt">Receipt</label> 
             </div>
         </div>
             
@@ -36,11 +36,11 @@ function DeviceDetails(){
             <div>
                 <ul>
                     <li>
-                        <label for="battery">Battery</label>
+                        <label htmlFor="battery">Battery</label>
                         <input type="checkbox" id="battery" name="battery" value="true"/>
                     </li>
                     <li>
-                        <label for="charger">Charger</label>
+                        <label htmlFor="charger">Charger</label>
                         <input type="checkbox" id="charger" name="charger" value="true"/>
                     </li>
                 </ul> 
@@ -50,7 +50,7 @@ function DeviceDetails(){
         <fieldset>
             <legend>Other</legend>
             <div>
-                <label for="lipaMdogoMdogo">Lipa Mdogomdogo</label>
+                <label htmlFor="lipaMdogoMdogo">Lipa Mdogomdogo</label>
                 <input type="checkbox"  name="lipaMdogoMdogo" id="lipaMdogoMdogo" value="true"/>
             </div>
     

@@ -1,128 +1,136 @@
-<div class="main"> 
-    <fieldset id="Issue">
-        <legend>Device Faults</legend>   
+import React from 'react';
 
-        <fieldset id="display">
-            <legend>Display</legend>
-            <div>
-                <ul>
-                    <li>
-                        <label>Cracked</label>
-                        <input type="checkbox"  name="cracked" class="display" id="cracked" value="true"/>
-                    </li>
-                    <li>
-                        <label>Not Powering Up</label>
-                        <input type="checkbox"  name="notWorking" class="display" id="notWorking" value="true" />      
-                    </li>
-                    <li>
-                            <label>No Touch</label>
-                            <input type="checkbox"  name="noTouch" class="display"  id="noTouch" value="true"/>
-                    </li>
-                </ul>
-            </div>
-        </fieldset>
+function DeviceFaults(){
+    return(
+        <div className="main"> 
+            <fieldset id="Issue">
+                <legend>Device Faults</legend>   
 
-        <fieldset id="power">
-            <legend>Power</legend>
-            <div>
-                <ul>
-                    <li>
-                        <label>Not Powering Up</label>
-                        <input type="checkbox"  name="notPoweringUp" class="power" id="notPoweringUp" value="true"/>
-                    </li>
-                    <li>
-                        <label>Short Battery Life</label>
-                        <input type="checkbox"  name="shortBatteryLife" class="power" id="shortBatteryLife" value="true"/>   
-                    </li>
-                    <li>
-                        <label>Not Charging</label>
-                        <input type="checkbox"  name="notCharging" class="power" id="notCharging" value="true"/>
-                    </li>
-                </ul>  
-            </div>
-    
-        </fieldset>
-
-        <fieldset id="speaker">
-            <legend>Speaker</legend>
-                <div>
-                    <ul>
-                        <li>
-                            <label for="noSound">No Sound</label>
-                            <input type="checkbox"  name="noSound" class="speaker" id="noSound" value="true"/>
-                        </li>
-                        <li>
-                            <label for="distortedSound">Distorted Sound</label>
-                            <input type="checkbox"  name="distortedSound" class="speaker" id="distortedSound" value="true"/>  
-                        </li>
-                        <li>
-                            <label for="notRinging">Not Ringing</label>
-                            <input type="checkbox"  name="notRinging" class="speaker" id="notRinging" value="true"/>  
-                        </li>
+                <fieldset id="display">
+                    <legend>Display</legend>
+                    <div>
+                        <ul>
+                            <li>
+                                <label htmlFor="cracked">Cracked</label>
+                                <input type="checkbox"  name="cracked" className="display" id="cracked" />
+                            </li>
+                            <li>
+                                <label htmlFor='notWorking'>Not Powering Up</label>
+                                <input type="checkbox"  name="notWorking" className="display" id="notWorking"  />      
+                            </li>
+                            <li>
+                                    <label htmlFor="noTouch">No Touch</label>
+                                    <input type="checkbox"  name="noTouch" className="display"  id="noTouch" />
+                            </li>
                         </ul>
-                </div>                         
-        </fieldset>
-    
-        <fieldset id="network">
-            <legend>Network</legend>
-            <div>
-                <ul>
-                    <li>
-                        <label for="noMobileNetwork">No Mobile Network</label>
-                        <input type="checkbox"  name="noMobileNetwork" class="network" id="noMobileNetwork" value="true"/>
-                    </li>
-                    <li>
-                        <label for="noWifiNetwork">No Wifi</label>
-                        <input type="checkbox"  name="noWifiNetwork" class="network" id="noWifiNetwork" value="true"/>  
-                    </li>
-                    <li>
-                        <label for="droppedCalls">Dropping Calls</label>
-                        <input type="checkbox"  name="droppedCalls" class="network" id="droppedCalls" value="true"/>  
-                    </li>
-                    <li>
-                        <label for="unableToCall">Unable to make calls</label>
-                        <input type="checkbox"  name="unableToCall" class="network" id="unableToCall" value="true"/>  
-                    </li>
-                </ul> 
-            </div>
-                                
-        </fieldset>
-    
-        <fieldset id="physicalDamage">
-            <legend>Physical Damage</legend>
-            <div>
-                <ul>
-                    <li>
-                        <label for="faultyKeys">Faulty keys</label>
-                        <input type="checkbox"  name="faultyKeys" class="physicalDamage" id="faultyKeys" value="true"/> 
-                    </li>
-                    <li>
-                        <label for="crackedBody">Cracked Body</label>
-                        <input type="checkbox"  name="crackedBody" class="physicalDamage" id="crackedBody" value="true"/> 
-                    </li>
-                </ul>
-            </div>                    
-        </fieldset>
-    
-        <fieldset id="Software">
-            <legend>Software</legend>
-                <div>
-                    <ul>
-                        <li>
-                            <label for="slow" >Slow</label>
-                            <input type="checkbox"  name="slow" class="software" id="slow" value="true"/> 
-                        </li>
-                        <li>
-                            <label for="crashing">Crashing</label>
-                            <input type="checkbox"  name="crashing" class="software" id="crashing" value="true"/> 
-                        </li>
-                        <li>
-                            <label for="hanging">Hanging</label>
-                            <input type="checkbox"  name="hanging" class="software"  id="hanging" value="true"/> 
-                        </li>
-                    </ul>
-                </div>                 
-        </fieldset>
+                    </div>
+                </fieldset>
 
-    </fieldset>
-</div>
+                <fieldset id="power">
+                    <legend>Power</legend>
+                    <div>
+                        <ul>
+                            <li>
+                                <label>Not Powering Up</label>
+                                <input type="checkbox"  name="notPoweringUp" className="power" id="notPoweringUp" />
+                            </li>
+                            <li>
+                                <label>Short Battery Life</label>
+                                <input type="checkbox"  name="shortBatteryLife" className="power" id="shortBatteryLife" />   
+                            </li>
+                            <li>
+                                <label>Not Charging</label>
+                                <input type="checkbox"  name="notCharging" className="power" id="notCharging" />
+                            </li>
+                        </ul>  
+                    </div>
+            
+                </fieldset>
+
+                <fieldset id="speaker">
+                    <legend>Speaker</legend>
+                        <div>
+                            <ul>
+                                <li>
+                                    <label htmlFor="noSound">No Sound</label>
+                                    <input type="checkbox"  name="noSound" className="speaker" id="noSound" />
+                                </li>
+                                <li>
+                                    <label htmlFor="distortedSound">Distorted Sound</label>
+                                    <input type="checkbox"  name="distortedSound" className="speaker" id="distortedSound" />  
+                                </li>
+                                <li>
+                                    <label htmlFor="notRinging">Not Ringing</label>
+                                    <input type="checkbox"  name="notRinging" className="speaker" id="notRinging" />  
+                                </li>
+                                </ul>
+                        </div>                         
+                </fieldset>
+            
+                <fieldset id="network">
+                    <legend>Network</legend>
+                    <div>
+                        <ul>
+                            <li>
+                                <label htmlFor="noMobileNetwork">No Mobile Network</label>
+                                <input type="checkbox"  name="noMobileNetwork" className="network" id="noMobileNetwork" />
+                            </li>
+                            <li>
+                                <label htmlFor="noWifiNetwork">No Wifi</label>
+                                <input type="checkbox"  name="noWifiNetwork" className="network" id="noWifiNetwork" />  
+                            </li>
+                            <li>
+                                <label htmlFor="droppedCalls">Dropping Calls</label>
+                                <input type="checkbox"  name="droppedCalls" className="network" id="droppedCalls" />  
+                            </li>
+                            <li>
+                                <label htmlFor="unableToCall">Unable to make calls</label>
+                                <input type="checkbox"  name="unableToCall" className="network" id="unableToCall" />  
+                            </li>
+                        </ul> 
+                    </div>
+                                        
+                </fieldset>
+            
+                <fieldset id="physicalDamage">
+                    <legend>Physical Damage</legend>
+                    <div>
+                        <ul>
+                            <li>
+                                <label htmlFor="faultyKeys">Faulty keys</label>
+                                <input type="checkbox"  name="faultyKeys" className="physicalDamage" id="faultyKeys" /> 
+                            </li>
+                            <li>
+                                <label htmlFor="crackedBody">Cracked Body</label>
+                                <input type="checkbox"  name="crackedBody" className="physicalDamage" id="crackedBody" /> 
+                            </li>
+                        </ul>
+                    </div>                    
+                </fieldset>
+            
+                <fieldset id="Software">
+                    <legend>Software</legend>
+                        <div>
+                            <ul>
+                                <li>
+                                    <label htmlFor="slow" >Slow</label>
+                                    <input type="checkbox"  name="slow" className="software" id="slow" /> 
+                                </li>
+                                <li>
+                                    <label htmlFor="crashing">Crashing</label>
+                                    <input type="checkbox"  name="crashing" className="software" id="crashing" /> 
+                                </li>
+                                <li>
+                                    <label htmlFor="hanging">Hanging</label>
+                                    <input type="checkbox"  name="hanging" className="software"  id="hanging" /> 
+                                </li>
+                            </ul>
+                        </div>                 
+                </fieldset>
+
+            </fieldset>
+        </div>
+    );
+}
+
+export default DeviceFaults;

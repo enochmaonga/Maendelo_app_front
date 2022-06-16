@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import CustomerDetails from './components/inputs/CustomerDetails.js';
-import DeviceDetails from './components/inputs/DeviceDetails.js';
+import CustomerDetails from './components/inputs/CustomerDetails';
+import DeviceDetails from './components/inputs/DeviceDetails';
+import DeviceFaults from './components/inputs/DeviceFaults';
+import RepairCenter from './components/inputs/RepairCenter';
+import RetailCenter from './components/inputs/RetailCenter';
 
 
 
@@ -9,7 +12,10 @@ class App extends Component{
       return(
         <React.Fragment>
           <CustomerDetails/>
-          <DeviceDetails/>
+          <DeviceDetails />
+          <DeviceFaults />
+          <RepairCenter />
+          <RetailCenter />
         </React.Fragment>  
       );
    }

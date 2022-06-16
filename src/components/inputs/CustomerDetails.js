@@ -8,30 +8,30 @@ function CustomerDetails(){
                     <legend>Customer Details</legend>
                     <div className="input_div">
                         <div className="input_text">
-                            <input  type="text"  name="Name"  id="customerName" require required/>
-                            <label for="name">Name</label> 
+                            <input  type="text"  name="Name"  id="customerName" />
+                            <label htmlFor="name">Name</label> 
                         </div>
                     </div>
 
                     <div className="input_div"> 
                         <div className="input_text"> 
-                            <input  type="text"  name="phone"  id="phone" require required/>
-                            <label for="phone">Phone</label> 
+                            <input  type="text"  name="phone"  id="phone" />
+                            <label htmlFor="phone">Phone</label> 
                         </div>
                         <div className="input_text">
-                            <input  type="text"  name="email"  id="email" require required/>
-                            <label for="email">Email</label> 
+                            <input  type="text"  name="email"  id="email" />
+                            <label htmlFor="email">Email</label> 
                         </div>
                     </div>
 
                     <div className="input_div"> 
                         <div className="input_text">  
-                            <input  type="text"  name="national_id"  id="nationalID" require required/>
-                            <label for="nationalID">National ID</label> 
+                            <input  type="text"  name="national_id"  id="nationalID" />
+                            <label htmlFor="nationalID">National ID</label> 
                         </div>       
                         <div className="input_text" >
-                            <input  type="text"  name="customer-altPhone"  id="customerAltPhone" require required/>
-                            <label for="customerAltPhone">Alternative Phone</label> 
+                            <input  type="text"  name="customer-altPhone"  id="customerAltPhone" />
+                            <label htmlFor="customerAltPhone">Alternative Phone</label> 
                         </div>
                     </div>
                 </fieldset>
