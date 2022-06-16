@@ -30,30 +30,30 @@ class App extends Component{
                 </h5>
              <div>
              <h6>Please fill in the details below</h6>
-             <n6>Retail Center Name: </n6> 
+             <h6>Retail Center Name: </h6> 
                <input  type="text"  name="name" placeholder="Retail Center Name" value={App.Retailcentername}
                />
-               <n6>Retail Center Contact: </n6> 
+               <h6>Retail Center Contact: </h6> 
                <input  type="text"  name="name" placeholder="Retail Center Contact" value={App.Retailcentercontact}
                />
              </div>
              <div>
-             <n6>Booking Date: </n6> 
+             <h6>Booking Date: </h6> 
                <input  type="text"  name="name" placeholder="Timestamp" value={App.date}
                />
              </div>
              <div>
-             <n6 id='item'>Item Details: </n6> 
+             <h6 id='item'>Item Details: </h6> 
                <input type="text" name="name" placeholder="Item Make"
                />
-               <n6>Item Model: </n6> 
+               <h6>Item Model: </h6> 
                 <input type="text" name="name" placeholder="Item Model"
                />
                <p></p>
-               <n6>IMEI/Serial No: </n6> 
+               <h6>IMEI/Serial No: </h6> 
                <input type="number" name="name" placeholder="IMEI/Serial No"
                />
-               <n6>Receipt: </n6> 
+               <h6>Receipt: </h6> 
                <input type="number" name="name" placeholder="Receipt"
                />
                  <h5>Repair Center: </h5> 
@@ -68,7 +68,7 @@ class App extends Component{
 
               </p>
               <div class='lmm'>
-              <n6>Lipa Mdogomdogo</n6>
+              <h6>Lipa Mdogomdogo</h6>
                <input class='checkbox'type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
                <label for="Lipa">Yes</label>
                <input class='checkbox'type="checkbox" id="Lipa" name="Lmm" value="Lmm"/> 
@@ -113,10 +113,10 @@ class App extends Component{
              <h6>StandBy Unit issued: </h6>
              <input type="text" name="name" placeholder="True/False"
                />
-               <n6>IMEI/Serial No: </n6> 
+               <h6>IMEI/Serial No: </h6> 
                <input type="number" name="name" placeholder="StandBy Unit IMEI/Serial"
                />
-               <n6>Make: </n6>
+               <h6>Make: </h6>
                <input type="text" name="name" placeholder="StandBy Unit Make"
                />
              </div>
@@ -130,16 +130,16 @@ class App extends Component{
                     </h6>
              </div>
              <div>
-               <n6>Customer Name: </n6>
+               <h6>Customer Name: </h6>
                <input  type="text"  name="name" placeholder="Name"/> 
-               <n6>Customer Phone number: </n6> 
+               <h6>Customer Phone number: </h6> 
                  <input type="number" name="phonenumber" placeholder="Customer Phone No."/>
-                 <n6>National ID: </n6> 
+                 <h6>National ID: </h6> 
                  <input type="number" name="phonenumber" placeholder="ID No."/>
                  <p></p>
-                 <n6>email address: </n6> 
+                 <h6>email address: </h6> 
                  <input type="text" name="phonenumber" placeholder="email."/>
-               <n6>Alternative number: </n6> 
+               <h6>Alternative number: </h6> 
                  <input type="number" name="phonenumber" placeholder="Other Phone No."/>
                <br></br>
              </div>
