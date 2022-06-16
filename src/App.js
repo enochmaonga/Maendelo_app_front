@@ -4,6 +4,7 @@ import DeviceDetails from './components/inputs/DeviceDetails';
 import DeviceFaults from './components/inputs/DeviceFaults';
 import RepairCenter from './components/inputs/RepairCenter';
 import RetailCenter from './components/inputs/RetailCenter';
+import StandByUnit from './components/inputs/StandByUnit';
 
 
 
@@ -16,6 +17,7 @@ class App extends Component{
           <DeviceFaults />
           <RepairCenter />
           <RetailCenter />
+          <StandByUnit />
         </React.Fragment>  
       );
    }
