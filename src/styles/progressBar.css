@@ -7,7 +7,7 @@
     counter-increment: progress 1;
     position: relative;
     margin-bottom: 50px;
-    font-size: 15px;
+    font-size: 15px;  
     font-weight: 700;
     letter-spacing: 1px
 }
@@ -18,7 +18,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    color: #000;
+    color: #fff;
     z-index: 5;
     border: 2px solid rgb(82, 180, 75);
     background-color: rgb(82, 180, 75);
@@ -39,7 +39,7 @@
     height: 90px;
     width: 4px;
     background-color: rgb(82, 180, 75);
-    left: -25px;
+    left: -27px;
     top: -70px
 }
 
@@ -51,7 +51,7 @@
     background-color: #fff !important
 }
 .progres_bar li.active{
-    color:rgb(2, 2, 2) !important;
+    color: rgb(82, 180, 75) !important;
 }
 .progres_bar li:nth-child(1) {
     color: #fff
@@ -59,10 +59,10 @@
 
 .progres_bar li:nth-child(1)::before {
     background-color: rgb(150, 120, 120);
-    color: #000 !important
+    color: rgb(197, 9, 9) !important
 }
 
 .progres_bar li.active::before {
     background-color: #fff !important;
-    color: rgb(3, 3, 3) !important
+    color: rgb(82, 180, 75) !important
 }

@@ -34,7 +34,7 @@ class RepairForm extends Component{
             <React.Fragment>
             <div className="card"> 
                 <div className="saf">
-                    <h3>Repair Form</h3>
+                    <h3 className="text-white">Repair Form</h3>
                 </div>
                 <div className="form"> 
                     <div className="left-side"> 
