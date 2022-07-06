@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 
+
 class CustomerDetails extends Component{
     constructor(props){
         super(props);
         this.props = props;
+        this.state ={}
     }
+
+    handleChange(){
+        this.setState({  
+                        name:"Geoffrey Odari" ,
+                            });
+        console.log(this.state)
+        this.props.data.getCustomer(this.state)
+      }
+
+
+
 
     render(){
         return (
@@ -14,7 +27,7 @@ class CustomerDetails extends Component{
                         <legend>Customer Details</legend>
                         <div className="input_div">
                             <div className="input_text">
-                                <input  type="text"  name="Name"  id="customerName" />
+                                <input  type="text"  name="name"  onChange={()=>this.handleChange} id="customerName"/>
                                 <label htmlFor="name">Name</label> 
                             </div>
                         </div>
@@ -32,11 +45,11 @@ class CustomerDetails extends Component{
     
                         <div className="input_div"> 
                             <div className="input_text">  
-                                <input  type="text"  name="national_id"  id="nationalID" />
+                                <input  type="text"  name="national_id" id="nationalID" />
                                 <label htmlFor="nationalID">National ID</label> 
                             </div>       
                             <div className="input_text" >
-                                <input  type="text"  name="customer-altPhone"  id="customerAltPhone" />
+                                <input  type="text"  name="customer-altPhone" id="customerAltPhone" />
                                 <label htmlFor="customerAltPhone">Alternative Phone</label> 
                             </div>
                         </div>
