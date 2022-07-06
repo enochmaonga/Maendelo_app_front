@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import CustomerDetails from './inputs/CustomerDetails';
-import DeviceDetails from './inputs/DeviceDetails';
-import DeviceFaults from './inputs/DeviceFaults';
-import RepairCenter from './inputs/RepairCenter';
-import RetailCenter from './inputs/RetailCenter';
-import StandByUnit from './inputs/StandByUnit';
 import ProgressBar from './ProgressBar';
 import '../../styles/repairForm.css'
 
@@ -15,21 +9,21 @@ class RepairForm extends Component{
         super(props);
         this.state={
                         formNumber:0,
-                        customer:{
-                                    name:"",
-                                    phone:"",
-                                    email:"",
-                                    nationalID:"",
-                                    alternativePhone:""
-                                }
+                        name:"",
+                        phone:"",
+                        email:"",
+                        nationalID:"",
+                        alternativePhone:"",
+                        brand:"",
+                        model:"",
+                        serial:""
+                                
                     }
 
     }
 
     
-    handleSubmitButton =()=>{
-        console.log(this.state);
-    }
+   
    
 
     handleNextButton = ()=>{
@@ -39,10 +33,11 @@ class RepairForm extends Component{
     
     handlePrevButton = ()=>{
         let prev = this.state.formNumber
-        this.setState({formNumber:(prev>0)?--prev:prev})
+        this.setState({formNumber:(prev>0)?--prev:prev});
     }
 
-
+    handleSubmitButton = ()=>console.log(this.state)
+    
 
 
     render(){
@@ -62,25 +57,25 @@ class RepairForm extends Component{
                                 <legend>Customer Details</legend>
                                 <div className="input_div">
                                     <div className="input_text">
-                                        <input  type="text"  name="name"  id="customerName"/>
+                                        <input  type="text"  name="name" value={this.state.name} onChange={e=>this.setState({name:e.target.value})} id="customerName"/>
                                         <label htmlFor="name">Name</label> 
                                     </div>
                                 </div>
             
                                 <div className="input_div"> 
                                     <div className="input_text"> 
-                                        <input  type="text"  name="phone"  id="phone" />
+                                        <input  type="text"  name="phone" value={this.state.phone} onChange={e=>this.setState({phone:e.target.value})} id="phone" />
                                         <label htmlFor="phone">Phone</label> 
                                     </div>
                                     <div className="input_text">
-                                        <input  type="text"  name="email"  id="email" />
+                                        <input  type="text"  name="email"  value={this.state.email} onChange={e=>this.setState({email:e.target.value})} id="email" />
                                         <label htmlFor="email">Email</label> 
                                     </div>
                                 </div>
             
                                 <div className="input_div"> 
                                     <div className="input_text">  
-                                        <input  type="text"  name="national_id" id="nationalID" />
+                                        <input  type="text"  name="national_id" value={this.state.nationalID} onChange={e=>this.setState({nationalID:e.target.value})} id="nationalID" />
                                         <label htmlFor="nationalID">National ID</label> 
                                     </div>       
                                     <div className="input_text" >
@@ -98,24 +93,24 @@ class RepairForm extends Component{
                     
                                 <div className="input_div">
                                     <div className="input_text">
-                                        <input type="text" name="brand" id="brand" />
+                                        <input type="text" name="brand" value={this.state.brand} onChange={e=>this.setState({brand:e.target.value})} id="brand" />
                                         <label htmlFor="brand">Brand</label> 
                                     </div>
                             
                                     <div className="input_text">
-                                        <input type="text" name="model" id="model" />
+                                        <input type="text" name="model" value={this.state.model} onChange={e=>this.setState({model:e.target.value})} id="model" />
                                         <label htmlFor="model">Model</label> 
                                     </div>
                                 </div>
                     
                                 <div className="input_div">
                                     <div className="input_text">
-                                        <input type="text" name="serial" id="serial" />
+                                        <input type="text" name="serial" value={this.state.serial} onChange={e=>this.setState({serial:e.target.value})} id="serial" />
                                         <label htmlFor="serial">Serial/IMEI</label> 
                                     </div>
                             
                                     <div className="input_text">
-                                        <input type="text" name="receipt" id="receipt"  />
+                                        <input type="text" name="receipt" value={this.state.receipt} onChange={e=>this.setState({receipt:e.target.value})} id="receipt"  />
                                         <label htmlFor="receipt">Receipt</label> 
                                     </div>
                                 </div>
@@ -141,7 +136,7 @@ class RepairForm extends Component{
                                     <legend>Other</legend>
                                     <div>
                                         <label htmlFor="lipaMdogoMdogo">Lipa Mdogomdogo</label>
-                                        <input type="checkbox"  name="lipaMdogoMdogo" id="lipaMdogoMdogo" value="true"/>
+                                        <input type="checkbox"  name="lipaMdogoMdogo" id="lipaMdogoMdogo"  value="true"/>
                                     </div>
                             
                                     <div >
@@ -299,17 +294,17 @@ class RepairForm extends Component{
                                     <legend>Stand by unit details</legend>
                                     <div className="input_div">
                                         <div className="input_text">
-                                            <input type="text"  name="standByUnitBrand" id="standByUnitBrand" />
+                                            <input type="text"  name="standByUnitBrand" value={this.state.standByUnitBrand} onChange={e=>this.setState({standByUnitBrand:e.target.value})} id="standByUnitBrand" />
                                             <label>Brand</label>
                                         </div>
                                         <div className="input_text">
-                                            <input type="text"  name="standByUnitModel" id="standByUnitModel" />
+                                            <input type="text"  name="standByUnitModel" value={this.state.standByUnitModel} onChange={e=>this.setState({standByUnitModel:e.target.value})} id="standByUnitModel" />
                                             <label>Model</label>
                                         </div>
                                     </div>
                                     <div className="input_div">
                                         <div className="input_text">
-                                            <input type="text"  name="standByUnitSerial" id="standByUnitSerial" />
+                                            <input type="text"  name="standByUnitSerial" value={this.state.standByUnitSerial} onChange={e=>this.setState({standByUnitSerial:e.target.value})} id="standByUnitSerial" />
                                             <label>Serial</label>
                                         </div>
                                     </div>
@@ -323,7 +318,7 @@ class RepairForm extends Component{
                                 <legend>Repair Center Details</legend>         
                                 <div>
                                     <label htmlFor="repair_center">Repair Center</label> 
-                                    <select name="repair_center" id="repair_center">
+                                    <select name="repair_center" value={this.state.repair_center} onChange={e=>this.setState({repair_center:e.target.value})} id="repair_center">
                                         <option value="Nokia">Nokia</option>
                                         <option value="Samsung">Samsung</option>
                                     </select>
@@ -332,16 +327,16 @@ class RepairForm extends Component{
                         </div>
 
                         <div className={(this.state.formNumber === 4)?"main active":"main"}> 
-                                <fieldset>   
+                            <fieldset>   
                                     <legend>Retail Center Details</legend>
                                         <div>
                                             <label htmlFor="retail_center">Retail Center</label> 
-                                            <select name="retail_center" placeholder="Retail Center Name" id="retail_center">
+                                            <select name="retail_center" placeholder="Retail Center Name" value={this.state.retail} onChange={e=>this.setState({retail:e.target.value})} id="retail_center">
                                                 <option value="JKIA">JKIA</option>
                                                 <option value="Sarit">Sarit</option>
                                             </select>
                                         </div>              
-                                </fieldset>
+                            </fieldset>
                         </div>   
                         
 
