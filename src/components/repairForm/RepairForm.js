@@ -9,17 +9,61 @@ class RepairForm extends Component{
         super(props);
         this.state={
                         formNumber:0,
-                        name:"",
-                        phone:"",
-                        email:"",
-                        nationalID:"",
-                        alternativePhone:"",
+                        Name: "",
+                        phone: "",
+                        email: "",
+                        national_id: "",
+                        altPhone:"",
                         brand:"",
-                        model:"",
-                        receipt:"",
-                        serial:"",
+                        model: "",
+                        imei: "",
+                        serial: "",
+                        receipt: "",
+                        warranty: false,
+                        lipaMdogoMdogo:false,
+                        repairHistory:false,
+                        accessories:{
+                            battery:"",
+                            charger:""
+                        },
+                        physical_condition: "",
+                        Issues:{
+
+                            display:{	
+                                        cracked:"",
+                                        notWorking:"",
+                                        noTouch:""
+                                    },
+                            power:{
+                                        notPoweringUp:"",
+                                        notCharging:"",
+                                        shortBatteryLife:""
+                                    },
+                            speaker:{
+                                        noSound:"",
+                                        distortedSound:"",
+                                        notRinging:""
+                            },
+                            network:{
+                                        noMobileNetwork:"",
+                                        noWifiNetwork:"",
+                                        droppedCalls:"",
+                                        unableToCall:""
+                            },
+                            physicalDamage:{	
+                                    faultyKeys:"",
+                                    crackedBody:""
+                            },
+                            software:{
+                                    slow:"",
+                                    crashing:"",
+                                    hanging:""
+                            }	
                         
-                                
+                        },
+                        retail_centre: "",
+                        repair_centre: "",
+                                 
                     }
 
     }
@@ -77,11 +121,11 @@ class RepairForm extends Component{
             
                                 <div className="input_div"> 
                                     <div className="input_text">  
-                                        <input  type="text"  name="national_id" value={this.state.nationalID} onChange={e=>this.setState({nationalID:e.target.value})} id="nationalID" />
+                                        <input  type="text"  name="national_id" value={this.state.national_id} onChange={e=>this.setState({national_id:e.target.value})} id="nationalID" />
                                         <label htmlFor="nationalID">National ID</label> 
                                     </div>       
                                     <div className="input_text" >
-                                        <input  type="text"  name="customer-altPhone" id="customerAltPhone" />
+                                        <input  type="text"  name="customer-altPhone" value={this.state.altPhone} onChange={e=>this.setState({altPhone:e.target.value})} id="customerAltPhone" />
                                         <label htmlFor="customerAltPhone">Alternative Phone</label> 
                                     </div>
                                 </div>
@@ -154,7 +198,7 @@ class RepairForm extends Component{
                                     <legend>Other</legend>
                                     <div>
                                         <label htmlFor="lipaMdogoMdogo">Lipa Mdogomdogo</label>
-                                        <input type="checkbox"  name="lipaMdogoMdogo" onChange ={()=>(this.state.lmm)?this.setState({lmm:false}):this.setState({lmm:true})} id="lipaMdogoMdogo"  />
+                                        <input type="checkbox"  name="lipaMdogoMdogo" onChange ={()=>(this.state.lipaMdogoMdogo)?this.setState({lipaMdogoMdogo:false}):this.setState({lipaMdogoMdogo:true})} id="lipaMdogoMdogo"  />
                                     </div>
                             
                                     <div >
@@ -181,7 +225,11 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="cracked">Cracked</label>
-                                                <input type="checkbox"  name="cracked" className="display" onChange ={()=>(this.state.cracked)?this.setState({cracked:false}):this.setState({cracked:true})} id="cracked" />
+                                                <input 
+                                                        type="checkbox"  
+                                                        name="cracked" 
+                                                        className="display" 
+                                                        onChange ={()=>(this.state.Issues.display.cracked)?this.setState({cracked:false}):this.setState({cracked:true})} id="cracked" />
                                             </li>
                                             <li>
                                                 <label htmlFor='notWorking'>Not Powering Up</label>
