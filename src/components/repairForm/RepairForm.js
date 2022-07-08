@@ -16,7 +16,9 @@ class RepairForm extends Component{
                         alternativePhone:"",
                         brand:"",
                         model:"",
-                        serial:""
+                        receipt:"",
+                        serial:"",
+                        
                                 
                     }
 
@@ -93,24 +95,40 @@ class RepairForm extends Component{
                     
                                 <div className="input_div">
                                     <div className="input_text">
-                                        <input type="text" name="brand" value={this.state.brand} onChange={e=>this.setState({brand:e.target.value})} id="brand" />
+                                        <input type="text" name="brand" 
+                                            value={this.state.brand} 
+                                            onChange={e=>this.setState({brand:e.target.value})} 
+                                            id="brand" 
+                                        />
                                         <label htmlFor="brand">Brand</label> 
                                     </div>
                             
                                     <div className="input_text">
-                                        <input type="text" name="model" value={this.state.model} onChange={e=>this.setState({model:e.target.value})} id="model" />
+                                        <input type="text" name="model" 
+                                            value={this.state.model} 
+                                            onChange={e=>this.setState({model:e.target.value})} 
+                                            id="model" 
+                                        />
                                         <label htmlFor="model">Model</label> 
                                     </div>
                                 </div>
                     
                                 <div className="input_div">
                                     <div className="input_text">
-                                        <input type="text" name="serial" value={this.state.serial} onChange={e=>this.setState({serial:e.target.value})} id="serial" />
+                                        <input type="text" name="serial" 
+                                            value={this.state.serial} 
+                                            onChange={e=>this.setState({serial:e.target.value})} 
+                                            id="serial" 
+                                        />
                                         <label htmlFor="serial">Serial/IMEI</label> 
                                     </div>
                             
                                     <div className="input_text">
-                                        <input type="text" name="receipt" value={this.state.receipt} onChange={e=>this.setState({receipt:e.target.value})} id="receipt"  />
+                                        <input type="text" name="receipt" 
+                                            value={this.state.receipt} 
+                                            onChange={e=>this.setState({receipt:e.target.value})} 
+                                            id="receipt"  
+                                        />
                                         <label htmlFor="receipt">Receipt</label> 
                                     </div>
                                 </div>
@@ -122,11 +140,11 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="battery">Battery</label>
-                                                <input type="checkbox" id="battery" name="battery" value="true"/>
+                                                <input type="checkbox" id="battery" name="battery" onChange ={()=>(this.state.battery)?this.setState({battery:false}):this.setState({battery:true})} />
                                             </li>
                                             <li>
                                                 <label htmlFor="charger">Charger</label>
-                                                <input type="checkbox" id="charger" name="charger" value="true"/>
+                                                <input type="checkbox" id="charger" name="charger" onChange ={()=>(this.state.charger)?this.setState({charger:false}):this.setState({charger:true})} />
                                             </li>
                                         </ul> 
                                     </div>
@@ -136,17 +154,17 @@ class RepairForm extends Component{
                                     <legend>Other</legend>
                                     <div>
                                         <label htmlFor="lipaMdogoMdogo">Lipa Mdogomdogo</label>
-                                        <input type="checkbox"  name="lipaMdogoMdogo" id="lipaMdogoMdogo"  value="true"/>
+                                        <input type="checkbox"  name="lipaMdogoMdogo" onChange ={()=>(this.state.lmm)?this.setState({lmm:false}):this.setState({lmm:true})} id="lipaMdogoMdogo"  />
                                     </div>
                             
                                     <div >
                                         <label>Warranty</label>
-                                        <input type="checkbox"  name="warranty" id="warranty" value="true"/>
+                                        <input type="checkbox"  name="warranty" onChange ={()=>(this.state.warranty)?this.setState({warranty:false}):this.setState({warranty:true})} />
                                     </div>
                             
                                     <div>
                                         <label>Repair History</label>
-                                        <input type="checkbox"  name="repairHistory" id="repairHistory" value="true"/>
+                                        <input type="checkbox"  name="repairHistory" onChange ={()=>(this.state.repairHistory)?this.setState({repairHistory:false}):this.setState({repairHistory:true})} id="repairHistory" />
                                     </div>
                                 </fieldset>           
                     
@@ -163,15 +181,15 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="cracked">Cracked</label>
-                                                <input type="checkbox"  name="cracked" className="display" id="cracked" />
+                                                <input type="checkbox"  name="cracked" className="display" onChange ={()=>(this.state.cracked)?this.setState({cracked:false}):this.setState({cracked:true})} id="cracked" />
                                             </li>
                                             <li>
                                                 <label htmlFor='notWorking'>Not Powering Up</label>
-                                                <input type="checkbox"  name="notWorking" className="display" id="notWorking"  />      
+                                                <input type="checkbox"  name="notWorking" className="display" onChange ={()=>(this.state.notWorking)?this.setState({notWorking:false}):this.setState({notWorked:true})} id="notWorking"  />      
                                             </li>
                                             <li>
                                                     <label htmlFor="noTouch">No Touch</label>
-                                                    <input type="checkbox"  name="noTouch" className="display"  id="noTouch" />
+                                                    <input type="checkbox"  name="noTouch" className="display" onChange ={()=>(this.state.noTouch)?this.setState({noTouch:false}):this.setState({noTouch:true})}  id="noTouch" />
                                             </li>
                                         </ul>
                                     </div>
@@ -183,15 +201,15 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label>Not Powering Up</label>
-                                                <input type="checkbox"  name="notPoweringUp" className="power" id="notPoweringUp" />
+                                                <input type="checkbox"  name="notPoweringUp" className="power" onChange ={()=>(this.state.notPoweringUp)?this.setState({notPoweringUp:false}):this.setState({notPoweringUp:true})} id="notPoweringUp" />
                                             </li>
                                             <li>
                                                 <label>Short Battery Life</label>
-                                                <input type="checkbox"  name="shortBatteryLife" className="power" id="shortBatteryLife" />   
+                                                <input type="checkbox"  name="shortBatteryLife" className="power" onChange ={()=>(this.state.shortBattryLife)?this.setState({shortBatteryLife:false}):this.setState({shortBatteryLife:true})} id="shortBatteryLife" />   
                                             </li>
                                             <li>
                                                 <label>Not Charging</label>
-                                                <input type="checkbox"  name="notCharging" className="power" id="notCharging" />
+                                                <input type="checkbox"  name="notCharging" className="power" onChange ={()=>(this.state.notCharging)?this.setState({notCharging:false}):this.setState({notCharging:true})} id="notCharging" />
                                             </li>
                                         </ul>  
                                     </div>
@@ -204,15 +222,15 @@ class RepairForm extends Component{
                                             <ul>
                                                 <li>
                                                     <label htmlFor="noSound">No Sound</label>
-                                                    <input type="checkbox"  name="noSound" className="speaker" id="noSound" />
+                                                    <input type="checkbox"  name="noSound" className="speaker" onChange ={()=>(this.state.noSound)?this.setState({noSound:false}):this.setState({noSound:true})} id="noSound" />
                                                 </li>
                                                 <li>
                                                     <label htmlFor="distortedSound">Distorted Sound</label>
-                                                    <input type="checkbox"  name="distortedSound" className="speaker" id="distortedSound" />  
+                                                    <input type="checkbox"  name="distortedSound" className="speaker" onChange ={()=>(this.state.distortedSound)?this.setState({distortedSound:false}):this.setState({distortedSound:true})} id="distortedSound" />  
                                                 </li>
                                                 <li>
                                                     <label htmlFor="notRinging">Not Ringing</label>
-                                                    <input type="checkbox"  name="notRinging" className="speaker" id="notRinging" />  
+                                                    <input type="checkbox"  name="notRinging" className="speaker" onChange ={()=>(this.state.speaker)?this.setState({speaker:false}):this.setState({speaker:true})} id="notRinging" />  
                                                 </li>
                                                 </ul>
                                         </div>                         
@@ -224,19 +242,19 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="noMobileNetwork">No Mobile Network</label>
-                                                <input type="checkbox"  name="noMobileNetwork" className="network" id="noMobileNetwork" />
+                                                <input type="checkbox"  name="noMobileNetwork" className="network" onChange ={()=>(this.state.network)?this.setState({network:false}):this.setState({network:true})} id="noMobileNetwork" />
                                             </li>
                                             <li>
                                                 <label htmlFor="noWifiNetwork">No Wifi</label>
-                                                <input type="checkbox"  name="noWifiNetwork" className="network" id="noWifiNetwork" />  
+                                                <input type="checkbox"  name="noWifiNetwork" className="network" onChange ={()=>(this.state.noWifiNetwork)?this.setState({noWifiNetwork:false}):this.setState({noWifiNetwork:true})} id="noWifiNetwork" />  
                                             </li>
                                             <li>
                                                 <label htmlFor="droppedCalls">Dropping Calls</label>
-                                                <input type="checkbox"  name="droppedCalls" className="network" id="droppedCalls" />  
+                                                <input type="checkbox"  name="droppedCalls" className="network" onChange ={()=>(this.state.droppedCalls)?this.setState({droppedCalls:false}):this.setState({droppedCalls:true})} id="droppedCalls" />  
                                             </li>
                                             <li>
                                                 <label htmlFor="unableToCall">Unable to make calls</label>
-                                                <input type="checkbox"  name="unableToCall" className="network" id="unableToCall" />  
+                                                <input type="checkbox"  name="unableToCall" className="network" onChange ={()=>(this.state.unableToCall)?this.setState({unableToCall:false}):this.setState({unableToCall:true})} id="unableToCall" />  
                                             </li>
                                         </ul> 
                                     </div>
@@ -249,11 +267,11 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="faultyKeys">Faulty keys</label>
-                                                <input type="checkbox"  name="faultyKeys" className="physicalDamage" id="faultyKeys" /> 
+                                                <input type="checkbox"  name="faultyKeys" className="physicalDamage" onChange ={()=>(this.state.faultyKeys)?this.setState({faultyKeys:false}):this.setState({faultyKeys:true})} id="faultyKeys" /> 
                                             </li>
                                             <li>
                                                 <label htmlFor="crackedBody">Cracked Body</label>
-                                                <input type="checkbox"  name="crackedBody" className="physicalDamage" id="crackedBody" /> 
+                                                <input type="checkbox"  name="crackedBody" className="physicalDamage" onChange ={()=>(this.state.crackedBody)?this.setState({crackedBody:false}):this.setState({crackedBody:true})} id="crackedBody" /> 
                                             </li>
                                         </ul>
                                     </div>                    
@@ -265,15 +283,15 @@ class RepairForm extends Component{
                                             <ul>
                                                 <li>
                                                     <label htmlFor="slow" >Slow</label>
-                                                    <input type="checkbox"  name="slow" className="software" id="slow" /> 
+                                                    <input type="checkbox"  name="slow" className="software" onChange ={()=>(this.state.slow)?this.setState({slow:false}):this.setState({slow:true})} id="slow" /> 
                                                 </li>
                                                 <li>
                                                     <label htmlFor="crashing">Crashing</label>
-                                                    <input type="checkbox"  name="crashing" className="software" id="crashing" /> 
+                                                    <input type="checkbox"  name="crashing" className="software" onChange ={()=>(this.state.crashing)?this.setState({crashing:false}):this.setState({crashing:true})} id="crashing" /> 
                                                 </li>
                                                 <li>
                                                     <label htmlFor="hanging">Hanging</label>
-                                                    <input type="checkbox"  name="hanging" className="software"  id="hanging" /> 
+                                                    <input type="checkbox"  name="hanging" className="software" onChange ={()=>(this.state.hanging)?this.setState({hanging:false}):this.setState({hanging:true})} id="hanging" /> 
                                                 </li>
                                             </ul>
                                         </div>                 
@@ -287,24 +305,36 @@ class RepairForm extends Component{
                                 <legend>Stand By Unit</legend>
                                 <div>
                                     <label>StandBy Unit issued</label>
-                                    <input type="checkbox"  name="standByUnit" id="standByUnit" value="true"/>
+                                    <input type="checkbox"  name="standByUnit" onChange ={()=>(this.state.standByUnit)?this.setState({standByUnit:false}):this.setState({standByUnit:true})}  id="standByUnit" />
                                 </div>
                                                 
                                 <fieldset>
                                     <legend>Stand by unit details</legend>
                                     <div className="input_div">
                                         <div className="input_text">
-                                            <input type="text"  name="standByUnitBrand" value={this.state.standByUnitBrand} onChange={e=>this.setState({standByUnitBrand:e.target.value})} id="standByUnitBrand" />
+                                            <input type="text"  name="standByUnitBrand" 
+                                                value={this.state.standByUnitBrand} 
+                                                onChange={e=>this.setState({standByUnitBrand:e.target.value})} 
+                                                id="standByUnitBrand" 
+                                            />
                                             <label>Brand</label>
                                         </div>
                                         <div className="input_text">
-                                            <input type="text"  name="standByUnitModel" value={this.state.standByUnitModel} onChange={e=>this.setState({standByUnitModel:e.target.value})} id="standByUnitModel" />
+                                            <input type="text"  name="standByUnitModel" 
+                                                value={this.state.standByUnitModel} 
+                                                onChange={e=>this.setState({standByUnitModel:e.target.value})} 
+                                                id="standByUnitModel" 
+                                            />
                                             <label>Model</label>
                                         </div>
                                     </div>
                                     <div className="input_div">
                                         <div className="input_text">
-                                            <input type="text"  name="standByUnitSerial" value={this.state.standByUnitSerial} onChange={e=>this.setState({standByUnitSerial:e.target.value})} id="standByUnitSerial" />
+                                            <input type="text"  name="standByUnitSerial" 
+                                                value={this.state.standByUnitSerial} 
+                                                onChange={e=>this.setState({standByUnitSerial:e.target.value})} 
+                                                id="standByUnitSerial" 
+                                            />
                                             <label>Serial</label>
                                         </div>
                                     </div>
@@ -341,8 +371,8 @@ class RepairForm extends Component{
                         
 
                         <div className="button step_2"> 
-                            <button className={this.state.formNumber>0?"prev_btn":"btn_hide"}   onClick={this.handlePrevButton}>Previous</button> 
-                            <button className={this.state.formNumber<5?"next_btn":"btn_hide"}   onClick={this.handleNextButton}>Next</button>
+                            <button className={this.state.formNumber>0?"prev_btn":"btn_hide"}  onClick={this.handlePrevButton}>Previous</button> 
+                            <button className={this.state.formNumber<5?"next_btn":"btn_hide"}  onClick={this.handleNextButton}>Next</button>
                             <button className={this.state.formNumber<5?"btn_hide":"next_btn"}  onClick={this.handleSubmitButton}>Submit</button>  
                         </div> 
                     </div>  
