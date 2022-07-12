@@ -30,47 +30,45 @@ class RepairForm extends Component{
                         Issues:{
 
                             display:{	
-                                        cracked:"",
-                                        notWorking:"",
-                                        noTouch:""
+                                        cracked:false,
+                                        notWorking:false,
+                                        noTouch:false
                                     },
                             power:{
-                                        notPoweringUp:"",
-                                        notCharging:"",
-                                        shortBatteryLife:""
+                                        notPoweringUp:false,
+                                        notCharging:false,
+                                        shortBatteryLife:false
                                     },
                             speaker:{
-                                        noSound:"",
-                                        distortedSound:"",
-                                        notRinging:""
+                                        noSound:false,
+                                        distortedSound:false,
+                                        notRinging:false
                             },
                             network:{
-                                        noMobileNetwork:"",
-                                        noWifiNetwork:"",
-                                        droppedCalls:"",
-                                        unableToCall:""
+                                        noMobileNetwork:false,
+                                        noWifiNetwork:false,
+                                        droppedCalls:false,
+                                        unableToCall:false
                             },
                             physicalDamage:{	
-                                    faultyKeys:"",
-                                    crackedBody:""
+                                    faultyKeys:false,
+                                    crackedBody:false
                             },
                             software:{
-                                    slow:"",
-                                    crashing:"",
-                                    hanging:""
+                                    slow:false,
+                                    crashing:false,
+                                    hanging:false
                             }	
                         
                         },
                         retail_centre: "",
-                        repair_centre: "",
+                        repair_centre: ""
                                  
                     }
 
     }
 
     
-   
-   
 
     handleNextButton = ()=>{
         let next = this.state.formNumber
@@ -225,19 +223,95 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="cracked">Cracked</label>
-                                                <input 
-                                                        type="checkbox"  
-                                                        name="cracked" 
-                                                        className="display" 
-                                                        onChange ={()=>(this.state.Issues.display.cracked)?this.setState({cracked:false}):this.setState({cracked:true})} id="cracked" />
+                                                <input type="checkbox" name="cracked" className="display" 
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.display.cracked)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.display,
+                                                                                    cracked:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.display,
+                                                                                    cracked:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                }
+                                                            id="cracked" />
                                             </li>
                                             <li>
                                                 <label htmlFor='notWorking'>Not Powering Up</label>
-                                                <input type="checkbox"  name="notWorking" className="display" onChange ={()=>(this.state.notWorking)?this.setState({notWorking:false}):this.setState({notWorked:true})} id="notWorking"  />      
+                                                <input type="checkbox"  name="notWorking" className="display" onChange ={()=>
+                                                        (!this.state.Issues.display.cracked)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.display,
+                                                                                    notWorking:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.display,
+                                                                                    notWorking:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                } id="notWorking"  />      
                                             </li>
                                             <li>
                                                     <label htmlFor="noTouch">No Touch</label>
-                                                    <input type="checkbox"  name="noTouch" className="display" onChange ={()=>(this.state.noTouch)?this.setState({noTouch:false}):this.setState({noTouch:true})}  id="noTouch" />
+                                                    <input type="checkbox"  name="noTouch" className="display" onChange ={()=>
+                                                        (!this.state.Issues.display.cracked)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.display,
+                                                                                    noTouch:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.display,
+                                                                                    noTouch:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                }  id="noTouch" />
                                             </li>
                                         </ul>
                                     </div>
@@ -249,15 +323,99 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label>Not Powering Up</label>
-                                                <input type="checkbox"  name="notPoweringUp" className="power" onChange ={()=>(this.state.notPoweringUp)?this.setState({notPoweringUp:false}):this.setState({notPoweringUp:true})} id="notPoweringUp" />
+                                                <input type="checkbox"  name="notPoweringUp" className="power" 
+                                                        onChange ={()=>
+                                                            (!this.state.Issues.power.notPoweringUp)?
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                    power:{
+                                                                                    ...prevState.Issues.power,
+                                                                                    notPoweringUp:true
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    
+                                                                :
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                    power:{
+                                                                                    ...prevState.Issues.power,
+                                                                                    notPoweringUp:false
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    }
+                                                id="notPoweringUp" />
                                             </li>
                                             <li>
                                                 <label>Short Battery Life</label>
-                                                <input type="checkbox"  name="shortBatteryLife" className="power" onChange ={()=>(this.state.shortBattryLife)?this.setState({shortBatteryLife:false}):this.setState({shortBatteryLife:true})} id="shortBatteryLife" />   
+                                                <input type="checkbox"  name="shortBatteryLife" className="power" 
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.power.shortBatteryLife)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                power:{
+                                                                                ...prevState.Issues.power,
+                                                                                shortBatteryLife:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                power:{
+                                                                                ...prevState.Issues.power,
+                                                                                shortBatteryLife:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                } 
+                                                            id="shortBatteryLife" />   
                                             </li>
                                             <li>
                                                 <label>Not Charging</label>
-                                                <input type="checkbox"  name="notCharging" className="power" onChange ={()=>(this.state.notCharging)?this.setState({notCharging:false}):this.setState({notCharging:true})} id="notCharging" />
+                                                <input type="checkbox"  name="notCharging" className="power" 
+                                                        onChange ={()=>
+                                                            (!this.state.Issues.power.notCharging)?
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                    power:{
+                                                                                    ...prevState.Issues.power,
+                                                                                    notCharging:true
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    
+                                                                :
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                    power:{
+                                                                                    ...prevState.Issues.power,
+                                                                                    notCharging:false
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    } 
+                                                    id="notCharging" />
                                             </li>
                                         </ul>  
                                     </div>
@@ -270,15 +428,100 @@ class RepairForm extends Component{
                                             <ul>
                                                 <li>
                                                     <label htmlFor="noSound">No Sound</label>
-                                                    <input type="checkbox"  name="noSound" className="speaker" onChange ={()=>(this.state.noSound)?this.setState({noSound:false}):this.setState({noSound:true})} id="noSound" />
+                                                    <input type="checkbox"  name="noSound" className="speaker" 
+                                                        onChange ={()=>
+                                                            (!this.state.Issues.speaker.noSound)?
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                    speaker:{
+                                                                                    ...prevState.Issues.speaker,
+                                                                                    noSound:true
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    
+                                                                :
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                    speaker:{
+                                                                                    ...prevState.Issues.speaker,
+                                                                                    noSound:false
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    } 
+                                                    id="noSound" />
                                                 </li>
                                                 <li>
                                                     <label htmlFor="distortedSound">Distorted Sound</label>
-                                                    <input type="checkbox"  name="distortedSound" className="speaker" onChange ={()=>(this.state.distortedSound)?this.setState({distortedSound:false}):this.setState({distortedSound:true})} id="distortedSound" />  
+                                                    <input type="checkbox"  name="distortedSound" className="speaker" 
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.speaker.distortedSound)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                            speaker:{
+                                                                                ...prevState.Issues.speaker,
+                                                                                distortedSound:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                speaker:{
+                                                                                ...prevState.Issues.speaker,
+                                                                                distortedSound:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                } 
+
+                                                    id="distortedSound" />  
                                                 </li>
                                                 <li>
                                                     <label htmlFor="notRinging">Not Ringing</label>
-                                                    <input type="checkbox"  name="notRinging" className="speaker" onChange ={()=>(this.state.speaker)?this.setState({speaker:false}):this.setState({speaker:true})} id="notRinging" />  
+                                                    <input type="checkbox"  name="notRinging" className="speaker" 
+                                                        onChange ={()=>
+                                                            (!this.state.Issues.speaker.notRinging)?
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                speaker:{
+                                                                                    ...prevState.Issues.speaker,
+                                                                                    notRinging:true
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    
+                                                                :
+                                                                    this.setState( prevState=>
+                                                                        ({
+                                                                            ...prevState,
+                                                                            Issues:{
+                                                                                ...prevState.Issues,
+                                                                                speaker:{
+                                                                                    ...prevState.Issues.speaker,
+                                                                                    notRinging:false
+                                                                                    }
+                                                                                }
+                                                                        }))
+                                                                    } 
+                                                    id="notRinging" />  
                                                 </li>
                                                 </ul>
                                         </div>                         
@@ -290,19 +533,132 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="noMobileNetwork">No Mobile Network</label>
-                                                <input type="checkbox"  name="noMobileNetwork" className="network" onChange ={()=>(this.state.network)?this.setState({network:false}):this.setState({network:true})} id="noMobileNetwork" />
+                                                <input type="checkbox"  name="noMobileNetwork" className="network" 
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.network.noMobileNetwork)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                            network:{
+                                                                                ...prevState.Issues.network,
+                                                                                noMobileNetwork:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                            network:{
+                                                                                ...prevState.Issues.network,
+                                                                                noMobileNetwork:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                }  
+                                                id="noMobileNetwork" />
                                             </li>
                                             <li>
                                                 <label htmlFor="noWifiNetwork">No Wifi</label>
-                                                <input type="checkbox"  name="noWifiNetwork" className="network" onChange ={()=>(this.state.noWifiNetwork)?this.setState({noWifiNetwork:false}):this.setState({noWifiNetwork:true})} id="noWifiNetwork" />  
+                                                <input type="checkbox"  name="noWifiNetwork" className="network" 
+                                                onChange ={()=>
+                                                    (!this.state.Issues.network.noWifiNetwork)?
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        network:{
+                                                                            ...prevState.Issues.network,
+                                                                            noWifiNetwork:true
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            
+                                                        :
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        network:{
+                                                                            ...prevState.Issues.network,
+                                                                            noWifiNetwork:false
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            } 
+                                                id="noWifiNetwork" />  
                                             </li>
                                             <li>
                                                 <label htmlFor="droppedCalls">Dropping Calls</label>
-                                                <input type="checkbox"  name="droppedCalls" className="network" onChange ={()=>(this.state.droppedCalls)?this.setState({droppedCalls:false}):this.setState({droppedCalls:true})} id="droppedCalls" />  
+                                                <input type="checkbox"  name="droppedCalls" className="network" 
+                                                onChange ={()=>
+                                                    (!this.state.Issues.network.droppedCalls)?
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        network:{
+                                                                            ...prevState.Issues.network,
+                                                                            droppedCalls:true
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            
+                                                        :
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        network:{
+                                                                            ...prevState.Issues.network,
+                                                                            droppedCalls:false
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            } 
+                                                id="droppedCalls" />  
                                             </li>
                                             <li>
                                                 <label htmlFor="unableToCall">Unable to make calls</label>
-                                                <input type="checkbox"  name="unableToCall" className="network" onChange ={()=>(this.state.unableToCall)?this.setState({unableToCall:false}):this.setState({unableToCall:true})} id="unableToCall" />  
+                                                <input type="checkbox"  name="unableToCall" className="network" 
+                                     
+                                                onChange ={()=>
+                                                    (!this.state.Issues.network.unableToCall)?
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        network:{
+                                                                            ...prevState.Issues.network,
+                                                                            unableToCall:true
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            
+                                                        :
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        network:{
+                                                                            ...prevState.Issues.network,
+                                                                            unableToCall:false
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            } 
+                                                id="unableToCall" />  
                                             </li>
                                         </ul> 
                                     </div>
@@ -315,11 +671,70 @@ class RepairForm extends Component{
                                         <ul>
                                             <li>
                                                 <label htmlFor="faultyKeys">Faulty keys</label>
-                                                <input type="checkbox"  name="faultyKeys" className="physicalDamage" onChange ={()=>(this.state.faultyKeys)?this.setState({faultyKeys:false}):this.setState({faultyKeys:true})} id="faultyKeys" /> 
+                                                <input type="checkbox"  name="faultyKeys" className="physicalDamage" 
+                                                
+                                                onChange ={()=>
+                                                    (!this.state.Issues.physicalDamage.faultyKeys)?
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        physicalDamage:{
+                                                                            ...prevState.Issues.physicalDamage,
+                                                                            faultyKeys:true
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            
+                                                        :
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        physicalDamage:{
+                                                                            ...prevState.Issues.physicalDamage,
+                                                                            faultyKeys:false
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            }  
+                                                
+                                                id="faultyKeys" /> 
                                             </li>
                                             <li>
                                                 <label htmlFor="crackedBody">Cracked Body</label>
-                                                <input type="checkbox"  name="crackedBody" className="physicalDamage" onChange ={()=>(this.state.crackedBody)?this.setState({crackedBody:false}):this.setState({crackedBody:true})} id="crackedBody" /> 
+                                                <input type="checkbox"  name="crackedBody" className="physicalDamage"  
+                                                onChange ={()=>
+                                                    (!this.state.Issues.physicalDamage.crackedBody)?
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        physicalDamage:{
+                                                                            ...prevState.Issues.physicalDamage,
+                                                                            crackedBody:true
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            
+                                                        :
+                                                            this.setState( prevState=>
+                                                                ({
+                                                                    ...prevState,
+                                                                    Issues:{
+                                                                        ...prevState.Issues,
+                                                                        physicalDamage:{
+                                                                            ...prevState.Issues.physicalDamage,
+                                                                            crackedBody:false
+                                                                            }
+                                                                        }
+                                                                }))
+                                                            }  
+                                                
+                                                id="crackedBody" /> 
                                             </li>
                                         </ul>
                                     </div>                    
@@ -331,15 +746,101 @@ class RepairForm extends Component{
                                             <ul>
                                                 <li>
                                                     <label htmlFor="slow" >Slow</label>
-                                                    <input type="checkbox"  name="slow" className="software" onChange ={()=>(this.state.slow)?this.setState({slow:false}):this.setState({slow:true})} id="slow" /> 
+                                                    <input type="checkbox"  name="slow" className="software"
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.software.slow)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                software:{
+                                                                                ...prevState.Issues.software,
+                                                                                slow:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                display:{
+                                                                                ...prevState.Issues.software,
+                                                                                slow:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                }  
+                                                    
+                                                    id="slow" /> 
                                                 </li>
                                                 <li>
                                                     <label htmlFor="crashing">Crashing</label>
-                                                    <input type="checkbox"  name="crashing" className="software" onChange ={()=>(this.state.crashing)?this.setState({crashing:false}):this.setState({crashing:true})} id="crashing" /> 
+                                                    <input type="checkbox"  name="crashing" className="software" 
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.software.crashing)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                software:{
+                                                                                ...prevState.Issues.software,
+                                                                                crashing:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                software:{
+                                                                                ...prevState.Issues.software,
+                                                                                crashing:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                }  
+                                                    id="crashing" /> 
                                                 </li>
                                                 <li>
                                                     <label htmlFor="hanging">Hanging</label>
-                                                    <input type="checkbox"  name="hanging" className="software" onChange ={()=>(this.state.hanging)?this.setState({hanging:false}):this.setState({hanging:true})} id="hanging" /> 
+                                                    <input type="checkbox"  name="hanging" className="software" 
+                                                    onChange ={()=>
+                                                        (!this.state.Issues.software.hanging)?
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                software:{
+                                                                                ...prevState.Issues.display,
+                                                                                hanging:true
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                
+                                                            :
+                                                                this.setState( prevState=>
+                                                                    ({
+                                                                        ...prevState,
+                                                                        Issues:{
+                                                                            ...prevState.Issues,
+                                                                                software:{
+                                                                                ...prevState.Issues.software,
+                                                                                hanging:false
+                                                                                }
+                                                                            }
+                                                                    }))
+                                                                } 
+                                                    
+                                                    id="hanging" /> 
                                                 </li>
                                             </ul>
                                         </div>                 
