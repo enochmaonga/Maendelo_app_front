@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProgressBar from './ProgressBar';
 import '../../styles/repairForm.css'
+import axios from 'axios';
 
 
 
@@ -23,8 +24,8 @@ class RepairForm extends Component{
                         lipaMdogoMdogo:false,
                         repairHistory:false,
                         accessories:{
-                            battery:"",
-                            charger:""
+                            battery:false,
+                            charger:false
                         },
                         physical_condition: "",
                         Issues:{
@@ -80,7 +81,10 @@ class RepairForm extends Component{
         this.setState({formNumber:(prev>0)?--prev:prev});
     }
 
-    handleSubmitButton = ()=>console.log(this.state)
+    handleSubmitButton = ()=>{
+        axios.post("http://localhost:5000/retail/requests/",this.state)
+        .then(res=>console.log(res));
+    }
     
 
 
@@ -101,7 +105,7 @@ class RepairForm extends Component{
                                 <legend>Customer Details</legend>
                                 <div className="input_div">
                                     <div className="input_text">
-                                        <input  type="text"  name="name" value={this.state.name} onChange={e=>this.setState({name:e.target.value})} id="customerName"/>
+                                        <input  type="text"  name="name" value={this.state.Name} onChange={e=>this.setState({Name:e.target.value})} id="customerName"/>
                                         <label htmlFor="name">Name</label> 
                                     </div>
                                 </div>
