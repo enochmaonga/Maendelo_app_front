@@ -46,7 +46,7 @@ function App() {
                 <td>{details.national_id}</td>
                 <td>{details.model}</td>
                 <td>{details.receipt}</td>
-                <td>{data[i].status[0].state}</td>
+                <td>{data[i].status.length > 0 ? data[i].status[0].state : 'Open'}</td>
                 <td><Button variant="success" key={details._id} onClick={() => { handleShow(); setSelectedInd(i); }}>More Details</Button></td>
 
               </tr>
@@ -77,7 +77,7 @@ function App() {
           </div>
           <div className="row">
             <div className="col-sm"><b>Physical Condition:</b> {data[selectedInd].physical_condition}</div>
-            <div className="col-sm"><b>Comments:</b> {data[selectedInd].status[0].comments}</div>
+            <div className="col-sm"><b>Comments:</b> {data[selectedInd].status.length > 0 ? data[selectedInd].status[0].comments : 'None'}</div>
             <div className="row">
               <div className="col-sm"><b>Accessories:</b>
                 <div className="m-1">
