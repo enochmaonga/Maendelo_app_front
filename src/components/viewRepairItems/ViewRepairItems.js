@@ -58,26 +58,23 @@ function App() {
         <Modal.Header closeButton className="bg-success.bg-gradient">
           <Modal.Title>More Details</Modal.Title>
         </Modal.Header>
-        <Modal.Body onClick={toggle}>
+        <Modal.Body>
           <div className="row">
-            <div className="col"><b>IMEI:</b> {data[selectedInd].imei}</div>
-            <div className="col"><b>Serial No:</b> {data[selectedInd].serial}</div>
-          </div>
-          <div className="row">
+            <div className="col"><b>Serial/IMEI:</b> {data[selectedInd].serial}</div>
             <div className="col-sm"><b>Warranty:</b> {data[selectedInd].warranty ? 'Yes' : 'No'}</div>
-            <div className="col-sm"><b>LipaMdogoMdogo:</b> {data[selectedInd].lipaMdogoMdogo ? 'Yes' : 'No'}</div>
           </div>
           <div className="row">
+            <div className="col-sm"><b>LipaMdogoMdogo:</b> {data[selectedInd].lipaMdogoMdogo ? 'Yes' : 'No'}</div>
             <div className="col-sm"><b>Retail Centre:</b> {data[selectedInd].retail_centre}</div>
-            <div className="col-sm"><b>Repair Centre:</b> {data[selectedInd].repair_centre}</div>
           </div>
           <div className="row">
             <div className="col-sm"><b>Waybill to Retail:</b> {data[selectedInd].waybill_to_retail}</div>
-            <div className="col-sm"><b>Waybill to Repair:</b> {data[selectedInd].waybill_to_repair}</div>
+            <div className="col-sm"><b>Repair Centre:</b> {data[selectedInd].repair_centre}</div>
           </div>
           <div className="row">
-            <div className="col-sm"><b>Physical Condition:</b> {data[selectedInd].physical_condition}</div>
+            <div className="col-sm"><b>Waybill to Repair:</b> {data[selectedInd].waybill_to_repair}</div>
             <div className="col-sm"><b>Comments:</b> {data[selectedInd].status.length > 0 ? data[selectedInd].status[0].comments : 'None'}</div>
+          </div>        
             <div className="row">
               <div className="col-sm"><b>Accessories:</b>
                 <div className="m-1">
@@ -85,7 +82,6 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
           <table className="table table-striped table-hover">
             <thead>
               <h4><b>Issues</b></h4>
