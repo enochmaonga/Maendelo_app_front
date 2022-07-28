@@ -93,13 +93,13 @@ class RepairForm extends Component{
         return(
             <React.Fragment>
                 <section>
-                    <div className="form-container vh-50">
-                        <div className="w-75  mx-auto p-3 bg-success-form "> 
+                    <div className="form-container vh-50 mt-3 shadow">
+                        <div className="w-75  mx-auto p-3 bg-success bg-gradient "> 
                             <div className="saf">
-                                <h3 className="text-white display-6">Repair Form</h3>
+                                <h4 className="text-white ">Repair Form</h4>
                             </div>
-                            <div className="row bg-white"> 
-                                <div className="left-side col-3 pt-5 ps-5"> 
+                            <div className="row bg-light"> 
+                                <div className="bg-light left-side col-3 pt-5 ps-5"> 
                                     <ProgressBar value={this.state.formNumber}/>
                                 </div>
                                 <div className="right-side col-md-12 col-lg-9">
@@ -930,7 +930,7 @@ class RepairForm extends Component{
                                         </fieldset>
                                     </div>    
                                 </div>
-                                <div className="col-12 text-end pb-2"> 
+                                <div className="bg-light text-end p-2"> 
                                 <button className={this.state.formNumber>0?"btn btn-success":"btn_hide"} onClick={this.handlePrevButton}>Previous</button> 
                                 <button className={this.state.formNumber<5?"btn btn-success":"btn_hide"} onClick={this.handleNextButton}>Next</button>
                                 <button className={this.state.formNumber===5?"btn btn-danger":"btn_hide"} onClick={this.handleSubmitButton} >Submit</button>  
