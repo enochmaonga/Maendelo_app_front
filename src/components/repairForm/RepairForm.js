@@ -93,20 +93,20 @@ class RepairForm extends Component{
         return(
             <React.Fragment>
                 <section>
-                    <div className="form-container row vh-75">
-                        <div className="card col-lg-6 h-75 mx-auto p-3 bg-success-form mt-4"> 
+                    <div className="form-container vh-50">
+                        <div className="w-75  mx-auto p-3 bg-success-form "> 
                             <div className="saf">
                                 <h3 className="text-white display-6">Repair Form</h3>
                             </div>
                             <div className="row bg-white"> 
-                                <div className="left-side col-5 p-5"> 
+                                <div className="left-side col-3 pt-5 ps-5"> 
                                     <ProgressBar value={this.state.formNumber}/>
                                 </div>
-                                <div className="right-side col-md-12 col-lg-7">
+                                <div className="right-side col-md-12 col-lg-9">
                                     <div className={(this.state.formNumber === 0)?"main active":"main"}>
-                                        <fieldset>
+                                        <fieldset >
                                             <legend>Customer Details</legend>
-                                            <div className="input_div">
+                                            <div >
                                                 <div className="input_text">
                                                 <label for="name" className="form-label">Name</label> 
                                                 <input  type="text"  name="name"   className="form-control"
@@ -115,14 +115,14 @@ class RepairForm extends Component{
                                                 </div>
                                             </div>
                         
-                                            <div className="input_div"> 
-                                                <div className="input_text">
+                                            <div className="row"> 
+                                                <div className="col-6">
                                                 <label for="phone" className="form-label">Phone</label>  
                                                 <input  type="text"  name="phone" className="form-control"
                                                         value={this.state.phone} onChange={e=>this.setState({phone:e.target.value})}  
                                                         id="phone" />
                                                 </div>
-                                                <div className="input_text">
+                                                <div className="col-6">
                                                 <label for="email" className="form-label">Email</label> 
                                                 <input  type="text"  name="email"  className="form-control"  
                                                         value={this.state.email} onChange={e=>this.setState({email:e.target.value})}
@@ -130,14 +130,14 @@ class RepairForm extends Component{
                                                 </div>
                                             </div>
                         
-                                            <div className="input_div"> 
-                                                <div className="input_text">
+                                            <div className="row"> 
+                                                <div className="col-6">
                                                 <label for="nationalID" className="form-label">National ID</label>   
                                                 <input  type="text"  name="national_id" className="form-control"
                                                         value={this.state.national_id} onChange={e=>this.setState({national_id:e.target.value})} 
                                                         id="nationalID" />  
                                                 </div>       
-                                                <div className="input_text" >
+                                                <div className="col-6" >
                                                 <label for="customerAltPhone" className="form-label">Alternative Phone</label> 
                                                 <input  type="text"  name="customer-altPhone" className="form-control" 
                                                         id="customerAltPhone" />
@@ -151,17 +151,17 @@ class RepairForm extends Component{
                                         <fieldset>
                                             <legend >Device Details</legend>
                                 
-                                            <div className="input_div">
-                                                <div className="input_text">
-                                                <label for="brand" className="form-label">Brand</label> 
+                                            <div className="row">
+                                                <div className="col-6">
+                                                <label htmlFor="brand" className="form-label">Brand</label> 
                                                 <input type="text" name="brand" className="form-control" 
                                                         value={this.state.brand} 
                                                         onChange={e=>this.setState({brand:e.target.value})} 
                                                         id="brand" /> 
                                                 </div>
                                         
-                                                <div className="input_text">
-                                                <label for="model" className="form-label">Model</label> 
+                                                <div className="col-6">
+                                                <label htmlFor="model" className="form-label">Model</label> 
                                                 <input type="text" name="model" className="form-control" 
                                                         value={this.state.serial} 
                                                         onChange={e=>this.setState({serial:e.target.value})} 
@@ -171,14 +171,14 @@ class RepairForm extends Component{
                                 
                                             <div className="input_div">
                                                 <div className="input_text">
-                                                <label for="serial" className="form-label">Serial/IMEI</label> 
+                                                <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
                                                 <input type="text" name="serial" className="form-control"  
                                                         
                                                         id="serial" /> 
                                                 </div>
                                         
                                                 <div className="input_text">
-                                                <label for="receipt" className="form-label">Receipt</label> 
+                                                <label htmlFor="receipt" className="form-label">Receipt</label> 
                                                 <input type="text" name="receipt" className="form-control"
                                                         value={this.state.receipt} 
                                                         onChange={e=>this.setState({receipt:e.target.value})}  
@@ -189,45 +189,45 @@ class RepairForm extends Component{
                                         
                                             <fieldset>
                                                 <legend>Accessories</legend>
-                                                <div>
-                                                    <ul>
-                                                        <li>
-                                                            <label for="battery">Battery</label>
-                                                            <input type="checkbox" id="battery" 
+                                                <div className="row">
+                                                <div className="form-check">  
+                                                            <label htmlFor="battery" className="form-check-label">Battery</label>
+                                                            <input type="checkbox" id="battery" className="form-check-input"
                                                                 onChange ={()=>(this.state.battery)?this.setState({battery:false}):this.setState({battery:true})}
                                                                 name="battery" />
-                                                        </li>
-                                                        <li>
-                                                            <label for="charger">Charger</label>
-                                                            <input type="checkbox" id="charger" 
+                                                </div>
+                                                <div className="form-check">  
+                                                            <label htmlFor="charger" className="form-check-label">Charger</label>
+                                                            <input type="checkbox" id="charger" className="form-check-input"
                                                                 onChange ={()=>(this.state.charger)?this.setState({charger:false}):this.setState({charger:true})}
                                                                 name="charger" />
-                                                        </li>
-                                                    </ul> 
+                                                </div>
                                                 </div>
                                             </fieldset>
                                             
                                             <fieldset>
                                                 <legend>Other</legend>
-                                                <div>
-                                                    <label for="lipaMdogoMdogo">Lipa Mdogomdogo</label>
-                                                    <input type="checkbox"  name="lipaMdogoMdogo"  
+                                                <div className="row">
+                                                <div className="form-check">  
+                                                    <label for="lipaMdogoMdogo" className="form-check-label">Lipa Mdogomdogo</label>
+                                                    <input type="checkbox"  name="lipaMdogoMdogo"  className="form-check-input"
                                                         onChange ={()=>(this.state.lipaMdogoMdogo)?this.setState({lipaMdogoMdogo:false}):this.setState({lipaMdogoMdogo:true})}
                                                         id="lipaMdogoMdogo"  />
                                                 </div>
-                                        
-                                                <div >
-                                                    <label>Warranty</label>
-                                                    <input type="checkbox"  name="warranty" 
+                                                
+                                                <div className="form-check">  
+                                                    <label className="form-check-label">Warranty</label>
+                                                    <input type="checkbox"  name="warranty" className="form-check-input"
                                                         onChange ={()=>(this.state.warranty)?this.setState({warranty:false}):this.setState({warranty:true})}
                                                     />
                                                 </div>
                                         
-                                                <div>
-                                                    <label>Repair History</label>
-                                                    <input type="checkbox"  name="repairHistory"
+                                                <div className="form-check">  
+                                                    <label className="form-check-label">Repair History</label>
+                                                    <input type="checkbox"  name="repairHistory" className="form-check-input"
                                                         onChange ={()=>(this.state.repairHistory)?this.setState({repairHistory:false}):this.setState({repairHistory:true})}  
                                                     id="repairHistory" />
+                                                </div>
                                                 </div>
                                             </fieldset>           
                                 
@@ -235,13 +235,13 @@ class RepairForm extends Component{
                                     </div>
 
                                     <div className={(this.state.formNumber === 2)?"main active":"main"}> 
-                                    <fieldset id="Issue">
+                                    <fieldset className="row" id="Issue">
                                         <legend>Device Faults</legend>   
                         
-                                        <fieldset id="display">
+                                        <fieldset className="col-4 pt-5" id="display">
                                             <legend className="fs-5">Display</legend>
-                                            <div className="row">
-                                                <div className="form-check col-4">
+                                            <div className="row ps-3">
+                                                <div className="form-check">
                                                         <label htmlFor="cracked" className="form-check-label">Cracked</label>
                                                         <input type="checkbox" name="cracked" className="display form-check-input" 
                                                             onChange ={()=>
@@ -273,7 +273,7 @@ class RepairForm extends Component{
                                                                         }
                                                                     id="cracked" />
                                                 </div>
-                                                <div className="form-check col-4">
+                                                <div className="form-check">
                                                         <label htmlFor='notWorking' className="form-check-label">Not Powering Up</label>
                                                         <input type="checkbox"  name="notWorking" className="display form-check-input" onChange ={()=>
                                                                 (!this.state.Issues.display.cracked)?
@@ -303,7 +303,7 @@ class RepairForm extends Component{
                                                                             }))
                                                                         } id="notWorking"  />      
                                                 </div>
-                                                <div className="form-check col-4">
+                                                <div className="form-check">
                                                             <label htmlFor="noTouch" className="display form-check-label">No Touch</label>
                                                             <input type="checkbox"  name="noTouch" className="display form-check-input" onChange ={()=>
                                                                 (!this.state.Issues.display.cracked)?
@@ -336,10 +336,10 @@ class RepairForm extends Component{
                                             </div>
                                         </fieldset>
                         
-                                        <fieldset id="power">
+                                        <fieldset className="col-4 pt-5"  id="power">
                                             <legend className="fs-5">Power</legend>
-                                            <div className="row">
-                                            <div className="form-check col-4">                        
+                                            <div className="row ps-3">
+                                            <div className="form-check">                        
                                                 <label className="power form-check-label" >Not Powering Up</label>
                                                 <input type="checkbox"  name="notPoweringUp" className="power form-check-input" 
                                                         onChange ={()=>
@@ -371,7 +371,7 @@ class RepairForm extends Component{
                                                                     }
                                                 id="notPoweringUp" />
                                             </div>
-                                            <div className="form-check col-4">
+                                            <div className="form-check">
                                                 <label className="power form-check-label" >Short Battery Life</label>
                                                 <input type="checkbox"  name="shortBatteryLife" className="power form-check-input" 
                                                     onChange ={()=>
@@ -403,7 +403,7 @@ class RepairForm extends Component{
                                                                 } 
                                                             id="shortBatteryLife" />   
                                             </div>
-                                            <div className="form-check col-4">
+                                            <div className="form-check">
                                                 <label className="power form-check-label" >Not Charging</label>
                                                 <input type="checkbox"  name="notCharging" className="power form-check-input" 
                                                         onChange ={()=>
@@ -439,10 +439,10 @@ class RepairForm extends Component{
                                     
                                         </fieldset>
                         
-                                        <fieldset id="speaker">
+                                        <fieldset className="col-4 pt-5" id="speaker">
                                             <legend className="fs-5">Speaker</legend>
-                                                <div className='row'>
-                                                <div className="form-check col-4">  
+                                                <div className='row ps-3'>
+                                                <div className="form-check">  
                                                             <label htmlFor="noSound" className="form-check-label">No Sound</label>
                                                             <input type="checkbox"  name="noSound" className="speaker form-check-input" 
                                                                 onChange ={()=>
@@ -474,7 +474,7 @@ class RepairForm extends Component{
                                                                             } 
                                                             id="noSound" />
                                                 </div>
-                                                <div className="form-check col-4">  
+                                                <div className="form-check">  
                                                             <label htmlFor="distortedSound" className="form-check-label">Distorted Sound</label>
                                                             <input type="checkbox"  name="distortedSound" className="speaker form-check-input" 
                                                             onChange ={()=>
@@ -507,7 +507,7 @@ class RepairForm extends Component{
 
                                                             id="distortedSound" />  
                                                 </div>
-                                                <div className="form-check col-4">  
+                                                <div className="form-check">  
                                                             <label htmlFor="notRinging" className="form-check-label">Not Ringing</label>
                                                             <input type="checkbox"  name="notRinging" className="speaker form-check-input" 
                                                                 onChange ={()=>
@@ -542,10 +542,10 @@ class RepairForm extends Component{
                                                 </div>                         
                                         </fieldset>
                                     
-                                        <fieldset id="network">
+                                        <fieldset className="col-4 pt-5"  id="network">
                                             <legend className="fs-5">Network</legend>
-                                            <div className='row'>
-                                            <div className="form-check col-4">
+                                            <div className='row ps-3'>
+                                            <div className="form-check">
                                                 <label htmlFor="noMobileNetwork" className="network form-check-label" >No Mobile Network</label>
                                                 <input type="checkbox"  name="noMobileNetwork" className="network form-check-input" 
                                                     onChange ={()=>
@@ -577,7 +577,7 @@ class RepairForm extends Component{
                                                                 }  
                                                 id="noMobileNetwork" />
                                             </div>
-                                                <div className="form-check col-4">  
+                                                <div className="form-check">  
                                                 <label htmlFor="noWifiNetwork" className="network form-check-label">No Wifi</label>
                                                 <input type="checkbox"  name="noWifiNetwork" className="network form-check-input" 
                                                 onChange ={()=>
@@ -609,7 +609,7 @@ class RepairForm extends Component{
                                                             } 
                                                 id="noWifiNetwork" />  
                                             </div>
-                                            <div className="form-check col-4">  
+                                            <div className="form-check">  
                                                 <label htmlFor="droppedCalls" className="network form-check-label">Dropping Calls</label>
                                                 <input type="checkbox"  name="droppedCalls" className="network form-check-input" 
                                                 onChange ={()=>
@@ -641,7 +641,7 @@ class RepairForm extends Component{
                                                             } 
                                                 id="droppedCalls" />  
                                              </div>
-                                            <div className="form-check col-4">                                                 
+                                            <div className="form-check">                                                 
                                                 <label htmlFor="unableToCall" className="network form-check-label">Unable to make calls</label>
                                                 <input type="checkbox"  name="unableToCall" className="network form-check-input" 
                                             
@@ -678,10 +678,10 @@ class RepairForm extends Component{
                                                                 
                                         </fieldset>
                                     
-                                        <fieldset id="physicalDamage">
+                                        <fieldset className="col-4 pt-5"  id="physicalDamage">
                                             <legend className="fs-5">Physical Damage</legend>
-                                            <div className='row'>
-                                            <div className="form-check col-4">      
+                                            <div className='row ps-3'>
+                                            <div className="form-check">      
                                                 <label htmlFor="faultyKeys" className="physicalDamage form-check-label">Faulty keys</label>
                                                 <input type="checkbox"  name="faultyKeys" className="physicalDamage form-check-input" 
                                                 
@@ -715,7 +715,7 @@ class RepairForm extends Component{
                                                 
                                                 id="faultyKeys" /> 
                                               </div>
-                                              <div className="form-check col-4">     
+                                              <div className="form-check">     
                                                 <label htmlFor="crackedBody" className="physicalDamage form-check-label">Cracked Body</label>
                                                 <input type="checkbox"  name="crackedBody" className="physicalDamage form-check-input"  
                                                 onChange ={()=>
@@ -751,10 +751,10 @@ class RepairForm extends Component{
                                             </div>                    
                                         </fieldset>
                                     
-                                        <fieldset id="Software">
+                                        <fieldset className="col-4 pt-5" id="Software">
                                             <legend className="fs-5">Software</legend>
-                                            <div className="row">
-                                            <div className="form-check col-4">   
+                                            <div className="row ps-3">
+                                            <div className="form-check">   
                                                 <label htmlFor="slow" className="physicalDamage form-check-label">Slow</label>
                                                 <input type="checkbox"  name="slow" className="software form-check-input"
                                                 onChange ={()=>
@@ -787,7 +787,7 @@ class RepairForm extends Component{
                                                 
                                                 id="slow" /> 
                                             </div>
-                                            <div className="form-check col-4">   
+                                            <div className="form-check">   
                                                 <label htmlFor="crashing" className="physicalDamage form-check-label">Crashing</label>
                                                 <input type="checkbox"  name="crashing" className="software form-check-input" 
                                                 onChange ={()=>
@@ -819,7 +819,7 @@ class RepairForm extends Component{
                                                             }  
                                                 id="crashing" /> 
                                             </div>
-                                            <div className="form-check col-4">   
+                                            <div className="form-check">   
                                                 <label htmlFor="hanging" className="physicalDamage form-check-label">Hanging</label>
                                                 <input type="checkbox"  name="hanging" className="software form-check-input" 
                                                             onChange ={()=>

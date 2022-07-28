@@ -9,3 +9,11 @@
 .btn_hide{
     display:none;
 }
+
+.form-check-label{
+    font-size: smaller;
+}
+
+.bg-success-form{
+ background-color:  rgb(82, 180, 75);
+}
