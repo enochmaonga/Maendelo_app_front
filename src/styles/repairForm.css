@@ -17,3 +17,7 @@
 .bg-success-form{
  background-color:  rgb(82, 180, 75);
 }
+
+.form-container{
+    max-height:400px;
+}
