@@ -17,7 +17,7 @@ import ViewRepairItems from './viewRepairItems/ViewRepairItems';
 function AppRoutes() {
   const routes = useRoutes(
     [
-      {path:'/repairform',element:<RepairForm/>},
+      {path:'/repairform',element:<RepairForm />},
       {path:'/viewitems',element:<ViewRepairItems/>}
     ]
   )
