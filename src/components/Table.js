@@ -14,7 +14,7 @@ function  Table(){
 
        
             return (<React.Fragment>
-                {post.map(row=><tr>
+                {post.map(row=><tr key={row._id}>
                         <td className="text-primary">{row._id}</td>
                         <td>{row.Name}</td>
                         <td>{row.national_id}</td>
