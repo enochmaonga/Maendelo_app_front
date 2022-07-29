@@ -12,18 +12,18 @@ function  Table(){
 
     if (!post) return null;
 
- 
-
        
             return (<React.Fragment>
                 {post.map(row=><tr>
-                        <td>{row._id}</td>
+                        <td className="text-primary">{row._id}</td>
                         <td>{row.Name}</td>
                         <td>{row.national_id}</td>
                         <td>{row.phone}</td>
                         <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
                         <td>{new Date(new Date().setDate(new Date(row.Timestamp).getDate()+7)).toLocaleDateString()}</td>
-                        <td><span className="badge rounded-pill text-bg-danger">Past SLA</span></td>
+                        <td>
+                            {(new Date()<new Date(new Date().setDate(new Date(row.Timestamp).getDate()+7))?<span className="badge rounded-pill text-bg-success">Within SLA</span>:<span className="badge rounded-pill text-bg-danger">Past SLA</span>)}   
+                        </td>
                     </tr>)}
                 </React.Fragment>);
  
