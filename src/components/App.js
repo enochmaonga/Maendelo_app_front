@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router,useRoutes} from 'react-router-dom';
 import RepairForm from './repairForm/RepairForm';
 import Header from './Header';
+import RequestsMenu from './RequestsMenu';
 import ViewRepairItems from './viewRepairItems/ViewRepairItems';
 
  class App extends Component{
@@ -9,8 +10,7 @@ import ViewRepairItems from './viewRepairItems/ViewRepairItems';
       return(
         <React.Fragment>
           <Header/>
-          <RepairForm />
-          
+          <RequestsMenu />
         </React.Fragment>
       );
    }

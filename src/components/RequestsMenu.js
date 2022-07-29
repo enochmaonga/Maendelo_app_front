@@ -43,8 +43,8 @@ class RequestsMenu extends Component{
                                 href="#">Back from repair</a>
                         </li>
                     </ul>
-                    {(this.state.count==1)?<RepairForm/>:""}
-                    {(this.state.count==2)?<Requests/>:""}
+                    {(this.state.count===1)?<RepairForm/>:""}
+                    {(this.state.count===2)?<Requests/>:""}
                 </div>
             </div>
 
