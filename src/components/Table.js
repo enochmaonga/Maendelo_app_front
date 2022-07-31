@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import TableModal from './TableModal';
 
 function  Table(){
 
@@ -15,7 +16,7 @@ function  Table(){
        
             return (<React.Fragment>
                 {post.map(row=><tr key={row._id}>
-                        <td className="text-primary">{row._id}</td>
+                        <td className="text-primary"><TableModal data={row}/></td>
                         <td>{row.Name}</td>
                         <td>{row.national_id}</td>
                         <td>{row.phone}</td>
