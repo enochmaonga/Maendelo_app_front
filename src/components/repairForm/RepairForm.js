@@ -82,9 +82,17 @@ class RepairForm extends Component{
         this.setState({formNumber:(prev>0)?--prev:prev});
     }
 
-    handleSubmitButton = ()=>{
-        axios.post("http://localhost:5000/retail/requests/",this.state)
-        .then(res=>console.log(res));
+    handleSubmitButton = async ()=>{
+        console.log(await this.checkRepairHistory())
+    //    (await this.checkRepairHistory()<2)?
+    //     axios.post("http://localhost:5000/retail/requests/",this.state)
+    //     .then(res=>console.log(res)):console.log("this request cannot proceed");
+    }
+
+    checkRepairHistory = async ()=>{
+       let response=  await axios.get("http://localhost:5000/retail/requests/imei/"+this.state.serial)
+      return  await response.length
+       
     }
     
 
@@ -107,41 +115,44 @@ class RepairForm extends Component{
                                         <fieldset >
                                             <legend>Customer Details</legend>
                                             <div >
-                                                <div className="input_text">
-                                                <label for="name" className="form-label">Name</label> 
+                                                <div className="form-floating mb-3">
                                                 <input  type="text"  name="name"   className="form-control"
                                                         value={this.state.Name} onChange={e=>this.setState({Name:e.target.value})} 
-                                                        id="customerName"/>
+                                                        id="customerName" placeholder="Name"/>
+                                                        <label for="name" className="form-label">Name</label>
                                                 </div>
+                                                
                                             </div>
                         
                                             <div className="row"> 
-                                                <div className="col-6">
-                                                <label for="phone" className="form-label">Phone</label>  
-                                                <input  type="text"  name="phone" className="form-control"
-                                                        value={this.state.phone} onChange={e=>this.setState({phone:e.target.value})}  
-                                                        id="phone" />
+                                                <div className="col-6 form-floating mb-3">
+                                                    <input  type="text"  name="phone" className="form-control"
+                                                            value={this.state.phone} onChange={e=>this.setState({phone:e.target.value})}  
+                                                            id="phone" placeholder="phone"/>
+                                                    <label for="phone" className="form-label">Phone</label>  
                                                 </div>
-                                                <div className="col-6">
-                                                <label for="email" className="form-label">Email</label> 
-                                                <input  type="text"  name="email"  className="form-control"  
-                                                        value={this.state.email} onChange={e=>this.setState({email:e.target.value})}
-                                                        id="email" />
+                                                <div className="col-6 form-floating mb-3"> 
+                                                    <input  type="email"  name="email"  className="form-control"  
+                                                            value={this.state.email} onChange={e=>this.setState({email:e.target.value})}
+                                                            id="email" placeholder="email"/>
+                                                    <label for="email" className="form-label">Email</label>
                                                 </div>
+                                                
                                             </div>
                         
                                             <div className="row"> 
-                                                <div className="col-6">
-                                                <label for="nationalID" className="form-label">National ID</label>   
-                                                <input  type="text"  name="national_id" className="form-control"
-                                                        value={this.state.national_id} onChange={e=>this.setState({national_id:e.target.value})} 
-                                                        id="nationalID" />  
+                                                <div className="col-6 form-floating mb-3">
+                                                    <input  type="text"  name="national_id" className="form-control"
+                                                            value={this.state.national_id} onChange={e=>this.setState({national_id:e.target.value})} 
+                                                            id="nationalID" placeholder="National Identification"/>
+                                                    <label for="nationalID" className="form-label">National Identification</label>  
                                                 </div>       
-                                                <div className="col-6" >
-                                                <label for="customerAltPhone" className="form-label">Alternative Phone</label> 
-                                                <input  type="text"  name="customer-altPhone" className="form-control" 
-                                                        id="customerAltPhone" />
+                                                <div className="col-6 form-floating mb-3" >
+                                                    <input  type="text"  name="customer-altPhone" className="form-control" 
+                                                            id="customerAltPhone" placeholder="Alternative Phone"/>
+                                                    <label for="customerAltPhone" className="form-label">Alternative Phone</label>
                                                 </div>
+                                                
                                             </div>
                                         </fieldset>
                                     </div>
@@ -152,37 +163,37 @@ class RepairForm extends Component{
                                             <legend >Device Details</legend>
                                 
                                             <div className="row">
-                                                <div className="col-6">
-                                                <label htmlFor="brand" className="form-label">Brand</label> 
-                                                <input type="text" name="brand" className="form-control" 
-                                                        value={this.state.brand} 
-                                                        onChange={e=>this.setState({brand:e.target.value})} 
-                                                        id="brand" /> 
+                                                <div className="col-6 form-floating mb-3">
+                                                    <input type="text" name="brand" className="form-control" 
+                                                            value={this.state.brand} 
+                                                            onChange={e=>this.setState({brand:e.target.value})} 
+                                                            id="brand" placeholder="Brand"/>
+                                                    <label htmlFor="brand" className="form-label">Brand</label>  
                                                 </div>
                                         
-                                                <div className="col-6">
-                                                <label htmlFor="model" className="form-label">Model</label> 
-                                                <input type="text" name="model" className="form-control" 
-                                                        value={this.state.serial} 
-                                                        onChange={e=>this.setState({serial:e.target.value})} 
-                                                        id="model" />
+                                                <div className="col-6 form-floating mb-3">
+                                                    <input type="text" name="model" className="form-control" 
+                                                            value={this.state.serial} 
+                                                            onChange={e=>this.setState({serial:e.target.value})} 
+                                                            id="model" placeholder="Model" />
+                                                    <label htmlFor="model" className="form-label">Model</label>
                                                 </div>
+                                                 
                                             </div>
                                 
                                             <div className="row">
-                                                <div className="col-6">
-                                                <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
-                                                <input type="text" name="serial" className="form-control"  
-                                                        
-                                                        id="serial" /> 
+                                                <div className="col-6 form-floating mb-3">
+                                                        <input type="text" name="serial" className="form-control"  
+                                                                id="serial" onChange={e=>this.setState({serial:e.target.value})} placeholder="serial" />
+                                                        <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
                                                 </div>
                                         
-                                                <div className="col-6">
-                                                <label htmlFor="receipt" className="form-label">Receipt</label> 
-                                                <input type="text" name="receipt" className="form-control"
-                                                        value={this.state.receipt} 
-                                                        onChange={e=>this.setState({receipt:e.target.value})}  
-                                                        id="receipt" /> 
+                                                <div className="col-6 form-floating mb-3">
+                                                        <input type="text" name="receipt" className="form-control"
+                                                                value={this.state.receipt} 
+                                                                onChange={e=>this.setState({receipt:e.target.value})}  
+                                                                id="receipt" />
+                                                        <label htmlFor="receipt" className="form-label">Receipt</label>  
                                                 </div>
                                             </div>
                                                 
@@ -823,8 +834,8 @@ class RepairForm extends Component{
                                                 id="crashing" /> 
                                             </div>
                                             <div className="form-check">   
-                                                <label htmlFor="hanging" className="physicalDamage form-check-label">Hanging</label>
-                                                <input type="checkbox"  name="hanging" className="software form-check-input" 
+                                                <label htmlFor="hanging" className="form-check-label">Hanging</label>
+                                                <input type="checkbox"  name="hanging" className="form-check-input" 
                                                             onChange ={()=>
                                                                 (!this.state.Issues.software.hanging)?
                                                                         this.setState( prevState=>
@@ -862,44 +873,46 @@ class RepairForm extends Component{
                                     </div>
 
                                     <div className={(this.state.formNumber === 3)?"main active":"main"}> 
-                                        <fieldset className="fs-5">
+                                        <fieldset>
                                             <legend>Stand By Unit</legend>
-                                            <div>
-                                                <label>StandBy Unit issued</label>
-                                                <input type="checkbox"  name="standByUnit" 
+                                            <div className="form-check">
+                                                <label htmlFor="standByUnit" className="form-check-label">StandBy Unit issued</label>
+                                                <input type="checkbox"  name="standByUnit" className="form-check-input"
                                                 onChange ={()=>(this.state.standByUnit)?this.setState({standByUnit:false}):this.setState({standByUnit:true})}
                                                 id="standByUnit" />
+                                                
                                             </div>
                                                             
                                             <fieldset>
                                                 <legend>Stand by unit details</legend>
-                                                <div className="input_div">
-                                                    <div className="input_text">
-                                                        <label className="form-label">Brand</label>
+                                                <div >
+                                                    <div className="form-floating mb-3"> 
                                                         <input type="text"  name="standByUnitBrand"
                                                             value={this.state.standByUnitBrand} 
                                                             onChange={e=>this.setState({standByUnitBrand:e.target.value})} 
                                                             className="form-control"  
-                                                            id="standByUnitBrand" />
+                                                            id="standByUnitBrand" placeholder="brand" />
+                                                        <label className="form-label">Brand</label>
                                                     </div>
-                                                    <div className="input_text">
-                                                    <label className="form-label">Model</label>
+                                                    <div className="form-floating mb-3">
+                                                    
                                                     <input type="text"  name="standByUnitModel"
                                                         value={this.state.standByUnitModel} 
                                                         onChange={e=>this.setState({standByUnitModel:e.target.value})} 
                                                         className="form-control" 
-                                                        id="standByUnitModel" />
+                                                        id="standByUnitModel" placeholder="model"/>
+                                                        <label className="form-label">Model</label>
                                                     </div>
                                                 </div>
-                                                <div className="input_div">
-                                                    <div className="input_text">
-                                                        <label htmlFor="standByUnitSerial" className="form-label">Serial</label>
+                                                <div>
+                                                    <div className="form-floating mb-3">  
                                                         <input type="text"  name="standByUnitSerial"
                                                         className="form-control"
                                                         value={this.state.standByUnitSerial} 
                                                         onChange={e=>this.setState({standByUnitSerial:e.target.value})} 
                                                         id="standByUnitSerial"  
-                                                        />
+                                                        placeholder="serial"/>
+                                                        <label htmlFor="standByUnitSerial" className="form-label">Serial</label>
                                                     </div>
                                                 </div>
                                                 
@@ -910,12 +923,13 @@ class RepairForm extends Component{
                                     <div className={(this.state.formNumber === 5)?"main active":"main"}> 
                                         <fieldset className="fs-5">         
                                             <legend>Repair Center Details</legend>         
-                                            <div>
-                                                <label htmlFor="repair_center" className="form-label">Repair Center</label> 
-                                                <select name="repair_center" value="" className="form-control" id="repair_center">
+                                            <div class="form-floating">
+                                                
+                                                <select name="repair_center" value="" className="form-select" id="repair_center">
                                                     <option value="Nokia">Nokia</option>
                                                     <option value="Samsung">Samsung</option>
                                                 </select>
+                                                <label htmlFor="repair_center" className="form-label">Repair Center</label> 
                                             </div>
                                         </fieldset>
                                     </div>
@@ -923,12 +937,12 @@ class RepairForm extends Component{
                                     <div className={(this.state.formNumber === 4)?"main active":"main"}> 
                                         <fieldset className="fs-5">   
                                                 <legend>Retail Center Details</legend>
-                                                    <div>
-                                                        <label htmlFor="retail_center" className="form-label">Retail Center</label> 
-                                                        <select name="retail_center" placeholder="Retail Center Name" value={this.state.retail} onChange={e=>this.setState({retail:e.target.value})} id="retail_center">
+                                                    <div class="form-floating">
+                                                        <select name="retail_center" className="form-select" placeholder="Retail Center" value={this.state.retail} onChange={e=>this.setState({retail:e.target.value})} id="retail_center">
                                                             <option value="JKIA">JKIA</option>
                                                             <option value="Sarit">Sarit</option>
                                                         </select>
+                                                        <label htmlFor="retail_center" className="form-label">Retail Center</label>
                                                     </div>              
                                         </fieldset>
                                     </div>    
