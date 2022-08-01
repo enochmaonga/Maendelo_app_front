@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import ProgressBar from './ProgressBar';
 import '../../styles/repairForm.css'
 import axios from 'axios';
-
+import Alert from 'react-bootstrap/Alert';
 
 
 class RepairForm extends Component{
     constructor(props){
         super(props);
-        this.state={
+        this.state={    repairHistoryLimit:false,
                         formNumber:0,
                         Name: "",
                         phone: "",
@@ -82,17 +82,27 @@ class RepairForm extends Component{
         this.setState({formNumber:(prev>0)?--prev:prev});
     }
 
-    handleSubmitButton = async ()=>{
-        console.log(await this.checkRepairHistory())
-    //    (await this.checkRepairHistory()<2)?
-    //     axios.post("http://localhost:5000/retail/requests/",this.state)
-    //     .then(res=>console.log(res)):console.log("this request cannot proceed");
+    handleSubmitButton =()=>{
+        this.setState({formNumber:6});
+        axios.post("http://localhost:5000/retail/requests/",this.state)
+        .then(res=>console.log(res));
     }
 
-    checkRepairHistory = async ()=>{
-       let response=  await axios.get("http://localhost:5000/retail/requests/imei/"+this.state.serial)
-      return  await response.length
+    checkRepairHistory = async (serial)=>{
+       let response=  await axios.get("http://localhost:5000/retail/requests/imei/"+serial)
+        this.repairHistory(await response.data)  
        
+    }
+
+    repairHistory = (response)=>{
+        (response.length>0)?this.setState({repairHistory:false}):this.setState({repairHistory:true});
+        if(response.length>1){
+            this.setState({brand:response.brand})
+            this.setState({model:response.model})
+        }
+        this.setState({repairHistory:response.length>0})
+        this.setState({repairHistoryLimit:response.length>1})
+        return response.length>2
     }
     
 
@@ -117,7 +127,7 @@ class RepairForm extends Component{
                                             <div >
                                                 <div className="form-floating mb-3">
                                                 <input  type="text"  name="name"   className="form-control"
-                                                        value={this.state.Name} onChange={e=>this.setState({Name:e.target.value})} 
+                                                        value={this.state.Name} onChange={e=>{this.setState({Name:e.target.value})}} 
                                                         id="customerName" placeholder="Name"/>
                                                         <label for="name" className="form-label">Name</label>
                                                 </div>
@@ -161,7 +171,35 @@ class RepairForm extends Component{
                                     <div className={(this.state.formNumber === 1)?"main active":"main"}> 
                                         <fieldset>
                                             <legend >Device Details</legend>
+                                            <div className="row">
+                                                <div className="col-6 form-floating mb-3">
+                                                        <input type="text" name="serial" className="form-control"  
+                                                                id="serial" onChange={e=>{this.setState({serial:e.target.value}); this.setState({imei:e.target.value});this.checkRepairHistory(e.target.value)}} placeholder="serial" />
+                                                        <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
+                                                </div>
+                                        
+                                                <div className="col-6 form-floating mb-3">
+                                                        <input type="text" name="receipt" className="form-control"
+                                                                value={this.state.receipt} 
+                                                                onChange={e=>this.setState({receipt:e.target.value})}  
+                                                                id="receipt" placeholder="receipt" />
+                                                        <label htmlFor="receipt" className="form-label">Receipt</label>  
+                                                </div>
+                                            </div>
                                 
+                                            
+                                            {(this.state.repairHistoryLimit||this.state.serial==="")?
+                                                (this.state.repairHistoryLimit&&this.state.repairHistory)?
+                                                <Alert  variant="danger">
+                                                    Maximum number of repairs
+                                                </Alert>
+                                                    :
+                                                <Alert  variant="info">
+                                                    Please enter the device serial number
+                                                </Alert>
+                                                
+                                            :
+                                            <>
                                             <div className="row">
                                                 <div className="col-6 form-floating mb-3">
                                                     <input type="text" name="brand" className="form-control" 
@@ -173,28 +211,12 @@ class RepairForm extends Component{
                                         
                                                 <div className="col-6 form-floating mb-3">
                                                     <input type="text" name="model" className="form-control" 
-                                                            value={this.state.serial} 
-                                                            onChange={e=>this.setState({serial:e.target.value})} 
+                                                            value={this.state.model} 
+                                                            onChange={e=>{this.setState({model:e.target.value})}} 
                                                             id="model" placeholder="Model" />
                                                     <label htmlFor="model" className="form-label">Model</label>
                                                 </div>
                                                  
-                                            </div>
-                                
-                                            <div className="row">
-                                                <div className="col-6 form-floating mb-3">
-                                                        <input type="text" name="serial" className="form-control"  
-                                                                id="serial" onChange={e=>this.setState({serial:e.target.value})} placeholder="serial" />
-                                                        <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
-                                                </div>
-                                        
-                                                <div className="col-6 form-floating mb-3">
-                                                        <input type="text" name="receipt" className="form-control"
-                                                                value={this.state.receipt} 
-                                                                onChange={e=>this.setState({receipt:e.target.value})}  
-                                                                id="receipt" />
-                                                        <label htmlFor="receipt" className="form-label">Receipt</label>  
-                                                </div>
                                             </div>
                                                 
                                             <div className="row">
@@ -237,22 +259,27 @@ class RepairForm extends Component{
                                                     <label className="form-check-label">Repair History</label>
                                                     <input type="checkbox"  name="repairHistory" className="form-check-input"
                                                         onChange ={()=>(this.state.repairHistory)?this.setState({repairHistory:false}):this.setState({repairHistory:true})}  
-                                                    id="repairHistory" />
+                                                    checked = {this.state.repairHistory} id="repairHistory" />
                                                 </div>
                                                 </div>
                                             </fieldset>       
                                                 
                                             </div>
+                                            
+                                            </>
+                                            
+                                            }
+                                            
                                                 
                                 
                                         </fieldset>    
                                     </div>
 
                                     <div className={(this.state.formNumber === 2)?"main active":"main"}> 
-                                    <fieldset className="row" id="Issue">
+                                    <fieldset className="row p-1" id="Issue">
                                         <legend>Device Faults</legend>   
                         
-                                        <fieldset className="col-4 pt-5" id="display">
+                                        <fieldset className="col-4 pt-1" id="display">
                                             <legend className="fs-5">Display</legend>
                                             <div className="row ps-3">
                                                 <div className="form-check">
@@ -350,7 +377,7 @@ class RepairForm extends Component{
                                             </div>
                                         </fieldset>
                         
-                                        <fieldset className="col-4 pt-5"  id="power">
+                                        <fieldset className="col-4 pt-1"  id="power">
                                             <legend className="fs-5">Power</legend>
                                             <div className="row ps-3">
                                             <div className="form-check">                        
@@ -453,7 +480,7 @@ class RepairForm extends Component{
                                     
                                         </fieldset>
                         
-                                        <fieldset className="col-4 pt-5" id="speaker">
+                                        <fieldset className="col-4 pt-1" id="speaker">
                                             <legend className="fs-5">Speaker</legend>
                                                 <div className='row ps-3'>
                                                 <div className="form-check">  
@@ -556,7 +583,7 @@ class RepairForm extends Component{
                                                 </div>                         
                                         </fieldset>
                                     
-                                        <fieldset className="col-4 pt-5"  id="network">
+                                        <fieldset className="col-4 pt-1"  id="network">
                                             <legend className="fs-5">Network</legend>
                                             <div className='row ps-3'>
                                             <div className="form-check">
@@ -692,7 +719,7 @@ class RepairForm extends Component{
                                                                 
                                         </fieldset>
                                     
-                                        <fieldset className="col-4 pt-5"  id="physicalDamage">
+                                        <fieldset className="col-4 pt-1"  id="physicalDamage">
                                             <legend className="fs-5">Physical Damage</legend>
                                             <div className='row ps-3'>
                                             <div className="form-check">      
@@ -765,7 +792,7 @@ class RepairForm extends Component{
                                             </div>                    
                                         </fieldset>
                                     
-                                        <fieldset className="col-4 pt-5" id="Software">
+                                        <fieldset className="col-4 pt-1" id="Software">
                                             <legend className="fs-5">Software</legend>
                                             <div className="row ps-3">
                                             <div className="form-check">   
@@ -882,7 +909,7 @@ class RepairForm extends Component{
                                                 id="standByUnit" />
                                                 
                                             </div>
-                                                            
+                                                {(this.state.standByUnit)?           
                                             <fieldset>
                                                 <legend>Stand by unit details</legend>
                                                 <div >
@@ -916,13 +943,14 @@ class RepairForm extends Component{
                                                     </div>
                                                 </div>
                                                 
-                                            </fieldset>
+                                            </fieldset>:""
+                                            } 
                                         </fieldset>
                                     </div>
 
                                     <div className={(this.state.formNumber === 5)?"main active":"main"}> 
                                         <fieldset className="fs-5">         
-                                            <legend>Repair Center Details</legend>         
+                                            <legend>Repair Center</legend>         
                                             <div class="form-floating">
                                                 
                                                 <select name="repair_center" value="" className="form-select" id="repair_center">
@@ -936,7 +964,7 @@ class RepairForm extends Component{
 
                                     <div className={(this.state.formNumber === 4)?"main active":"main"}> 
                                         <fieldset className="fs-5">   
-                                                <legend>Retail Center Details</legend>
+                                                <legend>Retail Center</legend>
                                                     <div class="form-floating">
                                                         <select name="retail_center" className="form-select" placeholder="Retail Center" value={this.state.retail} onChange={e=>this.setState({retail:e.target.value})} id="retail_center">
                                                             <option value="JKIA">JKIA</option>
@@ -945,10 +973,13 @@ class RepairForm extends Component{
                                                         <label htmlFor="retail_center" className="form-label">Retail Center</label>
                                                     </div>              
                                         </fieldset>
-                                    </div>    
+                                    </div>
+                                    <div className={(this.state.formNumber > 5)?"main active":"main"}> 
+                                        
+                                    </div>      
                                 </div>
-                                <div className="bg-light text-end"> 
-                                    <button className={this.state.formNumber>0?"btn btn-success":"btn_hide"} onClick={this.handlePrevButton}>Previous</button> 
+                                <div className=" d-grid gap-4 d-md-block text-end"> 
+                                    <button className={this.state.formNumber>0&&this.state.formNumber<5?"btn btn-success":"btn_hide"} onClick={this.handlePrevButton}>Previous</button> 
                                     <button className={this.state.formNumber<5?"btn btn-success":"btn_hide"} onClick={this.handleNextButton}>Next</button>
                                     <button className={this.state.formNumber===5?"btn btn-danger":"btn_hide"} onClick={this.handleSubmitButton} >Submit</button>  
                                 </div>  
