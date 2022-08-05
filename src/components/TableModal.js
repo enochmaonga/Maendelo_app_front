@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import RequestDetails from './RequestDetails';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -29,11 +30,7 @@ class TableModal extends Component {
                     <Modal.Title>{data._id}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
-                    {(data.Name==="Raila Odinga")?"Blank":<p>{JSON.stringify(data)}</p>}
-                    
-                    
-
+                    <RequestDetails value={1} data={data}/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>

@@ -19,14 +19,14 @@ class RequestsMenu extends Component{
                 <div >
                 <div className="w-75 mx-auto pt-1">
                 <h6 className="display-6">Requests</h6>
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
+                    <ul className="nav nav-tabs">
+                        <li className="nav-item">
                             <a 
                                 className="nav-link text-muted" 
                                 onClick={()=>this.setState({count:1})} 
                                 href="#">New Request</a>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <a 
                                 className="nav-link text-muted"  
                                 onClick={()=>this.setState({count:2})} 

@@ -1,0 +1,8 @@
+.form-control-plaintext,.col-form-label {
+    font-size: small;
+    padding:0;
+
+}
+.col-form-label{
+    font-weight: bold;
+}
