@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 //import RepairForm from './repairForm/RepairForm';
 import Header from './Header';
 import RequestsMenu from './RequestsMenu';
+import LoginForm from './login/LoginForm'
 //import ViewRepairItems from './viewRepairItems/ViewRepairItems';
 
  class App extends Component{
@@ -10,7 +11,7 @@ import RequestsMenu from './RequestsMenu';
       return(
         <React.Fragment>
           <Header/>
-          <RequestsMenu />
+          <LoginForm/>
         </React.Fragment>
       );
    }
