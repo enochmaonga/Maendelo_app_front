@@ -10,14 +10,9 @@ class RequestDetails extends Component{
     }
 
 
-    // componentDidMount(){
-    //     this.setState({data:this.props})
-
-    //     console.log(this.state)
-    // }
 
     condition(status){
-        return status?"yes":"no"
+        return status?"Yes":"No"
     }
 
     render(){
