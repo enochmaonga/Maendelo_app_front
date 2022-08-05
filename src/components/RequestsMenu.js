@@ -3,12 +3,14 @@ import React,{Component} from 'react';
 import Requests from './Requests';
 //Repair Form
 import RepairForm from './repairForm/RepairForm';
+//Home form
+import Home from './home/Home'
 
 class RequestsMenu extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          count: 0
+          count: 1
         };
       }
     render(){
@@ -24,18 +26,19 @@ class RequestsMenu extends Component{
                             <a 
                                 className="nav-link text-muted" 
                                 onClick={()=>this.setState({count:1})} 
-                                href="#">New Request</a>
+                                href="#">Home</a>
                         </li>
                         <li className="nav-item">
                             <a 
                                 className="nav-link text-muted"  
                                 onClick={()=>this.setState({count:2})} 
-                                href="#">Pending</a>
+                                href="#">New request </a>
                         </li>
                         <li className="nav-item">
-                            <a 
-                                className="nav-link text-muted" 
-                                href="#">Sent to repair</a>
+                            <a  
+                               className="nav-link text-muted"  
+                               onClick={()=>this.setState({count:3})} 
+                               href="#">Sent to repair</a>
                         </li>
                         <li className="nav-item">
                             <a 
@@ -43,8 +46,9 @@ class RequestsMenu extends Component{
                                 href="#">Back from repair</a>
                         </li>
                     </ul>
-                    {(this.state.count===1)?<RepairForm/>:""}
-                    {(this.state.count===2)?<Requests/>:""}
+                    {(this.state.count===1)?<Home/>:""}
+                    {(this.state.count===2)?<RepairForm/>:""}
+                    {(this.state.count===3)?<Requests/>:""}
                 </div>
             </div>
 
