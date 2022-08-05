@@ -11,12 +11,12 @@ class ProgressBar extends Component{
         return  (
             <React.Fragment>
                 <ul className="progres_bar"> 
-                    <li className = {this.props.value>=0?"active":""} >Customer Details</li> 
-                    <li className = {this.props.value>=1?"active":""} >Device Details</li> 
-                    <li className = {this.props.value>=2?"active":""} >Fault Description</li>
+                    <li className = {this.props.value>=0?"active":""} >Customer</li> 
+                    <li className = {this.props.value>=1?"active":""} >Device</li> 
+                    <li className = {this.props.value>=2?"active":""} >Faults</li>
                     <li className = {this.props.value>=3?"active":""} >StandBy Device</li>
-                    <li className = {this.props.value>=4?"active":""} >Retail Center Details</li> 
-                    <li className = {this.props.value>=5?"active":""} >Repair Center Details</li>
+                    <li className = {this.props.value>=4?"active":""} >Retail Center</li> 
+                    <li className = {this.props.value>=5?"active":""} >Repair Center</li>
                 </ul>
             </React.Fragment>
         )

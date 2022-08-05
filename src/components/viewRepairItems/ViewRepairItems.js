@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Modal, Button } from "react-bootstrap";
 
-const API_HOST = 'http://localhost:5000/view';
+const API_HOST = 'http://localhost:5000/retail/requests/';
 
 function App() {
   const [data, setData] = useState([]);

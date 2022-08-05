@@ -1,65 +1,23 @@
-.container {
-    min-height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.main{
+    display:none;
 }
 
-.container .card {
-    height: 600px;
-    width: 900px;
-    background-color: rgb(82, 180, 75);
-    position: relative;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Lato', sans-serif;
-    border-radius: 10px
+.active{
+    display:block;
 }
 
-.container .card .form {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    
+.btn_hide{
+    display:none;
 }
 
-.container .card .left-side {
-    width: 40%;
-    background-color: #fff;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000
+.form-check-label{
+    font-size: smaller;
 }
 
-.container .card .right-side {
-    width: 60%;
-    background-color: #fff;
-    height: 100%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-sizing: border-box;
-    padding: 20px
+.bg-success-form{
+ background-color:  rgb(82, 180, 75);
 }
 
-
-@media (max-width:750px) {
-    .container .card {
-        max-width: 350px;
-        height: auto;
-        margin: 50px 0
-    }
-
-    .container .card .right-side {
-        width: 100%;
-        border-radius: 10px
-    }
-
-    .container .card .left-side {
-        display: none
-    }
-
+.form-container{
+    max-height:400px;
 }

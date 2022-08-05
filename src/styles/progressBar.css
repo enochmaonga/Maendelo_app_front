@@ -6,7 +6,7 @@
     list-style: none;
     counter-increment: progress 1;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     font-size: 15px;  
     font-weight: 700;
     letter-spacing: 1px
@@ -36,11 +36,11 @@
 .progres_bar li::after {
     position: absolute;
     content: '';
-    height: 90px;
+    height: 40px;
     width: 4px;
     background-color: rgb(82, 180, 75);
     left: -27px;
-    top: -70px
+    top: -45px
 }
 
 .progres_bar li:nth-child(1)::after {
