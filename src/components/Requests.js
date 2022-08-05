@@ -34,7 +34,6 @@ class RequestsMenu extends Component{
                             <th>National ID</th>
                             <th>Phone</th>
                             <th>Date requested</th>
-                            <th>Due Date</th>
                             <th>Status</th>
                         </tr>
                     </tfoot>

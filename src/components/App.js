@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router,useRoutes} from 'react-router-dom';
-import RepairForm from './repairForm/RepairForm';
+//import {BrowserRouter as Router,useRoutes} from 'react-router-dom';
+//import RepairForm from './repairForm/RepairForm';
 import Header from './Header';
 import RequestsMenu from './RequestsMenu';
-import ViewRepairItems from './viewRepairItems/ViewRepairItems';
+//import ViewRepairItems from './viewRepairItems/ViewRepairItems';
 
  class App extends Component{
    render(){

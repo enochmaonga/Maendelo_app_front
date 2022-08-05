@@ -30,7 +30,7 @@ class TableModal extends Component {
                 </Modal.Header>
                 <Modal.Body>
 
-                    {(data.Name=="Raila Odinga")?"Blank":<p>{JSON.stringify(data)}</p>}
+                    {(data.Name==="Raila Odinga")?"Blank":<p>{JSON.stringify(data)}</p>}
                     
                     
 
