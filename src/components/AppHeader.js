@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
 
-function Header() {
+function AppHeader() {
   return (
     <>
       {[false].map((expand) => (
@@ -14,6 +14,7 @@ function Header() {
               src="./logo.png"
               height="24"
               className="d-inline-block align-text-top pe-3"
+              alt=""
             />
                 Maendeleo Tracker
             </Navbar.Brand>
@@ -24,4 +25,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default AppHeader;
