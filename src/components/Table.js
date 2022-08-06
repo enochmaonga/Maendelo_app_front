@@ -3,6 +3,7 @@ import axios from 'axios';
 import TableModal from './TableModal';
 import { Component } from 'react';
 
+const url ="https://maendeleo-app-backend.herokuapp.com";
 
 class Table extends Component{
             constructor(){
@@ -12,7 +13,7 @@ class Table extends Component{
 
 
             async componentDidMount(){
-            const response = await axios.get("http://localhost:5000/retail/requests/")
+            const response = await axios.get(url+"/retail/requests/")
             const json = await response;
             console.log(json)
             this.setState({ data: json.data });

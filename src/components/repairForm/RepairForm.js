@@ -5,6 +5,7 @@ import '../../styles/repairForm.css'
 import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 
+const url ="https://maendeleo-app-backend.herokuapp.com";
 
 class RepairForm extends Component{
     constructor(props){
@@ -84,12 +85,12 @@ class RepairForm extends Component{
 
     handleSubmitButton =()=>{
         this.setState({formNumber:6});
-        axios.post("http://localhost:5000/retail/requests/",this.state)
+        axios.post(url+"/retail/requests/",this.state)
         .then(res=>console.log(res));
     }
 
     checkRepairHistory = async (serial)=>{
-       let response=  await axios.get("http://localhost:5000/retail/requests/imei/"+serial)
+       let response=  await axios.get(url+"retail/requests/imei/"+serial)
         this.repairHistory(await response.data)  
        
     }
