@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
 
-function Header() {
+function AppHeader() {
   return (
     <>
       {[false].map((expand) => (
@@ -25,4 +25,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default AppHeader;
