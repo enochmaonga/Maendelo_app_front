@@ -14,6 +14,7 @@ function Header() {
               src="./logo.png"
               height="24"
               className="d-inline-block align-text-top pe-3"
+              alt=""
             />
                 Maendeleo Tracker
             </Navbar.Brand>
