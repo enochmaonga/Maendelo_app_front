@@ -986,7 +986,7 @@ class RepairForm extends Component{
                                          {
                                          (this.state.submitted)?
                                             <div className="alert alert-secondary text-center" role="alert">
-                                                    submitting
+                                                    Submitting...
                                                 </div>
                                          : 
                                             <div className="alert alert-success text-center" role="alert">
