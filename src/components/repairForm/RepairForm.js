@@ -11,6 +11,7 @@ class RepairForm extends Component{
     constructor(props){
         super(props);
         this.state={    repairHistoryLimit:false,
+                        submitted:false,
                         formNumber:0,
                         Name: "",
                         phone: "",
@@ -83,10 +84,16 @@ class RepairForm extends Component{
         this.setState({formNumber:(prev>0)?--prev:prev});
     }
 
-    handleSubmitButton =()=>{
-        this.setState({formNumber:6});
-        axios.post(url+"/retail/requests/",this.state)
-        .then(res=>console.log(res));
+    handleSubmitButton = async()=>{
+       
+        this.setState({formNumber:6})
+       let request = await  axios.post(url+"/retail/requests/",this.state);
+        if(request.state===4){
+            return this.setState({submitted:true});
+            
+        }
+
+       
     }
 
     checkRepairHistory = async (serial)=>{
@@ -167,7 +174,6 @@ class RepairForm extends Component{
                                             </div>
                                         </fieldset>
                                     </div>
-
 
                                     <div className={(this.state.formNumber === 1)?"main active":"main"}> 
                                         <fieldset>
@@ -949,12 +955,25 @@ class RepairForm extends Component{
                                         </fieldset>
                                     </div>
 
+                                    <div className={(this.state.formNumber === 4)?"main active":"main"}> 
+                                        <fieldset className="fs-5">   
+                                                <legend>Retail Center</legend>
+                                                    <div class="form-floating">
+                                                        <select name="retail_center" className="form-select" placeholder="Retail Center" value={this.state.retail_centre} onChange={e=>this.setState({retail_centre:e.target.value})} id="retail_center">
+                                                            <option value="JKIA">JKIA</option>
+                                                            <option value="Sarit">Sarit</option>
+                                                        </select>
+                                                        <label htmlFor="retail_center" className="form-label">Retail Center</label>
+                                                    </div>              
+                                        </fieldset>
+                                    </div>
+
                                     <div className={(this.state.formNumber === 5)?"main active":"main"}> 
                                         <fieldset className="fs-5">         
                                             <legend>Repair Center</legend>         
                                             <div class="form-floating">
                                                 
-                                                <select name="repair_center" value="" className="form-select" id="repair_center">
+                                                <select name="repair_center"  className="form-select" placeholder="Repair Center" value={this.state.repair_centre}  onChange={e=>{this.setState({repair_centre:e.target.value})}} id="repair_center">
                                                     <option value="Nokia">Nokia</option>
                                                     <option value="Samsung">Samsung</option>
                                                 </select>
@@ -963,20 +982,17 @@ class RepairForm extends Component{
                                         </fieldset>
                                     </div>
 
-                                    <div className={(this.state.formNumber === 4)?"main active":"main"}> 
-                                        <fieldset className="fs-5">   
-                                                <legend>Retail Center</legend>
-                                                    <div class="form-floating">
-                                                        <select name="retail_center" className="form-select" placeholder="Retail Center" value={this.state.retail} onChange={e=>this.setState({retail:e.target.value})} id="retail_center">
-                                                            <option value="JKIA">JKIA</option>
-                                                            <option value="Sarit">Sarit</option>
-                                                        </select>
-                                                        <label htmlFor="retail_center" className="form-label">Retail Center</label>
-                                                    </div>              
-                                        </fieldset>
-                                    </div>
                                     <div className={(this.state.formNumber > 5)?"main active":"main"}> 
-                                        
+                                         {
+                                         (this.state.submitted)?
+                                            <div className="alert alert-secondary text-center" role="alert">
+                                                    submitting
+                                                </div>
+                                         : 
+                                            <div className="alert alert-success text-center" role="alert">
+                                                    Your request has been submitted
+                                                </div>
+                                        }
                                     </div>      
                                 </div>
                                 <div className=" d-grid gap-4 d-md-block text-end"> 
