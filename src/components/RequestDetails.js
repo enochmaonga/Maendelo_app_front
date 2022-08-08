@@ -15,6 +15,13 @@ class RequestDetails extends Component{
         return status?"Yes":"No"
     }
 
+    dueDate=(timestamp)=>{
+        let requestDate = new Date(timestamp);
+        let dueDate = new Date();
+        dueDate.setDate(requestDate.getDate()+7);
+        return dueDate;
+      }
+
     render(){
         return(
                 <React.Fragment>
@@ -133,7 +140,7 @@ class RequestDetails extends Component{
                             <div className="row">
                                 <label htmlFor="staticCharger" className="col-sm-8 col-form-label">No touch</label>
                                 <div className="col-sm-4">
-                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value="Yes"/>
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.condition(this.state.data.Issues.display.noTouch)}/>
                             </div>
                             </div>
                             
@@ -218,13 +225,13 @@ class RequestDetails extends Component{
                             <div className="row">
                             <label htmlFor="staticCharger" className="col-sm-8 col-form-label">Faulty Keys</label>
                             <div className="col-sm-4">
-                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.Issues.physicalDamage.faultyKeys}/>
+                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.condition(this.state.data.Issues.physicalDamage.faultyKeys)}/>
                             </div>
                             </div>
                             <div className="row">
                             <label htmlFor="staticCharger" className="col-sm-8 col-form-label">Cracked Body</label>
                             <div className="col-sm-4">
-                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.Issues.physicalDamage.crackedBody}/>
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.condition(this.state.data.Issues.physicalDamage.crackedBody)}/>
                             </div>
                             </div>
 
@@ -248,19 +255,23 @@ class RequestDetails extends Component{
                         <div className="row">
                             <label htmlFor="staticRetail" className="col-sm-2 col-form-label">Request Date</label>
                             <div className="col-sm-8">
-                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.Timestamp}/>
+                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={new Date(this.state.data.Timestamp).toLocaleDateString()}/>
                             </div>
                         </div>
                         <div className="row">
                             <label htmlFor="staticRetail" className="col-sm-2 col-form-label">Due Date</label>
                             <div className="col-sm-8">
-                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.Timestamp}/>
+                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.dueDate(this.state.data.Timestamp).toLocaleDateString()}/>
                             </div>
                         </div>
                         <div className="row">
                             <label htmlFor="staticRetail" className="col-sm-2 col-form-label">Status</label>
                             <div className="col-sm-8">
-                            <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value="Past SLA"/>
+                               { (this.dueDate(this.state.data.Timestamp)>new Date())?
+                                    <input type="text" readOnly className="form-control-plaintext bg-success text-white" id="staticCharger" value="Within SLA"/>
+                                :
+                                    <input type="text" readOnly className="form-control-plaintext bg-danger text-white" id="staticCharger" value="Past SLA"/>
+                                }
                             </div>
                         </div>
                         <div className="row">
