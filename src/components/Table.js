@@ -20,9 +20,12 @@ class Table extends Component{
            
             };
 
-            dueDateCalc(timestamp){
-                return timestamp
-            }
+            dueDate=(timestamp)=>{
+                let requestDate = new Date(timestamp);
+                let dueDate = new Date();
+                dueDate.setDate(requestDate.getDate()+7);
+                return dueDate;
+              }
     
 
        render(){
@@ -33,9 +36,13 @@ class Table extends Component{
                     <td>{row.Name}</td>
                     <td>{row.national_id}</td>
                     <td>{row.phone}</td>
-                    <td>{new Date(this.dueDateCalc(row.Timestamp)).toLocaleDateString()}</td>
+                    <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
                     <td>
-                        {(new Date()<new Date(new Date().setDate(new Date(row.Timestamp).getDate()+7))?<span className="badge rounded-pill text-bg-success">Within SLA</span>:<span className="badge rounded-pill text-bg-danger">Past SLA</span>)}   
+                        {
+                        (this.dueDate(row.Timestamp)>new Date())?
+                        <span className="badge rounded-pill text-bg-success">Within SLA</span>:
+                        <span className="badge rounded-pill text-bg-danger">Past SLA</span>
+                        }   
                     </td>
                 </tr>)}
             </React.Fragment>);
