@@ -6,12 +6,13 @@ import RepairForm from './repairForm/RepairForm';
 //Home form
 import Home from './home/Home'
 
-class RequestsMenu extends Component{
+class RetailCenterRequestsMenu extends Component{
     constructor(props) {
         super(props);
         this.state = {
           count: 1
         };
+
       }
     render(){
         
@@ -58,4 +59,4 @@ class RequestsMenu extends Component{
     }
 }
 
-export default RequestsMenu;
+export default RetailCenterRequestsMenu;

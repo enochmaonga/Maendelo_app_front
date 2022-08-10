@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import RequestsMenu from '../RequestsMenu';
+import RetailCenterRequestsMenu from '../RetailCenterRequestsMenu';
 
 class LoginForm extends Component{
     constructor(){
@@ -14,7 +14,7 @@ class LoginForm extends Component{
                             
                             
                         if(this.state.email==="repair@mail.com"){
-                            this.setState({loggedin:true,role:"repair_suport",name:"Repair Support" username:this.state.email})
+                            this.setState({loggedin:true,role:"repair_suport",name:"Repair Support", username:this.state.email})
                         } 
                         
                     };
@@ -23,7 +23,7 @@ class LoginForm extends Component{
     render(){
         return(
             <React.Fragment>
-            {(this.state.loggedin===true)?<RequestsMenu role={this.state}/>:
+            {(this.state.loggedin===true&&this.state.role==="retail_agent")?<RetailCenterRequestsMenu role={this.state}/>:
             <main className="bg-light  h-100 d-flex align-items-center">
                 <div className="row w-100">
                 <div className="col-12 col-md-4 mx-auto rounded p-3 shadow">
