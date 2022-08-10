@@ -69,8 +69,8 @@ class RepairForm extends Component{
                         },
                         standByUnit:false,
                         standByUnitBrand:"",
-                        stadByUnitModel:"",
-                        stanByUnitSerial:"",
+                        standByUnitModel:"",
+                        standByUnitSerial:"",
                         retail_centre: "",
                         repair_centre: "",
                         status:[{
