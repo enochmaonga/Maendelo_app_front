@@ -238,7 +238,7 @@ class RequestDetails extends Component{
                         </fieldset>
 
                         <hr/>
-                        <fieldset className="col-sm-12 col-lg-5">
+                        <fieldset className="col-sm-12 col-lg-4">
                         <legend>Request Status</legend>
                             <div className="row ps-2">
                                 <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Retail</label>
@@ -281,6 +281,30 @@ class RequestDetails extends Component{
                                 </div>
                             </div>
                         </fieldset>
+
+                        {this.state.data.standByUnit?
+                        <fieldset className="col-sm-12 col-lg-4">
+                        <legend>Stand By Unit</legend>
+                            <div className="row ps-2">
+                                <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Brand</label>
+                                <div className="col-sm-8">
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger"  value={this.state.data.standByUnitBrand}/>
+                                </div>
+                            </div>
+                            <div className="row ps-2">
+                                <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Model</label>
+                                <div className="col-sm-8">
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.standByUnitModel}/>
+                                </div>
+                            </div>
+                            <div className="row ps-2">
+                                <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Request Date</label>
+                                <div className="col-sm-8">
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.standByUnitSerial}/>
+                                </div>
+                            </div>
+                        </fieldset>
+                        :""}
                     </div>
 
                     
