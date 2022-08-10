@@ -67,6 +67,10 @@ class RepairForm extends Component{
                             }	
                         
                         },
+                        standByUnit:false,
+                        standByUnitBrand:"",
+                        stadByUnitModel:"",
+                        stanByUnitSerial:"",
                         retail_centre: "",
                         repair_centre: "",
                         status:[{
@@ -273,7 +277,7 @@ class RepairForm extends Component{
                                                     <label className="form-check-label">Repair History</label>
                                                     <input type="checkbox"  name="repairHistory" className="form-check-input"
                                                         onChange ={()=>(this.state.repairHistory)?this.setState({repairHistory:false}):this.setState({repairHistory:true})}  
-                                                    checked = {this.state.repairHistory} id="repairHistory" />
+                                                    checked = {this.state.repairHistory} id="repairHistory" disabled/>
                                                 </div>
                                                 </div>
                                             </fieldset>       
