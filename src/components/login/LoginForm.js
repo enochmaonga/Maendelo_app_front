@@ -7,16 +7,23 @@ class LoginForm extends Component{
         this.state={loggedin:false}
     }
 
-    handleLogin=()=>{   (this.state.email==="retail@mail.com")? 
-                        this.setState({loggedin:true})
-                        :this.setState({loggedin:false})
+    handleLogin=()=>{   
+                        if(this.state.email==="retail@mail.com"){
+                            this.setState({loggedin:true,role:"retail_agent",name:"Retail Support" ,username:this.state.email})
+                        }
+                            
+                            
+                        if(this.state.email==="repair@mail.com"){
+                            this.setState({loggedin:true,role:"repair_suport",name:"Repair Support" username:this.state.email})
+                        } 
+                        
                     };
  
 
     render(){
         return(
             <React.Fragment>
-            {(this.state.loggedin===true)?<RequestsMenu />:
+            {(this.state.loggedin===true)?<RequestsMenu role={this.state}/>:
             <main className="bg-light  h-100 d-flex align-items-center">
                 <div className="row w-100">
                 <div className="col-12 col-md-4 mx-auto rounded p-3 shadow">
