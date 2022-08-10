@@ -1,11 +1,13 @@
 
 import React, { Component } from 'react';
 import ProgressBar from './ProgressBar';
+import { Form } from "react-bootstrap";
 import '../../styles/repairForm.css'
 import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 
-const url ="https://maendeleo-app-backend.herokuapp.com";
+//const url ="https://maendeleo-app-backend.herokuapp.com";
+const url ="http://localhost:5001";
 
 class RepairForm extends Component{
     constructor(props){
@@ -66,7 +68,12 @@ class RepairForm extends Component{
                         
                         },
                         retail_centre: "",
-                        repair_centre: ""
+                        repair_centre: "",
+                        status:[{
+                            state: "Pending",
+                            comments: "Pending repair"
+                            
+                        }]
                                  
                     }
 
@@ -92,12 +99,12 @@ class RepairForm extends Component{
             return this.setState({submitted:true});
             
         }
-
+    console.log(this.state.repair_centre)
        
     }
 
     checkRepairHistory = async (serial)=>{
-       let response=  await axios.get(url+"retail/requests/imei/"+serial)
+       let response=  await axios.get(url+"/retail/requests/imei/"+serial)
         this.repairHistory(await response.data)  
        
     }
@@ -166,7 +173,7 @@ class RepairForm extends Component{
                                                     <label for="nationalID" className="form-label">National Identification</label>  
                                                 </div>       
                                                 <div className="col-6 form-floating mb-3" >
-                                                    <input  type="text"  name="customer-altPhone" className="form-control" 
+                                                    <input  type="text" value={this.state.altPhone} name="customer-altPhone" className="form-control" onChange={e=>this.setState({altPhone:e.target.value})}
                                                             id="customerAltPhone" placeholder="Alternative Phone"/>
                                                     <label for="customerAltPhone" className="form-label">Alternative Phone</label>
                                                 </div>
@@ -958,11 +965,11 @@ class RepairForm extends Component{
                                     <div className={(this.state.formNumber === 4)?"main active":"main"}> 
                                         <fieldset className="fs-5">   
                                                 <legend>Retail Center</legend>
-                                                    <div class="form-floating">
-                                                        <select name="retail_center" className="form-select" placeholder="Retail Center" value={this.state.retail_centre} onChange={e=>this.setState({retail_centre:e.target.value})} id="retail_center">
+                                                <div class="form-floating">
+                                                    <Form.Select value={this.state.retail_centre} onChange={(e) => this.setState({retail_centre:e.target.value})}>
                                                             <option value="JKIA">JKIA</option>
                                                             <option value="Sarit">Sarit</option>
-                                                        </select>
+                                                    </Form.Select>
                                                         <label htmlFor="retail_center" className="form-label">Retail Center</label>
                                                     </div>              
                                         </fieldset>
@@ -972,12 +979,14 @@ class RepairForm extends Component{
                                         <fieldset className="fs-5">         
                                             <legend>Repair Center</legend>         
                                             <div class="form-floating">
-                                                
-                                                <select name="repair_center"  className="form-select" placeholder="Repair Center" value={this.state.repair_centre}  onChange={e=>{this.setState({repair_centre:e.target.value})}} id="repair_center">
-                                                    <option value="Nokia">Nokia</option>
-                                                    <option value="Samsung">Samsung</option>
-                                                </select>
-                                                <label htmlFor="repair_center" className="form-label">Repair Center</label> 
+                                            <Form.Select value={this.state.repair_centre} onChange={(e) => this.setState({repair_centre:e.target.value})}>
+                                                <option>Select a Repair Center</option>
+                                                <option value="Nokia">Nokia</option>
+                                                <option value="Samsung">Samsung</option>
+                                                <option value="Apple">Apple</option>
+                                            </Form.Select>
+                                            <label htmlFor="retail_center" className="form-label">Repair Center</label>                                            
+                      
                                             </div>
                                         </fieldset>
                                     </div>

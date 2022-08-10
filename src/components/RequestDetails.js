@@ -56,9 +56,9 @@ class RequestDetails extends Component{
                             </div>
                         </div>
                         <div className="row">
-                            <label htmlFor="staticAltPhone" className="col-sm-4 col-form-label">Alternative phone</label>
+                            <label htmlFor="staticAltPhone" className="col-sm-4 col-form-label">Alt phone</label>
                             <div className="col-sm-8">
-                            <input type="text" readOnly className="form-control-plaintext" id="staticAltPhone" value={this.state.alt_phone}/>
+                            <input type="text" readOnly className="form-control-plaintext" id="staticAltPhone" value={this.state.data.altPhone}/>
                             </div>
                         </div>
                         </fieldset>
@@ -243,13 +243,13 @@ class RequestDetails extends Component{
                             <div className="row ps-2">
                                 <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Retail</label>
                                 <div className="col-sm-8">
-                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger"  value={this.state.data.retail_center}/>
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger"  value={this.state.data.retail_centre}/>
                                 </div>
                             </div>
                             <div className="row ps-2">
                                 <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Repair Center</label>
                                 <div className="col-sm-8">
-                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.repair_center}/>
+                                <input type="text" readOnly className="form-control-plaintext" id="staticCharger" value={this.state.data.repair_centre}/>
                                 </div>
                             </div>
                             <div className="row ps-2">

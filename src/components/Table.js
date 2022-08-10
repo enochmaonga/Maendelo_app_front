@@ -3,7 +3,8 @@ import axios from 'axios';
 import TableModal from './TableModal';
 import { Component } from 'react';
 
-const url ="https://maendeleo-app-backend.herokuapp.com";
+//const url ="https://maendeleo-app-backend.herokuapp.com";
+const url ="http://localhost:5001";
 
 class Table extends Component{
             constructor(){
