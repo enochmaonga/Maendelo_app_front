@@ -39,7 +39,7 @@ class RepairCenterRequestsMenu extends Component{
                                 href="#">Resolved Requests</a>
                         </li>
                     </ul>
-                    {(this.state.count===1)?<Home/>:""}
+                    {(this.state.count===1)?<Home user={this.props.user}/>:""}
                     {(this.state.count===3)?<Requests/>:""}
                 </div>
             </div>

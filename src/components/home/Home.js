@@ -2,8 +2,8 @@ import React,{Component} from 'react'
 
 
 class Home extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={loggedin:false}
     }
 
@@ -14,7 +14,7 @@ class Home extends Component{
                 <div class="container">
                     <section class="row mx-auto p-5">
                     <article class="col-12">
-                        <h6 class="display-6">Welcome: Retail User</h6>
+                        <h6 class="display-6">Welcome: {this.props.user.name} </h6>
                     </article>
                     <fieldset class="col-lg-6  col-sm-12 mb-5">
                         <legend>Summary</legend>
@@ -48,14 +48,6 @@ class Home extends Component{
                         </article>
                     </fieldset>
                     
-                    <fieldset class="col-lg-6  col-sm-12 mb-5">
-                        <legend>Links</legend>
-                        <article >
-                        <p><a href="./repair_form.html">Book a request</a></p> 
-                        <p><a href="./pending.html">Pending requests</a></p>
-                        <p><a href="./repaired.html">Repaired</a></p>
-                        </article>
-                    </fieldset>
                     
                     </section>
                 </div>

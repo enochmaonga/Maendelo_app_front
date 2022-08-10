@@ -10,15 +10,20 @@ class LoginForm extends Component{
 
     handleLogin=()=>{   
                         if(this.state.email==="retail@mail.com"){
-                            this.setState({loggedin:true,role:"retail_agent",name:"Retail Support" ,username:this.state.email})
+                            this.setState({loggedin:true})
+                            this.setState({role:"retail_agent"})
+                            this.setState({name:"Retail"})
+                            this.setState({username:this.state.email})
+                            this.setState({internal:true})
                         }
                             
                             
                         if(this.state.email==="repair@mail.com"){
                             this.setState({loggedin:true})
                             this.setState({role:"repair_suport"})
-                            this.setState({name:"Repair Support"})
+                            this.setState({name:"Repair "})
                             this.setState({username:this.state.email})
+                            this.setState({internal:false})
                         } 
                         
                     };

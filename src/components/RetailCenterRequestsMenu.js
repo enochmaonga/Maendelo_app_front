@@ -47,7 +47,7 @@ class RetailCenterRequestsMenu extends Component{
                                 href="#">Back from repair</a>
                         </li>
                     </ul>
-                    {(this.state.count===1)?<Home/>:""}
+                    {(this.state.count===1)?<Home user={this.props.user}/>:""}
                     {(this.state.count===2)?<RepairForm/>:""}
                     {(this.state.count===3)?<Requests/>:""}
                 </div>
