@@ -42,9 +42,19 @@ class RequestsMenu extends Component{
                     <tfoot>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>National ID</th>
-                            <th>Phone</th>
+                            {this.props.user.internal?
+                            <>
+                                <th>Name</th>
+                                <th>National ID</th>
+                                <th>Phone</th>
+                            </>
+                            :
+                            <>
+                                <th>Retail</th>
+                                <th>Brand-Model</th>
+                                <th>Serial</th>
+                            </>
+                            }
                             <th>Date requested</th>
                             <th>Status</th>
                         </tr>
