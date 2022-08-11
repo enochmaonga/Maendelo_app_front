@@ -39,8 +39,8 @@ The application has four levels of access:
 7.	Customers will not waste time and fare(transport) to Safaricom to check on their phones.
 8.	Eliminates manual and annoying way of notifying the customers.
 9.	Resolves the issue of looking for repair centers to give feedback.
-10.	Once a phone has been booked more than three times, it gives a recommendation for swap.
-11.	Gives notification when an item is going past service level agreement(SLA).
+10. Once a phone has been booked more than three times, it gives a recommendation for swap.
+11. Gives notification when an item is going past service level agreement(SLA).
 
 ## Technologies Used
 - Html
@@ -52,6 +52,9 @@ The application has four levels of access:
 - Express
 - MongoDb
 - Github
+- Heroku
+
+
 ## Features
 
 - Login
