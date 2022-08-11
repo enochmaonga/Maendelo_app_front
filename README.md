@@ -81,23 +81,28 @@ Just log in
 ## Project Status
 This project is on its final stages.
 ## Room for Improvement
-This project in its entiety can have up to 5-6 levels of access but in this initial phase, we have done only two.<p>
+This project in its entiety can have up to 5-6 levels of access but in this initial phase, we have done only two levels of access namely:
+<li> Retail View
+<li> Repair Center view.<p>
   
-in the future phase, there is room to develope the remaining levels to accommodate more accesses.</p>
-Todo.
+In the future phase, there is room to develop the remaining levels to accommodate more accesses.</p>
+
 To include:
-   <li>-Admin level
-   <li> -Call center level
-    <li>-Customer access
-   <li> -Other intersted parties
+   <li>Admin level
+   <li>Call center level
+   <li>Customer access
+   <li>Other interested parties
 
 ## Acknowledgements
 We give credit to:
-Our Technical Mentor Mr Gideon Maroko
+<li>Our Technical Mentor Mr Gideon Maroko
 
 
 ## Contact
-- Created by Geoffrey Ochenge Odari, Racheal Gatchagu and Enoch Maonga
+Created by:
+<li> Geoffrey Odari
+<li>Racheal Gathagu
+<li>Enoch Maonga
 
 
 
