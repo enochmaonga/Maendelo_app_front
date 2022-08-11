@@ -24,7 +24,11 @@ class LoginForm extends Component{
                             this.setState({name:"Repair "})
                             this.setState({username:this.state.email})
                             this.setState({internal:false})
+                        }else{
+                            this.setState({message:"Wrong email or password"})
                         } 
+
+
                         
                     };
  
@@ -40,7 +44,7 @@ class LoginForm extends Component{
                 <div className="row w-100">
                 <div className="col-12 col-md-4 mx-auto rounded p-3 shadow">
                     <h6 className="display-6">Login</h6>
-                    
+                    <h6 className='text-danger text-center'>{this.state.message}</h6>                  
                     <div className="mb-3">
                         <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Email</label>
                         <input type="text"  value={this.state.value} className="form-control" id="staticEmail" onChange={e=>this.setState({email:e.target.value})}/>
