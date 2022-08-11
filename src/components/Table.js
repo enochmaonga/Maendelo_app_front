@@ -7,8 +7,8 @@ import { Component } from 'react';
 const url ="http://localhost:5001";
 
 class Table extends Component{
-            constructor(){
-                super()
+            constructor(props){
+                super(props)
                 this.state = { data: [] };
             }
 
@@ -33,10 +33,22 @@ class Table extends Component{
 
         return (<React.Fragment>
             {this.state.data.map(row=><tr key={row._id}>
-                    <td className="text-primary"><TableModal data={row}/></td>
-                    <td>{row.Name}</td>
-                    <td>{row.national_id}</td>
-                    <td>{row.phone}</td>
+                    <td className="text-primary"><TableModal data={row} user={this.props.user}/></td>
+                    {
+                    this.props.user.internal?
+                    <> 
+                        <td>{row.Name}</td>
+                        <td>{row.national_id}</td>
+                        <td>{row.phone}</td>
+                    </>
+                    :
+                    <> 
+                        <td>{row.retail_centre}</td>
+                        <td>{row.brand}-{row.model}</td>
+                        <td>{row.serial}</td>
+                    </>
+                    
+                    }
                     <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
                     <td>
                         {

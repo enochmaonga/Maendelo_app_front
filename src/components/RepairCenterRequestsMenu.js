@@ -40,7 +40,7 @@ class RepairCenterRequestsMenu extends Component{
                         </li>
                     </ul>
                     {(this.state.count===1)?<Home user={this.props.user}/>:""}
-                    {(this.state.count===3)?<Requests/>:""}
+                    {(this.state.count===3)?<Requests user={this.props.user} />:""}
                 </div>
             </div>
 
