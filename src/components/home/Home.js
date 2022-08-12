@@ -1,11 +1,22 @@
 import React,{Component} from 'react'
+import axios from 'axios';
 
+const url ="http://localhost:5001";
 
 class Home extends Component{
-    constructor(){
-        super();
-        this.state={loggedin:false}
+    constructor(props){
+        super(props);
+        this.state={loggedin:false,data:[]}
     }
+
+
+    async componentDidMount(){
+        const response = await axios.get(url+"/retail/requests/")
+        const json = await response;
+        console.log(json.data)
+        this.setState({ data: json.data });
+       
+        };
 
 
     render(){
@@ -14,14 +25,23 @@ class Home extends Component{
                 <div class="container">
                     <section class="row mx-auto p-5">
                     <article class="col-12">
-                        <h6 class="display-6">Welcome: Retail User</h6>
+                        <h6 class="display-6">Welcome: {this.props.user.name} </h6>
                     </article>
                     <fieldset class="col-lg-6  col-sm-12 mb-5">
                         <legend>Summary</legend>
                         <article class="col-6">
-                        <h6 class="d-flex justify-content-between align-items-start">Pending Requests<span class="badge bg-dark rounded-pill">14</span></h6>
-                        <h6 class="d-flex justify-content-between align-items-start">Out for repair<span class="badge bg-dark rounded-pill">14</span></h6>
-                        <h6 class="d-flex justify-content-between align-items-start">Repaired<span class="badge bg-dark rounded-pill">14</span></h6>
+                        <h6 class="d-flex justify-content-between align-items-start">
+                            {this.props.user.internal?"Send to repair":"Received request"}
+                            <span className="badge bg-danger rounded-pill">
+                                {this.state.data.length}
+                            </span>
+                        </h6>
+                        <h6 className="d-flex justify-content-between align-items-start">
+                        {this.props.user.internal?" Back from repair":"Resolved requests"}
+                            <span className="badge bg-success rounded-pill">
+                            {this.state.data.length}
+                            </span>
+                        </h6>
                         </article>
                     </fieldset>
                     
@@ -48,14 +68,6 @@ class Home extends Component{
                         </article>
                     </fieldset>
                     
-                    <fieldset class="col-lg-6  col-sm-12 mb-5">
-                        <legend>Links</legend>
-                        <article >
-                        <p><a href="./repair_form.html">Book a request</a></p> 
-                        <p><a href="./pending.html">Pending requests</a></p>
-                        <p><a href="./repaired.html">Repaired</a></p>
-                        </article>
-                    </fieldset>
                     
                     </section>
                 </div>

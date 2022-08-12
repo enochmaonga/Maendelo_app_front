@@ -3,11 +3,12 @@ import axios from 'axios';
 import TableModal from './TableModal';
 import { Component } from 'react';
 
-const url ="https://maendeleo-app-backend.herokuapp.com";
+//const url ="https://maendeleo-app-backend.herokuapp.com";
+const url ="http://localhost:5001";
 
 class Table extends Component{
-            constructor(){
-                super()
+            constructor(props){
+                super(props)
                 this.state = { data: [] };
             }
 
@@ -20,22 +21,41 @@ class Table extends Component{
            
             };
 
-            dueDateCalc(timestamp){
-                return timestamp
-            }
+            dueDate=(timestamp)=>{
+                let requestDate = new Date(timestamp);
+                let dueDate = new Date();
+                dueDate.setDate(requestDate.getDate()+2);
+                return dueDate;
+              }
     
 
        render(){
 
         return (<React.Fragment>
             {this.state.data.map(row=><tr key={row._id}>
-                    <td className="text-primary"><TableModal data={row}/></td>
-                    <td>{row.Name}</td>
-                    <td>{row.national_id}</td>
-                    <td>{row.phone}</td>
-                    <td>{new Date(this.dueDateCalc(row.Timestamp)).toLocaleDateString()}</td>
+                    <td className="text-primary"><TableModal data={row} user={this.props.user}/></td>
+                    {
+                    this.props.user.internal?
+                    <> 
+                        <td>{row.Name}</td>
+                        <td>{row.national_id}</td>
+                        <td>{row.phone}</td>
+                    </>
+                    :
+                    <> 
+                        <td>{row.retail_centre}</td>
+                        <td>{row.brand}-{row.model}</td>
+                        <td>{row.serial}</td>
+                    </>
+                    
+                    }
+                    <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
                     <td>
-                        {(new Date()<new Date(new Date().setDate(new Date(row.Timestamp).getDate()+7))?<span className="badge rounded-pill text-bg-success">Within SLA</span>:<span className="badge rounded-pill text-bg-danger">Past SLA</span>)}   
+                        {
+                        (this.dueDate(row.Timestamp)>new Date())?
+                        <span className="badge rounded-pill text-bg-success">Within SLA</span>:
+                        <span className="badge rounded-pill text-bg-danger">Past SLA</span>
+                        }   
                     </td>
                 </tr>)}
             </React.Fragment>);

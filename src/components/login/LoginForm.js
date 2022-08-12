@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
-import RequestsMenu from '../RequestsMenu';
+import RetailCenterRequestsMenu from '../RetailCenterRequestsMenu';
+import RepairCenterRequestsMenu from '../RepairCenterRequestsMenu';
 
 class LoginForm extends Component{
     constructor(){
@@ -7,21 +8,43 @@ class LoginForm extends Component{
         this.state={loggedin:false}
     }
 
-    handleLogin=()=>{   (this.state.email==="retail@mail.com")? 
-                        this.setState({loggedin:true})
-                        :this.setState({loggedin:false})
+    handleLogin=()=>{   
+                        if(this.state.email==="retail@mail.com"){
+                            this.setState({loggedin:true})
+                            this.setState({role:"retail_agent"})
+                            this.setState({name:"Retail"})
+                            this.setState({username:this.state.email})
+                            this.setState({internal:true})
+                        }
+                            
+                            
+                        if(this.state.email==="repair@mail.com"){
+                            this.setState({loggedin:true})
+                            this.setState({role:"repair_suport"})
+                            this.setState({name:"Repair "})
+                            this.setState({username:this.state.email})
+                            this.setState({internal:false})
+                        }else{
+                            this.setState({message:"Wrong email or password"})
+                        } 
+
+
+                        
                     };
  
 
     render(){
         return(
             <React.Fragment>
-            {(this.state.loggedin===true)?<RequestsMenu />:
+            {
+            (this.state.loggedin===true)?
+                (this.state.role==="retail_agent")?<RetailCenterRequestsMenu user={this.state}/>:<RepairCenterRequestsMenu user={this.state}/>
+            :
             <main className="bg-light  h-100 d-flex align-items-center">
                 <div className="row w-100">
                 <div className="col-12 col-md-4 mx-auto rounded p-3 shadow">
                     <h6 className="display-6">Login</h6>
-                    
+                    <h6 className='text-danger text-center'>{this.state.message}</h6>                  
                     <div className="mb-3">
                         <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Email</label>
                         <input type="text"  value={this.state.value} className="form-control" id="staticEmail" onChange={e=>this.setState({email:e.target.value})}/>

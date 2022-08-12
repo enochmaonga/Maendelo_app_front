@@ -6,12 +6,13 @@ import RepairForm from './repairForm/RepairForm';
 //Home form
 import Home from './home/Home'
 
-class RequestsMenu extends Component{
+class RetailCenterRequestsMenu extends Component{
     constructor(props) {
         super(props);
         this.state = {
           count: 1
         };
+
       }
     render(){
         
@@ -46,9 +47,9 @@ class RequestsMenu extends Component{
                                 href="#">Back from repair</a>
                         </li>
                     </ul>
-                    {(this.state.count===1)?<Home/>:""}
-                    {(this.state.count===2)?<RepairForm/>:""}
-                    {(this.state.count===3)?<Requests/>:""}
+                    {(this.state.count===1)?<Home user={this.props.user}/>:""}
+                    {(this.state.count===2)?<RepairForm  user={this.props.user}/>:""}
+                    {(this.state.count===3)?<Requests  user={this.props.user}/>:""}
                 </div>
             </div>
 
@@ -58,4 +59,4 @@ class RequestsMenu extends Component{
     }
 }
 
-export default RequestsMenu;
+export default RetailCenterRequestsMenu;
