@@ -18,7 +18,7 @@ class RequestDetails extends Component{
     dueDate=(timestamp)=>{
         let requestDate = new Date(timestamp);
         let dueDate = new Date();
-        dueDate.setDate(requestDate.getDate()+7);
+        dueDate.setDate(requestDate.getDate()+2);
         return dueDate;
       }
 
