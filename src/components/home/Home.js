@@ -1,7 +1,8 @@
 import React,{Component} from 'react'
 import axios from 'axios';
 
-const url ="http://localhost:5001";
+const url ="https://maendeleo-app-backend.herokuapp.com";
+//const url ="http://localhost:5001";
 
 class Home extends Component{
     constructor(props){
