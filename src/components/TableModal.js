@@ -6,7 +6,6 @@ import Modal from 'react-bootstrap/Modal';
 class TableModal extends Component {
     constructor(props){
         super(props)
-        this.props =props;
         this.state ={show:false};
     }
 
@@ -30,7 +29,7 @@ class TableModal extends Component {
                     <Modal.Title>{data._id}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <RequestDetails value={1} data={data}/>
+                    <RequestDetails value={1} data={data} user={this.props.user}/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>

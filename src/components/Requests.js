@@ -3,6 +3,9 @@ import Table from './Table';
 
 
 class RequestsMenu extends Component{
+        constructor(props){
+            super(props)
+        }
       
     
 
@@ -16,22 +19,42 @@ class RequestsMenu extends Component{
                     <thead >
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>National ID</th>
-                            <th>Phone</th>
+                            {this.props.user.internal?
+                            <>
+                                <th>Name</th>
+                                <th>National ID</th>
+                                <th>Phone</th>
+                            </>
+                            :
+                            <>
+                                <th>Retail</th>
+                                <th>Brand-Model</th>
+                                <th>Serial</th>
+                            </>
+                            }
                             <th>Date requested</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <Table />
+                        <Table user={this.props.user}/>
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>National ID</th>
-                            <th>Phone</th>
+                            {this.props.user.internal?
+                            <>
+                                <th>Name</th>
+                                <th>National ID</th>
+                                <th>Phone</th>
+                            </>
+                            :
+                            <>
+                                <th>Retail</th>
+                                <th>Brand-Model</th>
+                                <th>Serial</th>
+                            </>
+                            }
                             <th>Date requested</th>
                             <th>Status</th>
                         </tr>
