@@ -20,7 +20,7 @@ class LoginForm extends Component{
                             
                         if(this.state.email==="repair@mail.com"){
                             this.setState({loggedin:true})
-                            this.setState({role:"repair_suport"})
+                            this.setState({role:"repair_support"})
                             this.setState({name:"Repair "})
                             this.setState({username:this.state.email})
                             this.setState({internal:false})
