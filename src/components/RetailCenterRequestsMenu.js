@@ -43,13 +43,15 @@ class RetailCenterRequestsMenu extends Component{
                         </li>
                         <li className="nav-item">
                             <a 
-                                className="nav-link text-muted" 
+                                className="nav-link text-muted"
+                                onClick={()=>this.setState({count:4})}  
                                 href="#">Back from repair</a>
                         </li>
                     </ul>
                     {(this.state.count===1)?<Home user={this.props.user}/>:""}
                     {(this.state.count===2)?<RepairForm  user={this.props.user}/>:""}
-                    {(this.state.count===3)?<Requests  user={this.props.user}/>:""}
+                    {(this.state.count===3)?<Requests status={'Pending'} user={this.props.user}/>:""}
+                    {(this.state.count===4)?<Requests status={'Closed'} user={this.props.user}/>:""}
                 </div>
             </div>
 

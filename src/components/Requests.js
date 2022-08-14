@@ -37,7 +37,7 @@ class RequestsMenu extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <Table user={this.props.user}/>
+                        <Table status={this.props.status} user={this.props.user}/>
                     </tbody>
                     <tfoot>
                         <tr>

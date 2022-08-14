@@ -7,15 +7,17 @@ const url ="https://maendeleo-app-backend.herokuapp.com";
 class Home extends Component{
     constructor(props){
         super(props);
-        this.state={loggedin:false,data:[]}
+        this.state={loggedin:false,pending:[],closed:[]}
     }
 
 
     async componentDidMount(){
-        const response = await axios.get(url+"/retail/requests/")
+        const response = await axios.get(url+"/retail/requests/status/Pending")
+        const response2 = await axios.get(url+"/retail/requests/status/Closed")
         const json = await response;
-        console.log(json.data)
-        this.setState({ data: json.data });
+        const json2 = await response2;
+        this.setState({ pending: json.data });
+        this.setState({ closed: json2.data });
        
         };
 
@@ -34,13 +36,13 @@ class Home extends Component{
                         <h6 class="d-flex justify-content-between align-items-start">
                             {this.props.user.internal?"Send to repair":"Received request"}
                             <span className="badge bg-danger rounded-pill">
-                                {this.state.data.length}
+                                {this.state.pending.length}
                             </span>
                         </h6>
                         <h6 className="d-flex justify-content-between align-items-start">
                         {this.props.user.internal?" Back from repair":"Resolved requests"}
                             <span className="badge bg-success rounded-pill">
-                            {this.state.data.length}
+                            {this.state.closed.length}
                             </span>
                         </h6>
                         </article>
