@@ -35,9 +35,12 @@ class TableModal extends Component {
                     <Button variant="secondary" onClick={this.handleClose}>
                         Close
                     </Button>
-                    <Button variant="success" onClick={this.handleClose}>
-                        Save Changes
-                    </Button>
+                    {
+                    this.props.user.role==="repair_support"?
+                    <Button variant="danger" onClick={this.handleClose}>
+                        Update Request
+                    </Button>:""
+                    }
                 </Modal.Footer>
             </Modal>
             </>
