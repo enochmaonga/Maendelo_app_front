@@ -2,9 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import TableModal from './TableModal';
 import { Component } from 'react';
+import SERVERURL from '../gobalVars'
 
-const url ="https://maendeleo-app-backend.herokuapp.com";
-//const url ="http://localhost:5001";
 
 class Table extends Component{
             constructor(props){
@@ -14,7 +13,7 @@ class Table extends Component{
 
 
             async componentDidMount(){
-            const response = await axios.get(url+"/retail/requests/status/"+this.props.status)
+            const response = await axios.get(SERVERURL+"/retail/requests/status/"+this.props.status)
             const json = await response;
             console.log(json)
             this.setState({ data: json.data });

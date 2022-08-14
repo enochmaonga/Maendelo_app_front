@@ -1,8 +1,7 @@
 import React,{Component} from 'react'
 import axios from 'axios';
+import SERVERURL from '../../gobalVars';
 
-const url ="https://maendeleo-app-backend.herokuapp.com";
-//const url ="http://localhost:5001";
 
 class Home extends Component{
     constructor(props){
@@ -12,8 +11,8 @@ class Home extends Component{
 
 
     async componentDidMount(){
-        const response = await axios.get(url+"/retail/requests/status/Pending")
-        const response2 = await axios.get(url+"/retail/requests/status/Closed")
+        const response = await axios.get(SERVERURL+"/retail/requests/status/Pending")
+        const response2 = await axios.get(SERVERURL+"/retail/requests/status/Closed")
         const json = await response;
         const json2 = await response2;
         this.setState({ pending: json.data });
