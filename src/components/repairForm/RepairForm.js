@@ -135,7 +135,7 @@ class RepairForm extends Component{
                                 <h5>Repair Form</h5>
                             </div>
                             <div className="row bg-white bg-gradient"> 
-                                <div className=" left-side col-3 pt-3 ps-5"> 
+                                <div className=" left-side   col-lg-3 pt-3 ps-5"> 
                                     <ProgressBar value={this.state.formNumber}/>
                                 </div>
                                 <div className="right-side col-md-12 col-lg-9">
