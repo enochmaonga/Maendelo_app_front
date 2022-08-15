@@ -33,7 +33,7 @@ class Table extends Component{
         return (
         <React.Fragment>
             {this.state.data.map(row=><tr key={row._id}>
-                    <td className="text-primary"><TableModal data={row} user={this.props.user}/></td>
+                    
                     {
                     this.props.user.internal?
                     <> 
@@ -56,6 +56,9 @@ class Table extends Component{
                         <span className="badge rounded-pill text-bg-success">Within SLA</span>:
                         <span className="badge rounded-pill text-bg-danger">Past SLA</span>
                         }   
+                    </td>
+                    <td className="text-primary">
+                        <TableModal data={row} user={this.props.user}/>
                     </td>
                 </tr>)}
         </React.Fragment>);
