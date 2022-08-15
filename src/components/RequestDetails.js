@@ -335,7 +335,7 @@ class RequestDetails extends Component{
                             }
 
                             {
-                            !this.props.user.internal&&this.state.data.status[0].state==="Closed"?
+                            !this.props.user.internal&&this.state.data.status[0].state==="Pending"?
                               <div className="form-outline col-sm-12 col-lg-8">
                                 <textarea className="form-control" 
                                     value={(this.state.comments)}
@@ -352,7 +352,11 @@ class RequestDetails extends Component{
                               </div>
                               :
                               <>
-                                {this.state.data.status[0].comments}
+                                <div className="col-lg-8">
+                                    <h6 className={this.state.data.status[0].state==='Closed'?"text-success":"text-dark"}>{this.state.data.status[0].state}</h6>
+                                    <h6>Comments:</h6>
+                                    <p>{this.state.data.status[0].comments}</p>
+                                </div>
                               </>
                             }
                         </div>
