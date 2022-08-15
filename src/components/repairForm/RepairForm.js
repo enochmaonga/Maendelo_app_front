@@ -95,14 +95,25 @@ class RepairForm extends Component{
     }
 
     handleSubmitButton = async()=>{
-       
-        this.setState({formNumber:6})
-       let request = await  axios.post(SERVERURL+"/retail/requests/",this.state);
-        if(request.state===4){
-            return this.setState({submitted:true});
-            
+        if(this.state.Name.length===0||this.state.phone.length===0||this.state.email.length===0||this.state.national_id.length===0||this.state.altPhone.length===0){
+            this.setState({formNumber:0})
+        }else if(this.state.brand.length ===0||this.state.model.length ===0||this.state.imei.length === 0||this.state.serial.length === 0||this.state.receipt.length ===0){
+            this.setState({formNumber:1})
+        }else if(this.state.retail_centre.length === 0){
+            this.setState({formNumber:4})
+        }else if(this.state.repair_centre.length === 0){
+            this.setState({formNumber:5})
+        }else{
+            this.setState({formNumber:6})
+            let request = await  axios.post(SERVERURL+"/retail/requests/",this.state);
+                if(request.state===4){
+                    return this.setState({submitted:true});
+                    
+                }
+            console.log(this.state.repair_centre)
         }
-    console.log(this.state.repair_centre)
+        
+        
        
     }
 
@@ -142,6 +153,7 @@ class RepairForm extends Component{
                                     <div className={(this.state.formNumber === 0)?"main active":"main"}>
                                         <fieldset >
                                             <legend>Customer Details</legend>
+                                            <p className="text-danger">*All fields are mandatory</p>
                                             <div >
                                                 <div className="form-floating mb-3">
                                                 <input  type="text"  name="name"   className="form-control"
@@ -188,6 +200,7 @@ class RepairForm extends Component{
                                     <div className={(this.state.formNumber === 1)?"main active":"main"}> 
                                         <fieldset>
                                             <legend >Device Details</legend>
+                                            <p className="text-danger">*Fill in the device details</p>
                                             <div className="row">
                                                 <div className="col-6 form-floating mb-3">
                                                         <input type="text" name="serial" className="form-control"  
@@ -966,8 +979,9 @@ class RepairForm extends Component{
                                     </div>
 
                                     <div className={(this.state.formNumber === 4)?"main active":"main"}> 
-                                        <fieldset className="fs-5">   
+                                        <fieldset >   
                                                 <legend>Retail Center</legend>
+                                                <p className="text-danger">*Select your retail center</p>
                                                 <div class="form-floating">
                                                     <Form.Select value={this.state.retail_centre} onChange={(e) => this.setState({retail_centre:e.target.value})}>
                                                             <option value="JKIA">JKIA</option>
@@ -979,8 +993,9 @@ class RepairForm extends Component{
                                     </div>
 
                                     <div className={(this.state.formNumber === 5)?"main active":"main"}> 
-                                        <fieldset className="fs-5">         
-                                            <legend>Repair Center</legend>         
+                                        <fieldset >         
+                                            <legend>Repair Center</legend>
+                                            <p className="text-danger">*Select your repair center</p>         
                                             <div class="form-floating">
                                             <Form.Select value={this.state.repair_centre} onChange={(e) => this.setState({repair_centre:e.target.value})}>
                                                 <option>Select a Repair Center</option>
