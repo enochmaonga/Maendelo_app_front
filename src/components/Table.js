@@ -50,7 +50,7 @@ class Table extends Component{
                     
                     }
                     <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
-                    <td>
+                    <td>{row.status[0].state}-
                         {
                         (this.dueDate(row.Timestamp)>new Date())?
                         <span className="badge rounded-pill text-bg-success">Within SLA</span>:

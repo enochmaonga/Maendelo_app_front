@@ -14,7 +14,8 @@ class RequestsMenu extends Component{
       
         
         return(
-            <React.Fragment> 
+            <React.Fragment>
+                <div className="table-responsive ">
                 <table className="table table-warning table-responsive table-sm table-striped">
                     <thead >
                         <tr>
@@ -61,7 +62,7 @@ class RequestsMenu extends Component{
                         </tr>
                     </tfoot>
                 </table>
-
+            </div>
             </React.Fragment>
             
         )

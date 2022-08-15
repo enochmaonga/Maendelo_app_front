@@ -6,6 +6,9 @@ import RepairForm from './repairForm/RepairForm';
 //Home form
 import Home from './home/Home'
 
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+
 class RetailCenterRequestsMenu extends Component{
     constructor(props) {
         super(props);
@@ -19,39 +22,49 @@ class RetailCenterRequestsMenu extends Component{
 
         return(
             <React.Fragment>
-                <div >
+                
+
+
+            <div >
                 <div className="w-75 mx-auto pt-1">
-                <h6 className="display-6">Requests</h6>
-                    <ul className="nav nav-tabs">
-                        <li className="nav-item">
-                            <a 
-                                className="nav-link text-muted" 
-                                onClick={()=>this.setState({count:1})} 
-                                href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a 
-                                className="nav-link text-muted"  
-                                onClick={()=>this.setState({count:2})} 
-                                href="#">New request </a>
-                        </li>
-                        <li className="nav-item">
-                            <a  
-                               className="nav-link text-muted"  
-                               onClick={()=>this.setState({count:3})} 
-                               href="#">Sent to repair</a>
-                        </li>
-                        <li className="nav-item">
-                            <a 
-                                className="nav-link text-muted"
-                                onClick={()=>this.setState({count:4})}  
-                                href="#">Back from repair</a>
-                        </li>
-                    </ul>
-                    {(this.state.count===1)?<Home user={this.props.user}/>:""}
-                    {(this.state.count===2)?<RepairForm  user={this.props.user}/>:""}
-                    {(this.state.count===3)?<Requests status={'Pending'} user={this.props.user}/>:""}
-                    {(this.state.count===4)?<Requests status={'Closed'} user={this.props.user}/>:""}
+                    <h6 className="display-6">Requests</h6>
+                        <Navbar collapseOnSelect expand="lg">
+                        <Container>
+                            <Navbar.Toggle />
+                            <Navbar.Collapse>
+                                <ul className="navbar-nav nav-tabs">
+                                                        <li className="nav-item">
+                                                            <a 
+                                                                className="nav-link text-muted" 
+                                                                onClick={()=>this.setState({count:1})} 
+                                                                href="#">Home</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a 
+                                                                className="nav-link text-muted"  
+                                                                onClick={()=>this.setState({count:2})} 
+                                                                href="#">New request </a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a  
+                                                            className="nav-link text-muted"  
+                                                            onClick={()=>this.setState({count:3})} 
+                                                            href="#">Sent to repair</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a 
+                                                                className="nav-link text-muted"
+                                                                onClick={()=>this.setState({count:4})}  
+                                                                href="#">Back from repair</a>
+                                                        </li>
+                                </ul>
+                            </Navbar.Collapse>
+                        </Container>
+                        </Navbar>
+                        {(this.state.count===1)?<Home user={this.props.user}/>:""}
+                        {(this.state.count===2)?<RepairForm  user={this.props.user}/>:""}
+                        {(this.state.count===3)?<Requests status={'Pending'} user={this.props.user}/>:""}
+                        {(this.state.count===4)?<Requests status={'Closed'} user={this.props.user}/>:""}
                 </div>
             </div>
 
