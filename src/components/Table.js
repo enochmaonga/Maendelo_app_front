@@ -30,7 +30,8 @@ class Table extends Component{
 
        render(){
 
-        return (<React.Fragment>
+        return (
+        <React.Fragment>
             {this.state.data.map(row=><tr key={row._id}>
                     <td className="text-primary"><TableModal data={row} user={this.props.user}/></td>
                     {
@@ -57,7 +58,7 @@ class Table extends Component{
                         }   
                     </td>
                 </tr>)}
-            </React.Fragment>);
+        </React.Fragment>);
 
        }
             

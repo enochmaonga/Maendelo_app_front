@@ -1,15 +1,30 @@
 import React,{Component} from 'react';
 import '../styles/requestDetails.css'
+import axios from 'axios';
+import SERVERURL from '../gobalVars';
 
 class RequestDetails extends Component{
     constructor(props){
         super(props);
-        this.state={data:this.props.data}
-
-        console.log(this.props.value)
+        this.state  = {
+                        data:this.props.data,
+                        comments:""
+                        }
     }
 
-
+   
+    updateRequest= async()=>{
+       let payload = {status:  { state: 'Closed', comments: this.state.comments }}
+        this.setState({formNumber:6})
+       let request = await  axios.put(SERVERURL+"/retail/issues/"+this.state.data._id,payload);
+        if(request.state===4){
+            return this.setState({submitted:true});
+            
+        }
+        console.log(this.state.repair_centre)
+       
+    }
+ 
 
     condition(status){
         return status?"Yes":"No"
@@ -320,13 +335,24 @@ class RequestDetails extends Component{
                             }
 
                             {
-                            !this.props.user.internal?
+                            !this.props.user.internal&&this.state.data.status[0].state==="Closed"?
                               <div className="form-outline col-sm-12 col-lg-8">
-                                <textarea className="form-control" id="repairResponse" rows="8"></textarea>
+                                <textarea className="form-control" 
+                                    value={(this.state.comments)}
+                                    id="repairResponse" rows="8" 
+                                    onChange={(e)=>{
+                                        this.setState({comments:e.target.value})
+                                        
+                                    }}
+                                    >
+
+                                </textarea>
                                 <label className="form-label" for="textResponse">Comment</label>
+                                <button onClick={this.updateRequest}>Update</button>
                               </div>
                               :
                               <>
+                                {this.state.data.status[0].comments}
                               </>
                             }
                         </div>
