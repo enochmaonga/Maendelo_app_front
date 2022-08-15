@@ -348,7 +348,7 @@ class RequestDetails extends Component{
 
                                 </textarea>
                                 <label className="form-label" for="textResponse">Comment</label>
-                                <button onClick={this.updateRequest}>Update</button>
+                                <button className="btn btn-danger"onClick={this.updateRequest}>Update</button>
                               </div>
                               :
                               <>
