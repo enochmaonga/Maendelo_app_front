@@ -3,8 +3,7 @@ import Table from './Table';
 
 
 class Requests extends Component{
-        constructor(){
-        }
+      
       
     
 

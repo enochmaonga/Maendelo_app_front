@@ -191,7 +191,9 @@ class RepairForm extends Component{
                                                                 value={this.state.email} onChange={e=>this.setState({email:e.target.value})}
                                                                 id="email" placeholder="email"/>
                                                         <label for="email" className="form-label">Email</label>
-                                                        { !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email))?<small className="text-danger">*Provide a valid email</small>:""}
+                                                        { // eslint-disable-next-line
+                                                            !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email))?<small className="text-danger">*Provide a valid email</small>:""
+                                                        }
                                                     </div>
                                                     
                                                 </div>
