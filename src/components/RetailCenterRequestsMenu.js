@@ -34,28 +34,28 @@ class RetailCenterRequestsMenu extends Component{
                             <Navbar.Collapse>
                                 <ul className="navbar-nav nav-tabs">
                                                         <li className="nav-item">
-                                                            <a 
+                                                            <button 
                                                                 className="nav-link text-muted" 
                                                                 onClick={()=>this.setState({count:1})} 
-                                                                href="#">Home</a>
+                                                                >Home</button>
                                                         </li>
                                                         <li className="nav-item">
-                                                            <a 
+                                                            <button 
                                                                 className="nav-link text-muted"  
                                                                 onClick={()=>this.setState({count:2})} 
-                                                                href="#">New request </a>
+                                                                >New request </button>
                                                         </li>
                                                         <li className="nav-item">
-                                                            <a  
+                                                            <button  
                                                             className="nav-link text-muted"  
                                                             onClick={()=>this.setState({count:3})} 
-                                                            href="#">Sent to repair</a>
+                                                            >Sent to repair</button>
                                                         </li>
                                                         <li className="nav-item">
-                                                            <a 
+                                                            <button 
                                                                 className="nav-link text-muted"
                                                                 onClick={()=>this.setState({count:4})}  
-                                                                href="#">Back from repair</a>
+                                                                >Back from repair</button>
                                                         </li>
                                 </ul>
                             </Navbar.Collapse>

@@ -13,9 +13,10 @@ class Table extends Component{
 
 
             async componentDidMount(){
-            const response = await axios.get(SERVERURL+"/retail/requests/status/"+this.props.status)
+            let route = this.props.imei? "/retail/requests/imei/"+this.props.imei:"/retail/requests/status/"+this.props.status
+                console.log(route)
+            const response = await axios.get(SERVERURL+route)
             const json = await response;
-            console.log(json)
             this.setState({ data: json.data });
            
             };
@@ -52,9 +53,14 @@ class Table extends Component{
                     <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
                     <td>{row.status[0].state}-
                         {
-                        (this.dueDate(row.Timestamp)>new Date())?
-                        <span className="badge rounded-pill text-bg-success">Within SLA</span>:
-                        <span className="badge rounded-pill text-bg-danger">Past SLA</span>
+                            row.status[0].state==='Closed'?
+                            (this.dueDate(row.Timestamp)>new Date(row.status[0].timestamp))?
+                            <span className="badge rounded-pill text-bg-success">Within SLA</span>:
+                            <span className="badge rounded-pill text-bg-danger">Past SLA</span>
+                            :
+                            (this.dueDate(row.Timestamp)>new Date())?
+                            <span className="badge rounded-pill text-bg-success">Within SLA</span>:
+                            <span className="badge rounded-pill text-bg-danger">Past SLA</span>
                         }   
                     </td>
                     <td className="text-primary">

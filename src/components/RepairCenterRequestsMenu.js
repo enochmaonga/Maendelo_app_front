@@ -28,22 +28,22 @@ class RepairCenterRequestsMenu extends Component{
                             <Navbar.Collapse>
                             <ul className="navbar-nav nav-tabs">
                                 <li className="nav-item">
-                                    <a 
+                                    <button 
                                         className="nav-link text-muted" 
                                         onClick={()=>this.setState({count:1})} 
-                                        href="#">Home</a>
+                                        >Home</button>
                                 </li>
                                 <li className="nav-item">
-                                    <a  
+                                    <button 
                                     className="nav-link text-muted"  
                                     onClick={()=>this.setState({count:3})} 
-                                    href="#">Received Requests</a>
+                                    >Received Requests</button>
                                 </li>
                                 <li className="nav-item">
-                                    <a 
+                                    <button 
                                         className="nav-link text-muted" 
                                         onClick={()=>this.setState({count:4})} 
-                                        href="#">Resolved Requests</a>
+                                        >Resolved Requests</button>
                                 </li>
                             </ul>
                             </Navbar.Collapse>
