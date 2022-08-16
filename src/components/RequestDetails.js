@@ -111,7 +111,7 @@ class RequestDetails extends Component{
                         <div className="row">
                             <label htmlFor="staticReceipt" className="col-sm-4 col-form-label">Receipt</label>
                             <div className="col-sm-8">
-                            <input type="text" readOnly className="form-control-plaintext" id="staticReceipt" value={this.state.data.imei}/>
+                            <input type="text" readOnly className="form-control-plaintext" id="staticReceipt" value={this.state.data.receipt}/>
                             </div>
                         </div>
                         <div className="row">
