@@ -293,11 +293,19 @@ class RequestDetails extends Component{
                                 <div className="row ps-2">
                                     <label htmlFor="staticRetail" className="col-sm-4 col-form-label">Status</label>
                                     <div className="col-sm-8">
-                                    { (this.dueDate(this.state.data.Timestamp)>new Date())?
-                                            <input type="text" readOnly className="form-control-plaintext bg-success text-white" id="staticCharger" value="Within SLA"/>
+                                    {  
+                                        this.state.data.status[0].state==='Closed'?
+                                        (this.dueDate(this.state.data.Timestamp)>new Date(this.state.data.status[0].timestamp))?
+                                            <input type="text" readOnly className="form-control-plaintext bg-success text-white rounded" id="staticCharger" value="Within SLA"/>
+                                            :
+                                            <input type="text" readOnly className="form-control-plaintext bg-danger text-white rounded" id="staticCharger" value="Past SLA"/>
+                                        
                                         :
-                                            <input type="text" readOnly className="form-control-plaintext bg-danger text-white" id="staticCharger" value="Past SLA"/>
-                                        }
+                                        (this.dueDate(this.state.data.Timestamp)>new Date())?
+                                            <input type="text" readOnly className="form-control-plaintext bg-success text-white rounded" id="staticCharger" value="Within SLA"/>
+                                            :
+                                            <input type="text" readOnly className="form-control-plaintext bg-danger text-white rounded" id="staticCharger" value="Past SLA"/>
+                                    }
                                     </div>
                                 </div>
                                 <div className="row ps-2">

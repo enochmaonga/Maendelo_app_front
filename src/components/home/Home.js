@@ -70,7 +70,6 @@ class Home extends Component{
                         </article>
                     </fieldset>
                     
-                    
                     </section>
                 </div>
             </React.Fragment>
