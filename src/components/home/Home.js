@@ -33,7 +33,7 @@ class Home extends Component{
                         <legend>Summary</legend>
                         <article>
                         <h6 className="d-flex justify-content-between align-items-start">
-                            {this.props.user.internal?"Send to repair":"Received request"}
+                            {this.props.user.internal?"Sent to repair":"Received request"}
                             <span className="badge bg-danger rounded-pill">
                                 {this.state.pending.length}
                             </span>
