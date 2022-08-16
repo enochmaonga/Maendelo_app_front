@@ -4,7 +4,6 @@ import Table from './Table';
 
 class Requests extends Component{
       
-      
     
 
     render(){
@@ -36,7 +35,7 @@ class Requests extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <Table status={this.props.status} user={this.props.user}/>
+                        <Table imei={this.props.imei} status={this.props.status} user={this.props.user}/>
                     </tbody>
                     <tfoot>
                         <tr>

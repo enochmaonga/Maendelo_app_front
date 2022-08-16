@@ -13,9 +13,10 @@ class Table extends Component{
 
 
             async componentDidMount(){
-            const response = await axios.get(SERVERURL+"/retail/requests/status/"+this.props.status)
+            let route = this.props.imei? "/retail/requests/imei/"+this.props.imei:"/retail/requests/status/"+this.props.status
+                console.log(route)
+            const response = await axios.get(SERVERURL+route)
             const json = await response;
-            console.log(json)
             this.setState({ data: json.data });
            
             };

@@ -1,12 +1,19 @@
 import React,{Component} from 'react'
 import axios from 'axios';
 import SERVERURL from '../../gobalVars';
+import Requests from '../Requests';
 
 
 class Home extends Component{
     constructor(props){
         super(props);
-        this.state={loggedin:false,pending:[],closed:[]}
+        this.state={
+                        loggedin:false,
+                        pending:[],
+                        closed:[],
+                        imei:''
+                        
+                    }
     }
 
 
@@ -19,6 +26,14 @@ class Home extends Component{
         this.setState({ closed: json2.data });
        
         };
+
+    handleSearch=()=>  {
+    (this.state.imei.length>0)?this.setState({search:true}):this.setState({search:false})
+
+
+    }
+        
+  
 
 
     render(){
@@ -51,26 +66,28 @@ class Home extends Component{
                     <fieldset class="col-lg-6  col-sm-12 mb-5">
                         <legend>Search Requests</legend>
                         <article >
-                        <div class="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                            <label className="form-check-label" for="flexRadioDefault1">
-                            Request ID
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"/>
-                            <label className="form-check-label" for="flexRadioDefault2">
-                            Phone
-                            </label>
-                        </div>
                         <div class="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-dark" type="submit">Search</button>
+                            <input className="form-control me-2" 
+                                    type="search"
+                                    value={this.state.imei} 
+                                    placeholder="Search IMEI" 
+                                    aria-label="Search" 
+                                    onChange={e=>{this.setState({imei:e.target.value})}}/>
+                            <button className="btn btn-outline-dark" type="submit" onClick={this.handleSearch}>Search</button>
                         </div>
                         </article>
                     </fieldset>
                     
                     </section>
+                    {
+                    this.state.search? 
+                        <section>
+                            <h5>Search Results</h5>
+                            <Requests imei={this.state.imei} user={this.props.user}/>
+                        </section>
+                        :
+                        ""
+                    }
                 </div>
             </React.Fragment>
         )
