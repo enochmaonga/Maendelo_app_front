@@ -2,9 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import TableModal from './TableModal';
 import { Component } from 'react';
+import SERVERURL from '../gobalVars'
 
-//const url ="https://maendeleo-app-backend.herokuapp.com";
-const url ="http://localhost:5001";
 
 class Table extends Component{
             constructor(props){
@@ -14,7 +13,7 @@ class Table extends Component{
 
 
             async componentDidMount(){
-            const response = await axios.get(url+"/retail/requests/")
+            const response = await axios.get(SERVERURL+"/retail/requests/status/"+this.props.status)
             const json = await response;
             console.log(json)
             this.setState({ data: json.data });
@@ -31,9 +30,10 @@ class Table extends Component{
 
        render(){
 
-        return (<React.Fragment>
+        return (
+        <React.Fragment>
             {this.state.data.map(row=><tr key={row._id}>
-                    <td className="text-primary"><TableModal data={row} user={this.props.user}/></td>
+                    
                     {
                     this.props.user.internal?
                     <> 
@@ -50,15 +50,18 @@ class Table extends Component{
                     
                     }
                     <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
-                    <td>
+                    <td>{row.status[0].state}-
                         {
                         (this.dueDate(row.Timestamp)>new Date())?
                         <span className="badge rounded-pill text-bg-success">Within SLA</span>:
                         <span className="badge rounded-pill text-bg-danger">Past SLA</span>
                         }   
                     </td>
+                    <td className="text-primary">
+                        <TableModal data={row} user={this.props.user}/>
+                    </td>
                 </tr>)}
-            </React.Fragment>);
+        </React.Fragment>);
 
        }
             

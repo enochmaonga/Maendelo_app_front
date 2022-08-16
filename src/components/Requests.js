@@ -14,11 +14,11 @@ class RequestsMenu extends Component{
       
         
         return(
-            <React.Fragment> 
-                <table className="table table-warning table-sm table-striped">
+            <React.Fragment>
+                <div className="table-responsive ">
+                <table className="table table-warning table-responsive table-sm table-striped">
                     <thead >
                         <tr>
-                            <th>Id</th>
                             {this.props.user.internal?
                             <>
                                 <th>Name</th>
@@ -34,14 +34,15 @@ class RequestsMenu extends Component{
                             }
                             <th>Date requested</th>
                             <th>Status</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <Table user={this.props.user}/>
+                        <Table status={this.props.status} user={this.props.user}/>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Id</th>
+                            
                             {this.props.user.internal?
                             <>
                                 <th>Name</th>
@@ -57,10 +58,11 @@ class RequestsMenu extends Component{
                             }
                             <th>Date requested</th>
                             <th>Status</th>
+                            <th>Details</th>
                         </tr>
                     </tfoot>
                 </table>
-
+            </div>
             </React.Fragment>
             
         )

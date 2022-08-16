@@ -9,7 +9,7 @@ class LoginForm extends Component{
     }
 
     handleLogin=()=>{   
-                        if(this.state.email==="retail@mail.com"){
+                        if(this.state.email==="retail@mail.com"&&this.state.password==="pass1234"){
                             this.setState({loggedin:true})
                             this.setState({role:"retail_agent"})
                             this.setState({name:"Retail"})
@@ -18,9 +18,9 @@ class LoginForm extends Component{
                         }
                             
                             
-                        if(this.state.email==="repair@mail.com"){
+                        if(this.state.email==="repair@mail.com"&&this.state.password==="pass1234"){
                             this.setState({loggedin:true})
-                            this.setState({role:"repair_suport"})
+                            this.setState({role:"repair_support"})
                             this.setState({name:"Repair "})
                             this.setState({username:this.state.email})
                             this.setState({internal:false})
@@ -47,11 +47,11 @@ class LoginForm extends Component{
                     <h6 className='text-danger text-center'>{this.state.message}</h6>                  
                     <div className="mb-3">
                         <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Email</label>
-                        <input type="text"  value={this.state.value} className="form-control" id="staticEmail" onChange={e=>this.setState({email:e.target.value})}/>
+                        <input type="text"  value={this.state.email} className="form-control" id="staticEmail" onChange={e=>this.setState({email:e.target.value})}/>
                     </div>
                     <div className="mb-3 ">
                         <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
-                        <input type="password"  className="form-control" id="inputPassword" />
+                        <input type="password"  className="form-control" id="inputPassword"  onChange={e=>this.setState({password:e.target.value})}/>
                     </div>
                     <div className="mb-3 text-center">
                         <button className="btn btn-large btn-dark"  onClick={this.handleLogin}>Login</button>
