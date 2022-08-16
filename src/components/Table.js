@@ -52,9 +52,14 @@ class Table extends Component{
                     <td>{new Date(row.Timestamp).toLocaleDateString()}</td>
                     <td>{row.status[0].state}-
                         {
-                        (this.dueDate(row.Timestamp)>new Date())?
-                        <span className="badge rounded-pill text-bg-success">Within SLA</span>:
-                        <span className="badge rounded-pill text-bg-danger">Past SLA</span>
+                            row.status[0].state==='Closed'?
+                            (this.dueDate(row.Timestamp)>new Date(row.status[0].timestamp))?
+                            <span className="badge rounded-pill text-bg-success">Within SLA</span>:
+                            <span className="badge rounded-pill text-bg-danger">Past SLA</span>
+                            :
+                            (this.dueDate(row.Timestamp)>new Date())?
+                            <span className="badge rounded-pill text-bg-success">Within SLA</span>:
+                            <span className="badge rounded-pill text-bg-danger">Past SLA</span>
                         }   
                     </td>
                     <td className="text-primary">
