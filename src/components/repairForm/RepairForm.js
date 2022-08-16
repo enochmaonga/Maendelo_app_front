@@ -166,14 +166,14 @@ class RepairForm extends Component{
                                         <div className={(this.state.formNumber === 0)?"main active":"main"}>
                                             <fieldset >
                                                 <legend>Customer Details</legend>
-                                                <p className="text-danger">*All fields are mandatory</p>
+                                                
                                                 <div >
                                                     <div className="form-floating mb-3">
                                                     <input  type="text"  name="name"   className="form-control"
                                                             value={this.state.Name} onChange={e=>{this.setState({Name:e.target.value})}} 
                                                             id="customerName" placeholder="Name"/>
                                                             <label for="name" className="form-label">Name</label>
-                                                           { this.state.Name.length===0?<p className="text-danger">*Provide the name</p>:""}
+                                                           { this.state.Name.length===0?<small className="text-danger">*Provide the name</small>:""}
                                                     </div>
                                                     
                                                 </div>
@@ -183,14 +183,15 @@ class RepairForm extends Component{
                                                         <input  type="text"  name="phone" className="form-control"
                                                                 value={this.state.phone} onChange={e=>this.setState({phone:e.target.value})}  
                                                                 id="phone" placeholder="phone"/>
-                                                        <label for="phone" className="form-label">Phone</label>  
+                                                        <label for="phone" className="form-label">Phone</label>
+                                                        { this.state.phone.length===0?<small className="text-danger">*Provide the phone number</small>:""}    
                                                     </div>
                                                     <div className="col-6 form-floating mb-3"> 
                                                         <input  type="email"  name="email"  className="form-control"  
                                                                 value={this.state.email} onChange={e=>this.setState({email:e.target.value})}
                                                                 id="email" placeholder="email"/>
                                                         <label for="email" className="form-label">Email</label>
-                                                        { !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email))?<p className="text-danger">*Provide a valid email</p>:""}
+                                                        { !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email))?<small className="text-danger">*Provide a valid email</small>:""}
                                                     </div>
                                                     
                                                 </div>
@@ -201,12 +202,13 @@ class RepairForm extends Component{
                                                                 value={this.state.national_id} onChange={e=>this.setState({national_id:e.target.value})} 
                                                                 id="nationalID" placeholder="National Identification"/>
                                                         <label for="nationalID" className="form-label">National Identification</label>
-                                                          
+                                                        { this.state.national_id.length===0?<small className="text-danger">*Provide the national id</small>:""}
                                                     </div>       
                                                     <div className="col-6 form-floating mb-3" >
                                                         <input  type="text" value={this.state.altPhone} name="customer-altPhone" className="form-control" onChange={e=>this.setState({altPhone:e.target.value})}
                                                                 id="customerAltPhone" placeholder="Alternative Phone"/>
                                                         <label for="customerAltPhone" className="form-label">Alternative Phone</label>
+                                                        { this.state.altPhone.length===0?<small className="text-danger">*an alternative phone</small>:""}
                                                     </div>
                                                     
                                                 </div>
@@ -216,12 +218,13 @@ class RepairForm extends Component{
                                         <div className={(this.state.formNumber === 1)?"main active":"main"}> 
                                             <fieldset>
                                                 <legend >Device Details</legend>
-                                                <p className="text-danger">*Fill in the device details</p>
+                                                
                                                 <div className="row">
                                                     <div className="col-6 form-floating mb-3">
                                                             <input type="text" name="serial" className="form-control"  
                                                                     id="serial" onChange={e=>{this.setState({serial:e.target.value}); this.setState({imei:e.target.value});this.checkRepairHistory(e.target.value)}} placeholder="serial" />
-                                                            <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
+                                                            <label htmlFor="serial" className="form-label">Serial/IMEI</label>
+                                                            { this.state.serial.length===0?<small className="text-danger">*Provide the device serial</small>:""}
                                                     </div>
                                             
                                                     <div className="col-6 form-floating mb-3">
@@ -229,7 +232,8 @@ class RepairForm extends Component{
                                                                     value={this.state.receipt} 
                                                                     onChange={e=>this.setState({receipt:e.target.value})}  
                                                                     id="receipt" placeholder="receipt" />
-                                                            <label htmlFor="receipt" className="form-label">Receipt</label>  
+                                                            <label htmlFor="receipt" className="form-label">Receipt</label>
+                                                            { this.state.receipt.length===0?<small className="text-danger">*Provide the receipt</small>:""}  
                                                     </div>
                                                 </div>
                                     
@@ -252,7 +256,8 @@ class RepairForm extends Component{
                                                                 value={this.state.brand} 
                                                                 onChange={e=>this.setState({brand:e.target.value})} 
                                                                 id="brand" placeholder="Brand"/>
-                                                        <label htmlFor="brand" className="form-label">Brand</label>  
+                                                        <label htmlFor="brand" className="form-label">Brand</label>
+                                                        {!this.state.brand?<small className="text-danger">*Provide the device brand</small>:""}  
                                                     </div>
                                             
                                                     <div className="col-6 form-floating mb-3">
@@ -261,6 +266,7 @@ class RepairForm extends Component{
                                                                 onChange={e=>{this.setState({model:e.target.value})}} 
                                                                 id="model" placeholder="Model" />
                                                         <label htmlFor="model" className="form-label">Model</label>
+                                                        {!this.state.model?<small className="text-danger">*Provide the device model</small>:""}  
                                                     </div>
                                                     
                                                 </div>
@@ -997,13 +1003,15 @@ class RepairForm extends Component{
                                         <div className={(this.state.formNumber === 4)?"main active":"main"}> 
                                             <fieldset >   
                                                     <legend>Retail Center</legend>
-                                                    <p className="text-danger">*Select your retail center</p>
+                        
                                                     <div class="form-floating">
                                                         <Form.Select value={this.state.retail_centre} onChange={(e) => this.setState({retail_centre:e.target.value})}>
+                                                                <option>Select a Retail Center</option>
                                                                 <option value="JKIA">JKIA</option>
                                                                 <option value="Sarit">Sarit</option>
                                                         </Form.Select>
                                                             <label htmlFor="retail_center" className="form-label">Retail Center</label>
+                                                            { this.state.retail_centre.length===0?<small className="text-danger">*select your retail center</small>:""}
                                                         </div>              
                                             </fieldset>
                                         </div>
@@ -1011,7 +1019,6 @@ class RepairForm extends Component{
                                         <div className={(this.state.formNumber === 5)?"main active":"main"}> 
                                             <fieldset >         
                                                 <legend>Repair Center</legend>
-                                                <p className="text-danger">*Select your repair center</p>         
                                                 <div class="form-floating">
                                                 <Form.Select value={this.state.repair_centre} onChange={(e) => this.setState({repair_centre:e.target.value})}>
                                                     <option>Select a Repair Center</option>
@@ -1019,8 +1026,8 @@ class RepairForm extends Component{
                                                     <option value="Samsung">Samsung</option>
                                                     <option value="Apple">Apple</option>
                                                 </Form.Select>
-                                                <label htmlFor="retail_center" className="form-label">Repair Center</label>                                            
-                        
+                                                <label htmlFor="repair_center" className="form-label">Repair Center</label>                                            
+                                                { this.state.repair_centre.length===0?<small className="text-danger">*select a repair center</small>:""}
                                                 </div>
                                             </fieldset>
                                         </div>
