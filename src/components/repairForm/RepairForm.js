@@ -331,7 +331,7 @@ class RepairForm extends Component{
                                         <fieldset className="row p-1" id="Issue">
                                             <legend>Device Faults</legend>   
                             
-                                            <fieldset className="col-4 pt-1" id="display">
+                                            <fieldset className="col-sm-12 col-lg-4 pt-1" id="display">
                                                 <legend className="fs-5">Display</legend>
                                                 <div className="row ps-3">
                                                     <div className="form-check">
@@ -429,7 +429,7 @@ class RepairForm extends Component{
                                                 </div>
                                             </fieldset>
                             
-                                            <fieldset className="col-4 pt-1"  id="power">
+                                            <fieldset className="col-sm-12 col-lg-4 pt-1"  id="power">
                                                 <legend className="fs-5">Power</legend>
                                                 <div className="row ps-3">
                                                 <div className="form-check">                        
@@ -532,7 +532,7 @@ class RepairForm extends Component{
                                         
                                             </fieldset>
                             
-                                            <fieldset className="col-4 pt-1" id="speaker">
+                                            <fieldset className="col-sm-12 col-lg-4 pt-1" id="speaker">
                                                 <legend className="fs-5">Speaker</legend>
                                                     <div className='row ps-3'>
                                                     <div className="form-check">  
@@ -635,7 +635,7 @@ class RepairForm extends Component{
                                                     </div>                         
                                             </fieldset>
                                         
-                                            <fieldset className="col-4 pt-1"  id="network">
+                                            <fieldset className="col-sm-12 col-lg-4 pt-1"  id="network">
                                                 <legend className="fs-5">Network</legend>
                                                 <div className='row ps-3'>
                                                 <div className="form-check">
@@ -771,7 +771,7 @@ class RepairForm extends Component{
                                                                     
                                             </fieldset>
                                         
-                                            <fieldset className="col-4 pt-1"  id="physicalDamage">
+                                            <fieldset className="col-sm-12 col-lg-4 pt-1"  id="physicalDamage">
                                                 <legend className="fs-5">Physical Damage</legend>
                                                 <div className='row ps-3'>
                                                 <div className="form-check">      
@@ -844,7 +844,7 @@ class RepairForm extends Component{
                                                 </div>                    
                                             </fieldset>
                                         
-                                            <fieldset className="col-4 pt-1" id="Software">
+                                            <fieldset className="col-sm-12 col-lg-4 pt-1" id="Software">
                                                 <legend className="fs-5">Software</legend>
                                                 <div className="row ps-3">
                                                 <div className="form-check">   
