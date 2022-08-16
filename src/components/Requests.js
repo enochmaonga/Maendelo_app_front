@@ -2,9 +2,8 @@ import React,{Component} from 'react';
 import Table from './Table';
 
 
-class RequestsMenu extends Component{
-        constructor(props){
-            super(props)
+class Requests extends Component{
+        constructor(){
         }
       
     
@@ -69,4 +68,4 @@ class RequestsMenu extends Component{
     }
 }
 
-export default RequestsMenu;
+export default Requests;
