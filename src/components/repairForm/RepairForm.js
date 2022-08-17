@@ -122,7 +122,7 @@ class RepairForm extends Component{
                             return this.setState({submitted:true});
                             
                         }
-            console.log(this.state.repair_centre)
+            console.log(this.state.accessories)
         }
         
         
@@ -280,13 +280,53 @@ class RepairForm extends Component{
                                                         <div className="form-check">  
                                                                     <label htmlFor="battery" className="form-check-label">Battery</label>
                                                                     <input type="checkbox" id="battery" className="form-check-input"
-                                                                        onChange ={()=>(this.state.battery)?this.setState({battery:false}):this.setState({battery:true})}
+                                                                                onChange ={()=>
+                                                                                    (!this.state.accessories.battery)?
+                                                                                            this.setState( prevState=>
+                                                                                                ({
+                                                                                                    ...prevState,
+                                                                                                    accessories:{
+                                                                                                        ...prevState.accessories,
+                                                                                                                battery:true
+                                                                                                        }
+                                                                                                }))
+                                                                                            
+                                                                                        :
+                                                                                            this.setState( prevState=>
+                                                                                                ({
+                                                                                                    ...prevState,
+                                                                                                    accessories:{
+                                                                                                        ...prevState.accessories,
+                                                                                                            battery:false
+                                                                                                        }
+                                                                                                }))
+                                                                                            }
                                                                         name="battery" />
                                                         </div>
                                                     <div className="form-check">  
                                                                 <label htmlFor="charger" className="form-check-label">Charger</label>
                                                                 <input type="checkbox" id="charger" className="form-check-input"
-                                                                    onChange ={()=>(this.state.charger)?this.setState({charger:false}):this.setState({charger:true})}
+                                                                    onChange ={()=>
+                                                                        (!this.state.accessories.charger)?
+                                                                                this.setState( prevState=>
+                                                                                    ({
+                                                                                        ...prevState,
+                                                                                        accessories:{
+                                                                                            ...prevState.accessories,
+                                                                                                    charger:true
+                                                                                            }
+                                                                                    }))
+                                                                                
+                                                                            :
+                                                                                this.setState( prevState=>
+                                                                                    ({
+                                                                                        ...prevState,
+                                                                                        accessories:{
+                                                                                            ...prevState.accessories,
+                                                                                                charger:false
+                                                                                            }
+                                                                                    }))
+                                                                                }
                                                                     name="charger" />
                                                     </div>
                                                     </div>
