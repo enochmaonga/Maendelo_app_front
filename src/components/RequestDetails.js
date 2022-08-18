@@ -45,7 +45,7 @@ class RequestDetails extends Component{
                     {
 
                         this.state.submitted?
-                            <h6>Saved</h6>
+                            <h6 className="text-center">The request has been updated</h6>
                         :
                             <section className="row">
                             <h6 className="display-6">Details</h6>
