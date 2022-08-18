@@ -1051,7 +1051,7 @@ class RepairForm extends Component{
                                                                 <option>Select a Retail Center</option>
                                                                 <option value="JKIA">JKIA</option>
                                                                 <option value="Sarit">Sarit</option>
-                                                                <option value="Sarit">Kisii</option>
+                                                                <option value="Kisii">Kisii</option>
                                                         </Form.Select>
                                                             <label htmlFor="retail_center" className="form-label">Retail Center</label>
                                                             { this.state.retail_centre.length===0?<small className="text-danger">*select your retail center</small>:""}
@@ -1068,7 +1068,7 @@ class RepairForm extends Component{
                                                     <option value="Nokia">Nokia</option>
                                                     <option value="Samsung">Samsung</option>
                                                     <option value="Apple">Apple</option>
-                                                    <option value="Apple">Carlcare</option>
+                                                    <option value="Carlcare">Carlcare</option>
                                                 </Form.Select>
                                                 <label htmlFor="repair_center" className="form-label">Repair Center</label>                                            
                                                 { this.state.repair_centre.length===0?<small className="text-danger">*select a repair center</small>:""}
