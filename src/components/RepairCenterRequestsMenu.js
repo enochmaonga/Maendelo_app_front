@@ -20,6 +20,7 @@ class RepairCenterRequestsMenu extends Component{
         return(
             <React.Fragment>
                 <div >
+            <a href="/" class="btn btn-dark position-absolute top-1 end-0 m-3">Logout</a>
                 <div className="w-75 mx-auto pt-1">
                 <h6 className="display-6">Requests</h6>
                 <Navbar collapseOnSelect expand="lg">
