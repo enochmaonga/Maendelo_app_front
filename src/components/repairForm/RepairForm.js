@@ -243,7 +243,7 @@ class RepairForm extends Component{
                                                 {(this.state.repairHistoryLimit||this.state.serial==="")?
                                                     (this.state.repairHistoryLimit&&this.state.repairHistory)?
                                                     <Alert  variant="danger">
-                                                        Maximum number of repairs
+                                                        Maximum number of repairs, consider a swap
                                                     </Alert>
                                                         :
                                                     <Alert  variant="info">
