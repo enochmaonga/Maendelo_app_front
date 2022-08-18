@@ -161,44 +161,11 @@ class RepairForm extends Component{
                                     <div className=" left-side   col-lg-3 pt-3 ps-5"> 
                                         <ProgressBar value={this.state.formNumber}/>
                                     </div>
-<<<<<<< Updated upstream
                                     
                                     <div className="right-side col-md-12 col-lg-9">
                                         <div className={(this.state.formNumber === 0)?"main active":"main"}>
                                             <fieldset >
                                                 <legend>Customer Details</legend>
-=======
-
-                                    <div className={(this.state.formNumber === 1)?"main active":"main"}> 
-                                        <fieldset>
-                                            <legend >Device Details</legend>
-                                            <div className="row">
-                                                <div className="col-6 form-floating mb-3">
-                                                        <input type="text" name="serial" className="form-control"  
-                                                                id="serial" onChange={e=>{this.setState({serial:e.target.value}); this.setState({imei:e.target.value});this.checkRepairHistory(e.target.value)}} placeholder="serial" />
-                                                        <label htmlFor="serial" className="form-label">Serial/IMEI</label> 
-                                                </div>
-                                        
-                                                <div className="col-6 form-floating mb-3">
-                                                        <input type="text" name="receipt" className="form-control"
-                                                                value={this.state.receipt} 
-                                                                onChange={e=>this.setState({receipt:e.target.value})}  
-                                                                id="receipt" placeholder="receipt" />
-                                                        <label htmlFor="receipt" className="form-label">Receipt</label>  
-                                                </div>
-                                            </div>
-                                
-                                            
-                                            {(this.state.repairHistoryLimit||this.state.serial==="")?
-                                                (this.state.repairHistoryLimit&&this.state.repairHistory)?
-                                                <Alert  variant="danger">
-                                                    Maximum number of repairs, Consider a swap
-                                                </Alert>
-                                                    :
-                                                <Alert  variant="info">
-                                                    Please enter the device serial number
-                                                </Alert>
->>>>>>> Stashed changes
                                                 
                                                 <div >
                                                     <div className="form-floating mb-3">
@@ -1084,6 +1051,7 @@ class RepairForm extends Component{
                                                                 <option>Select a Retail Center</option>
                                                                 <option value="JKIA">JKIA</option>
                                                                 <option value="Sarit">Sarit</option>
+                                                                <option value="Sarit">Kisii</option>
                                                         </Form.Select>
                                                             <label htmlFor="retail_center" className="form-label">Retail Center</label>
                                                             { this.state.retail_centre.length===0?<small className="text-danger">*select your retail center</small>:""}
@@ -1095,7 +1063,6 @@ class RepairForm extends Component{
                                             <fieldset >         
                                                 <legend>Repair Center</legend>
                                                 <div class="form-floating">
-<<<<<<< Updated upstream
                                                 <Form.Select value={this.state.repair_centre} onChange={(e) => this.setState({repair_centre:e.target.value})}>
                                                     <option>Select a Repair Center</option>
                                                     <option value="Nokia">Nokia</option>
@@ -1127,54 +1094,6 @@ class RepairForm extends Component{
                                         <button className={this.state.formNumber<5?"btn btn-success":"btn_hide"} onClick={this.handleNextButton}>Next</button>
                                         <button className={this.state.formNumber===5?"btn btn-danger":"btn_hide"} onClick={this.handleSubmitButton} >Submit</button>  
                                     </div>  
-=======
-                                                    <Form.Select value={this.state.retail_centre} onChange={(e) => this.setState({retail_centre:e.target.value})}>
-                                                            <option value="JKIA">JKIA</option>
-                                                            <option value="Sarit">Sarit</option>
-                                                            <option value="JKIA">Kisii</option>
-                                                            <option value="Sarit">Kisumu</option>
-                                                    </Form.Select>
-                                                        <label htmlFor="retail_center" className="form-label">Retail Center</label>
-                                                    </div>              
-                                        </fieldset>
-                                    </div>
-
-                                    <div className={(this.state.formNumber === 5)?"main active":"main"}> 
-                                        <fieldset className="fs-5">         
-                                            <legend>Repair Center</legend>         
-                                            <div class="form-floating">
-                                            <Form.Select value={this.state.repair_centre} onChange={(e) => this.setState({repair_centre:e.target.value})}>
-                                                <option>Select a Repair Center</option>
-                                                <option value="Nokia">Nokia</option>
-                                                <option value="Samsung">Samsung</option>
-                                                <option value="Apple">Apple</option>
-                                                <option value="Apple">Oppo</option>
-                                                <option value="Apple">Carlcare</option>
-                                            </Form.Select>
-                                            <label htmlFor="retail_center" className="form-label">Repair Center</label>                                            
-                      
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <div className={(this.state.formNumber > 5)?"main active":"main"}> 
-                                         {
-                                         (this.state.submitted)?
-                                            <div className="alert alert-secondary text-center" role="alert">
-                                                    Submitting...
-                                                </div>
-                                         : 
-                                            <div className="alert alert-success text-center" role="alert">
-                                                    Your request has been submitted
-                                                </div>
-                                        }
-                                    </div>      
-                                </div>
-                                <div className=" d-grid gap-4 d-md-block text-end"> 
-                                    <button className={this.state.formNumber>0&&this.state.formNumber<5?"btn btn-success":"btn_hide"} onClick={this.handlePrevButton}>Previous</button> 
-                                    <button className={this.state.formNumber<5?"btn btn-success":"btn_hide"} onClick={this.handleNextButton}>Next</button>
-                                    <button className={this.state.formNumber===5?"btn btn-danger":"btn_hide"} onClick={this.handleSubmitButton} >Submit</button>  
->>>>>>> Stashed changes
                                 </div>  
                         </div>  
                     </div>
