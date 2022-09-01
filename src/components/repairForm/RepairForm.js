@@ -409,7 +409,7 @@ class RepairForm extends Component{
                                                                         id="cracked" />
                                                     </div>
                                                     <div className="form-check">
-                                                            <label htmlFor='notWorking' className="form-check-label">Not Powering Up</label>
+                                                            <label htmlFor='notWorking' className="form-check-label">Not Powering on</label>
                                                             <input type="checkbox"  name="notWorking" className="display form-check-input" onChange ={()=>
                                                                     (!this.state.Issues.display.cracked)?
                                                                             this.setState( prevState=>
@@ -475,7 +475,7 @@ class RepairForm extends Component{
                                                 <legend className="fs-5">Power</legend>
                                                 <div className="row ps-3">
                                                 <div className="form-check">                        
-                                                    <label className="power form-check-label" >Not Powering Up</label>
+                                                    <label className="power form-check-label" >Not Powering on</label>
                                                     <input type="checkbox"  name="notPoweringUp" className="power form-check-input" 
                                                             onChange ={()=>
                                                                 (!this.state.Issues.power.notPoweringUp)?
@@ -1052,6 +1052,38 @@ class RepairForm extends Component{
                                                                 <option value="JKIA">JKIA</option>
                                                                 <option value="Sarit">Sarit</option>
                                                                 <option value="Kisii">Kisii</option>
+                                                                <option value="Jubilee">Jubilee</option>
+                                                                <option value="Kiumu Tuff Mall">Kiumu Tuff Mall</option>
+                                                                <option value="Migori">Migori</option>
+                                                                <option value="Kakamega">Kakamega</option>
+                                                                <option value="Bungoma">Bungoma</option>
+                                                                <option value="Busia">Busia</option>
+                                                                <option value="Kitale">Kitale</option>
+                                                                <option value="Nakuru Ereto">Nakuru Ereto</option>
+                                                                <option value="Nakuru West Mall">Nakuru West Mall</option>
+                                                                <option value="Kericho">Kericho</option>
+                                                                <option value="Nanyuki">Nanyuki</option>
+                                                                <option value="Junction">Junction</option>
+                                                                <option value="Moi Avenue">Moi Avenue</option>
+                                                                <option value="I and M">I and M</option>
+                                                                <option value="Eldoret">Eldoret</option>
+                                                                <option value="Eldo Center">Eldo Center</option>
+                                                                <option value="Kimathi">Kimathi</option>
+                                                                <option value="Ronald Ngala">Ronald Ngala</option>
+                                                                <option value="Mombasa road">Mombasa Road</option>
+                                                                <option value="Rex House">Rex House</option>
+                                                                <option value="Nyali">Nyali</option>
+                                                                <option value="Digo">Digo</option>
+                                                                <option value="Malindi">Malindi</option>
+                                                                <option value="Eastleigh">Eastleigh</option>
+                                                                <option value="Thika Road Mall">Thika Road Mall</option>
+                                                                <option value="Thika">Thika</option>
+                                                                <option value="Nyeri">Nyeri</option>
+                                                                <option value="Maua">Maua</option>
+                                                                <option value="Embu">Embu</option>
+                                                                <option value="Meru">Meru</option>
+                                                                <option value="Garissa">Garissa</option>
+                                                                
                                                         </Form.Select>
                                                             <label htmlFor="retail_center" className="form-label">Retail Center</label>
                                                             { this.state.retail_centre.length===0?<small className="text-danger">*select your retail center</small>:""}
@@ -1069,6 +1101,10 @@ class RepairForm extends Component{
                                                     <option value="Samsung">Samsung</option>
                                                     <option value="Apple">Apple</option>
                                                     <option value="Carlcare">Carlcare</option>
+                                                    <option value="Carlcare">Mifone Technologies</option>
+                                                    <option value="Carlcare">Tricom Technologies</option>
+                                                    <option value="Carlcare">FoneXpress</option>
+                                                    <option value="Carlcare">Oppo Service Center</option>
                                                 </Form.Select>
                                                 <label htmlFor="repair_center" className="form-label">Repair Center</label>                                            
                                                 { this.state.repair_centre.length===0?<small className="text-danger">*select a repair center</small>:""}
