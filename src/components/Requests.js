@@ -24,12 +24,12 @@ class Requests extends Component{
                             </>
                             :
                             <>
-                                <th>Retail</th>
+                                <th>Outlet</th>
                                 <th>Brand-Model</th>
-                                <th>Serial</th>
+                                <th>IMEI/Serial</th>
                             </>
                             }
-                            <th>Date requested</th>
+                            <th>Date Booked</th>
                             <th>Status</th>
                             <th>Details</th>
                         </tr>
@@ -48,12 +48,12 @@ class Requests extends Component{
                             </>
                             :
                             <>
-                                <th>Retail</th>
+                                <th>Outlet</th>
                                 <th>Brand-Model</th>
-                                <th>Serial</th>
+                                <th>IMEI/Serial</th>
                             </>
                             }
-                            <th>Date requested</th>
+                            <th>Date Booked</th>
                             <th>Status</th>
                             <th>Details</th>
                         </tr>

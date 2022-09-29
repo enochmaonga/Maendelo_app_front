@@ -44,19 +44,25 @@ class RetailCenterRequestsMenu extends Component{
                                                             <button 
                                                                 className="nav-link text-muted"  
                                                                 onClick={()=>this.setState({count:2})} 
-                                                                >New request </button>
+                                                                >Loading Zone </button>
                                                         </li>
                                                         <li className="nav-item">
                                                             <button  
                                                             className="nav-link text-muted"  
                                                             onClick={()=>this.setState({count:3})} 
-                                                            >Sent to repair</button>
+                                                            >Shipping</button>
                                                         </li>
                                                         <li className="nav-item">
                                                             <button 
                                                                 className="nav-link text-muted"
                                                                 onClick={()=>this.setState({count:4})}  
-                                                                >Back from repair</button>
+                                                                >Received-Close</button>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <button 
+                                                                className="nav-link text-muted"
+                                                                onClick={()=>this.setState({count:5})}  
+                                                                >Dispatch</button>
                                                         </li>
                                 </ul>
                             </Navbar.Collapse>
@@ -66,6 +72,7 @@ class RetailCenterRequestsMenu extends Component{
                         {(this.state.count===2)?<RepairForm  user={this.props.user}/>:""}
                         {(this.state.count===3)?<Requests status={'Pending'} user={this.props.user}/>:""}
                         {(this.state.count===4)?<Requests status={'Closed'} user={this.props.user}/>:""}
+                        {(this.state.count===5)?<Requests status={'waybill'} user={this.props.user}/>:""}
                 </div>
             </div>
 

@@ -37,7 +37,8 @@ class RepairForm extends Component{
                             display:{	
                                         cracked:false,
                                         notWorking:false,
-                                        noTouch:false
+                                        noTouch:false,
+                                        noDisplay:false
                                     },
                             power:{
                                         notPoweringUp:false,
@@ -468,6 +469,36 @@ class RepairForm extends Component{
                                                                                 }))
                                                                             }  id="noTouch" />
                                                     </div> 
+                                                    <div className="form-check">
+                                                                <label htmlFor="noDisplay" className="display form-check-label">No Display</label>
+                                                                <input type="checkbox"  name="noDisplay" className="display form-check-input" onChange ={()=>
+                                                                    (!this.state.Issues.display.cracked)?
+                                                                            this.setState( prevState=>
+                                                                                ({
+                                                                                    ...prevState,
+                                                                                    Issues:{
+                                                                                        ...prevState.Issues,
+                                                                                            display:{
+                                                                                            ...prevState.Issues.display,
+                                                                                                noDisplay:true
+                                                                                            }
+                                                                                        }
+                                                                                }))
+                                                                            
+                                                                        :
+                                                                            this.setState( prevState=>
+                                                                                ({
+                                                                                    ...prevState,
+                                                                                    Issues:{
+                                                                                        ...prevState.Issues,
+                                                                                            display:{
+                                                                                            ...prevState.Issues.display,
+                                                                                                noDisplay:false
+                                                                                            }
+                                                                                        }
+                                                                                }))
+                                                                            }  id="noDisplay" />
+                                                    </div> 
                                                 </div>
                                             </fieldset>
                             
@@ -504,7 +535,7 @@ class RepairForm extends Component{
                                                                                     }
                                                                             }))
                                                                         }
-                                                    id="notPoweringUp" />
+                                                    id="notPoweringon" />
                                                 </div>
                                                 <div className="form-check">
                                                     <label className="power form-check-label" >Short Battery Life</label>
@@ -1101,10 +1132,10 @@ class RepairForm extends Component{
                                                     <option value="Samsung">Samsung</option>
                                                     <option value="Apple">Apple</option>
                                                     <option value="Carlcare">Carlcare</option>
-                                                    <option value="Carlcare">Mifone Technologies</option>
-                                                    <option value="Carlcare">Tricom Technologies</option>
-                                                    <option value="Carlcare">FoneXpress</option>
-                                                    <option value="Carlcare">Oppo Service Center</option>
+                                                    <option value="Mifone Technologies">Mifone Technologies</option>
+                                                    <option value="Tricom Technologies">Tricom Technologies</option>
+                                                    <option value="FoneXpress">FoneXpress</option>
+                                                    <option value="Oppo Service Center">Oppo Service Center</option>
                                                 </Form.Select>
                                                 <label htmlFor="repair_center" className="form-label">Repair Center</label>                                            
                                                 { this.state.repair_centre.length===0?<small className="text-danger">*select a repair center</small>:""}

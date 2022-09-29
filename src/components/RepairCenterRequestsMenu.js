@@ -37,14 +37,26 @@ class RepairCenterRequestsMenu extends Component{
                                 <li className="nav-item">
                                     <button 
                                     className="nav-link text-muted"  
+                                    onClick={()=>this.setState({count:2})} 
+                                    >Sorting</button>
+                                </li>
+                                <li className="nav-item">
+                                    <button 
+                                    className="nav-link text-muted"  
                                     onClick={()=>this.setState({count:3})} 
-                                    >Received Requests</button>
+                                    >WIP</button>
                                 </li>
                                 <li className="nav-item">
                                     <button 
                                         className="nav-link text-muted" 
                                         onClick={()=>this.setState({count:4})} 
-                                        >Resolved Requests</button>
+                                        >Shipping</button>
+                                </li>
+                                <li className="nav-item">
+                                    <button 
+                                        className="nav-link text-muted"
+                                        onClick={()=>this.setState({count:5})}  
+                                       >Dispatch</button>
                                 </li>
                             </ul>
                             </Navbar.Collapse>
@@ -52,8 +64,10 @@ class RepairCenterRequestsMenu extends Component{
                         </Navbar>
 
                     {(this.state.count===1)?<Home user={this.props.user}/>:""}
+                    {(this.state.count===2)?<Requests status={'closed'} user={this.props.user}/>:""}
                     {(this.state.count===3)?<Requests status={'Pending'} user={this.props.user}/>:""}
                     {(this.state.count===4)?<Requests status={'Closed'} user={this.props.user}/>:""}
+                    {(this.state.count===5)?<Requests status={'waybill'} user={this.props.user}/>:""}
                 </div>
             </div>
 
